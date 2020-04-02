@@ -28,10 +28,12 @@ public class Main implements NativeKeyListener {
 			handlers[i].setLevel(Level.OFF);
 		}
 		
-	}
+	    }
+
 	    @Override
 	    public void nativeKeyPressed(NativeKeyEvent e) {
-	    	if(Tools.containsLoggerKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == false) {
+			
+			if(Tools.containsLoggerKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == false) {
 	    		//does nothing, except keep useless keys from outputting
 	    	}else {
 	    		// save the output of the following keys here
@@ -49,5 +51,6 @@ public class Main implements NativeKeyListener {
 	    public void nativeKeyTyped(NativeKeyEvent e) {
 	    
 		
-	}
+		}
+
 }
