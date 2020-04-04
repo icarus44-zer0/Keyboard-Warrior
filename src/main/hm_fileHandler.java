@@ -11,10 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class hm_fileHandler {
+public class hm_FileHandler {
     //HashMap<String, String> te_HashMap = null;
 
-    hm_fileHandler() {
+    hm_FileHandler() {
 
     }
 
