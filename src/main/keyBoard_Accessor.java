@@ -36,9 +36,9 @@ public class keyBoard_Accessor implements NativeKeyListener {
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {
         if (isSpecialKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == false) {
-            specialKey = NativeKeyEvent.getKeyText(e.getKeyCode())
+            this.specialKey = NativeKeyEvent.getKeyText(e.getKeyCode());
         } else {
-            currentKey = NativeKeyEvent.getKeyText(e.getKeyCode());
+            this.currentKey = NativeKeyEvent.getKeyText(e.getKeyCode());
         }
     }
 
@@ -53,7 +53,7 @@ public class keyBoard_Accessor implements NativeKeyListener {
     }
 
     public String get_currentKey(){
-        String ret = currentKey;
+        String ret = this.currentKey;
         return ret;
     }
 
