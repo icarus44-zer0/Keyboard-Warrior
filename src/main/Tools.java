@@ -1,50 +1,49 @@
 package main;
+
 /*
 *   Usefult tools can be written here!
 */
 public class Tools {
-    
-    
-    public static boolean containsLoggerKey(String key) {
-		switch(key) {
-		  case "Tab":
-				  return false;
-		  case "Space":
-				  return false;
-		  case "Shift":
+
+	public static boolean containsLoggerKey(String key) {
+		switch (key) {
+			case "Tab":
 				return false;
-		  case "Return":
+			case "Space":
 				return false;
-		  case "Delete":
-				  return false;
-		  case "Backspace":
-				  return false;
-		  case "Enter":
+			case "Shift":
 				return false;
-		  case "Ctrl":
-				return false;	
-		  case "Alt":
-				  return false;
-		  case "Meta":
-				  return false;
-		  case "Escape":
+			case "Return":
 				return false;
-		  case "Undefined":
+			case "Delete":
 				return false;
-		  case "Left":
-				  return false;
-		  case "Down":
-				  return false;
-		  case "Right":
+			case "Backspace":
 				return false;
-		  case "Up":
+			case "Enter":
 				return false;
-		  case "Unknown keyCode: 0xe36":
-				  return false;
-		  default:
-			return true;
+			case "Ctrl":
+				return false;
+			case "Alt":
+				return false;
+			case "Meta":
+				return false;
+			case "Escape":
+				return false;
+			case "Undefined":
+				return false;
+			case "Left":
+				return false;
+			case "Down":
+				return false;
+			case "Right":
+				return false;
+			case "Up":
+				return false;
+			case "Unknown keyCode: 0xe36":
+				return false;
+			default:
+				return true;
 		}
 
-			
 	}
 }
