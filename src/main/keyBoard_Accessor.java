@@ -9,12 +9,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class keyBoard_Accessor implements NativeKeyListener {
+    String currentKey;
+    String specialKey;
 
     keyBoard_Accessor() {
 
     }
 
-    public void setup(){
+    public void setup() {
         try {
             GlobalScreen.registerNativeHook();
         } catch (NativeHookException e) {
@@ -34,10 +36,9 @@ public class keyBoard_Accessor implements NativeKeyListener {
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {
         if (isSpecialKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == false) {
-            // does nothing, except keep useless keys from outputting
+            specialKey = NativeKeyEvent.getKeyText(e.getKeyCode())
         } else {
-            // save the output of the following keys here
-            System.out.print(NativeKeyEvent.getKeyText(e.getKeyCode()) + "");
+            currentKey = NativeKeyEvent.getKeyText(e.getKeyCode());
         }
     }
 
@@ -49,6 +50,16 @@ public class keyBoard_Accessor implements NativeKeyListener {
     @Override
     public void nativeKeyTyped(NativeKeyEvent e) {
 
+    }
+
+    public String get_currentKey(){
+        String ret = currentKey;
+        return ret;
+    }
+
+    public String get_specialKey(){
+        String ret = specialKey;
+        return ret;
     }
 
     private boolean isSpecialKey(String key) {
