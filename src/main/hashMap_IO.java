@@ -1,6 +1,4 @@
 package main;
-// source
-// https://stackoverflow.com/questions/3347504/how-to-read-and-write-a-hashmap-to-a-file
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,16 +7,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
-public class hm_FileHandler {
-    //HashMap<String, String> te_HashMap = null;
+public class hashMap_IO{ 
 
-    hm_FileHandler() {
+    hashMap_IO() {
 
     }
 
-    public void hashMap_toFile(HashMap<String, String> map) {
+    public void hashMap_Out(HashMap<String, String> map) {
         try {
             FileOutputStream fos = new FileOutputStream("hashmap.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -30,7 +26,7 @@ public class hm_FileHandler {
         }
     }
 
-    public Map<String,String> file_toHashMap(HashMap<String, String> map) {
+    public Map<String,String> hashMap_In(HashMap<String, String> map) {
         try {
             FileInputStream fis = new FileInputStream("hashmap.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -46,11 +42,5 @@ public class hm_FileHandler {
             return null;
         }
         return map;
-    }
-
-    public void print (HashMap<String, String> map){
-        for( Entry<String, String> entry : map.entrySet()) {
-            System.out.println( entry.getKey() + " => " + entry.getValue() );
-        }
     }
 }
