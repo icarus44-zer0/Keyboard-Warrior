@@ -38,7 +38,8 @@ public class keyBoard_Accessor implements NativeKeyListener {
         if (isSpecialKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == false) {
             this.specialKey = NativeKeyEvent.getKeyText(e.getKeyCode());
         } else {
-            this.currentKey = NativeKeyEvent.getKeyText(e.getKeyCode());
+            currentKey = NativeKeyEvent.getKeyText(e.getKeyCode());
+            System.out.print(currentKey);
         }
     }
 
