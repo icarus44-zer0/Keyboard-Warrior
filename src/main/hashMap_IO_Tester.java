@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 
 
-public class htMain {
+public class hashMap_IO_Tester {
     public static void main(String[] args) {
         hashMap_IO htl = new hashMap_IO();
         HashMap<String, String> hm1 = new HashMap<String, String>();
