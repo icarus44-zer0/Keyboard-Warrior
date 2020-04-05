@@ -5,7 +5,7 @@ public class Main{
 
 	public static void main(String[] args) {
 		keyBoard_Accessor keyListner = new keyBoard_Accessor();
-		//CircularFifoBuffer buffer = new CircularFifoBuffer(MAX_BUFFER_SIZE);
+		CircularFifoBuffer buffer = new CircularFifoBuffer(MAX_BUFFER_SIZE);
 
 		keyListner.setup();
 		// keyListner.

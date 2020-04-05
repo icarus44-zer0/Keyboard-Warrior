@@ -4,13 +4,16 @@ import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
+
+import java.io.FileNotFoundException;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class keyBoard_Accessor implements NativeKeyListener {
     String currentKey;
-    String specialKey;
+	String specialKey;
+	String punctKey;
 
     keyBoard_Accessor() {
 
@@ -36,7 +39,9 @@ public class keyBoard_Accessor implements NativeKeyListener {
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {
         if (isSpecialKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == false) {
-            this.specialKey = NativeKeyEvent.getKeyText(e.getKeyCode());
+			this.specialKey = NativeKeyEvent.getKeyText(e.getKeyCode());
+		else if (isPunctKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == false) {
+            this.punctKey = NativeKeyEvent.getKeyText(e.getKeyCode());
         } else {
             currentKey = NativeKeyEvent.getKeyText(e.getKeyCode());
             System.out.print(currentKey);
@@ -63,14 +68,12 @@ public class keyBoard_Accessor implements NativeKeyListener {
         return ret;
     }
 
-    public static boolean isSpecialKey(String key, Buffer buf) {
-		isPunctuationKey(key);
-		
+    private boolean isSpecialKey(String key) {
 		switch(key) {
 		  case "Tab":
 				  return false;
 		  case "Space":
-			  	buf.clear();
+			  	//buf.clear();
 				return false;
 		  case "Shift":
 				return false;
@@ -81,7 +84,7 @@ public class keyBoard_Accessor implements NativeKeyListener {
 		  case "Backspace":
 				return false;
 		  case "Enter":
-			  	buf.clear();
+			  	//buf.clear();
 			  	return false;
 		  case "Ctrl":
 				return false;	
@@ -128,12 +131,8 @@ public class keyBoard_Accessor implements NativeKeyListener {
 		  default:
 			  	return true;
 		}
-
-			
 	}
-	
-	
-	public static void isPunctuationKey(String key) {
+	private boolean isPunctKey(String key) {
 		switch(key) {
 		  case "Space":
 				System.out.print(" ");
@@ -145,7 +144,7 @@ public class keyBoard_Accessor implements NativeKeyListener {
 			  	System.out.println();
 			  	break;
 		  case "Tab":
-			  	System.out.print("	");
+			  	System.out.print("\t");
 			  	break;
 		  case "Back Quote":
 				System.out.print("`");
@@ -184,14 +183,12 @@ public class keyBoard_Accessor implements NativeKeyListener {
 			  	return;
 		}
     }
-    
     public static void textExpander(Buffer buf){
 		String temp = "";
 		
 		try {
 			textExpanderData();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -202,8 +199,10 @@ public class keyBoard_Accessor implements NativeKeyListener {
 		
 		temp = temp.toLowerCase();
 		
-		if( m.containsKey(temp)) {
+		if(m.containsKey(temp)) {
 			System.out.println(m.get(temp));
 		}
+	}
+	private static void textExpanderData() {
 	}
 }
