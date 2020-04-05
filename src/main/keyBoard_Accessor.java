@@ -4,13 +4,17 @@ import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
+
+import java.io.FileNotFoundException;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class keyBoard_Accessor implements NativeKeyListener {
+    public static Buffer buf = new CircularFifoBuffer(10);
     String currentKey;
     String specialKey;
+
 
     keyBoard_Accessor() {
 
