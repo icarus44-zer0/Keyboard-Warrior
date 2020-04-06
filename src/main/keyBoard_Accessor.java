@@ -11,200 +11,226 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class keyBoard_Accessor implements NativeKeyListener {
-    public static Buffer buf = new CircularFifoBuffer(10);
-    String currentKey;
+	String standardKey;
 	String specialKey;
 	String punctKey;
 
+	keyBoard_Accessor() {
 
-    keyBoard_Accessor() {
-
-    }
-
-    public void setup() {
-        try {
-            GlobalScreen.registerNativeHook();
-        } catch (NativeHookException e) {
-            e.printStackTrace();
-        }
-        GlobalScreen.addNativeKeyListener(new keyBoard_Accessor());
-
-        Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
-        logger.setLevel(Level.OFF);
-
-        Handler[] handlers = Logger.getLogger("").getHandlers();
-        for (int i = 0; i < handlers.length; i++) {
-            handlers[i].setLevel(Level.OFF);
-        }
-    }
-
-    @Override
-    public void nativeKeyPressed(NativeKeyEvent e) {
-        if (isSpecialKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == false) {
-			this.specialKey = NativeKeyEvent.getKeyText(e.getKeyCode());
-		else if (isPunctKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == false) {
-            this.punctKey = NativeKeyEvent.getKeyText(e.getKeyCode());
-        } else {
-            currentKey = NativeKeyEvent.getKeyText(e.getKeyCode());
-            System.out.print(currentKey);
-        }
-    }
-
-    @Override
-    public void nativeKeyReleased(NativeKeyEvent e) {
-
-    }
-
-    @Override
-    public void nativeKeyTyped(NativeKeyEvent e) {
-
-    }
-
-    public String get_currentKey(){
-        String ret = this.currentKey;
-        return ret;
-    }
-
-    public String get_specialKey(){
-        String ret = specialKey;
-        return ret;
-    }
-
-    private boolean isSpecialKey(String key) {
-		switch(key) {
-		  case "Tab":
-				  return false;
-		  case "Space":
-			  	//buf.clear();
-				return false;
-		  case "Shift":
-				return false;
-		  case "Return":
-			  	return false;
-		  case "Delete":
-				return false;
-		  case "Backspace":
-				return false;
-		  case "Enter":
-			  	//buf.clear();
-			  	return false;
-		  case "Ctrl":
-				return false;	
-		  case "Alt":
-				return false;
-		  case "Meta":
-				return false;
-		  case "Escape":
-				return false;
-		  case "Undefined":
-				return false;
-		  case "Left":
-				return false;
-		  case "Down":
-				return false;
-		  case "Right":
-				return false;
-		  case "Up":
-				return false;
-		  case "Unknown keyCode: 0xe36":
-				return false;
-		  case "Back Quote":
-			  	return false;
-		  case "Minus":
-			  	return false;
-		  case "Equals":
-			  	return false;
-		  case "Open Bracket":
-			  	return false;
-		  case "Close Bracket":
-			  	return false;
-		  case "Semicolon":
-			  	return false;
-		  case "Quote":
-			  	return false;
-		  case "Comma":
-			  	return false;
-		  case "Period":
-			  	return false;
-		  case "Slash":
-			  	return false;
-		  case "Back Slash":
-			  	return false;
-		  default:
-			  	return true;
-		}
 	}
-	private boolean isPunctKey(String key) {
-		switch(key) {
-		  case "Space":
-				System.out.print(" ");
-				break;
-		  case "Return":
-			  	System.out.println();
-				break;
-		  case "Enter":
-			  	System.out.println();
-			  	break;
-		  case "Tab":
-			  	System.out.print("\t");
-			  	break;
-		  case "Back Quote":
-				System.out.print("`");
-				break;
-		  case "Minus":
-			  	System.out.print("-");
-				break;
-		  case "Equals":
-			  	System.out.print("=");
-			  	break;
-		  case "Open Bracket":
-			  	System.out.print("[");
-			  	break;
-		  case "Close Bracket":
-			  	System.out.print("]");
-				break;
-		  case "Semicolon":
-			  	System.out.print(";");
-			  	break;
-		  case "Quote":
-			  	System.out.print("'");
-			  	break;
-		  case "Comma":
-				System.out.print(",");
-				break;
-		  case "Period":
-			  	System.out.print(".");
-				break;
-		  case "Slash":
-			  	System.out.print("/");
-			  	break;
-		  case "Back Slash":
-			  	System.out.print("\\");
-			  		break;
-		  default:
-			  	return;
-		}
-    }
-    public static void textExpander(Buffer buf){
-		String temp = "";
-		
+
+	public void setup() {
 		try {
-			textExpanderData();
-		} catch (FileNotFoundException e) {
+			GlobalScreen.registerNativeHook();
+		} catch (NativeHookException e) {
 			e.printStackTrace();
 		}
-		
-		Object[] arr = buf.toArray();
-		for(int i = 0; i < arr.length; i++) {
-			temp += arr[i];
-		}
-		
-		temp = temp.toLowerCase();
-		
-		if(m.containsKey(temp)) {
-			System.out.println(m.get(temp));
+		GlobalScreen.addNativeKeyListener(new keyBoard_Accessor());
+
+		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
+		logger.setLevel(Level.OFF);
+
+		Handler[] handlers = Logger.getLogger("").getHandlers();
+		for (int i = 0; i < handlers.length; i++) {
+			handlers[i].setLevel(Level.OFF);
 		}
 	}
-	private static void textExpanderData() {
+
+	@Override
+	public void nativeKeyPressed(NativeKeyEvent e) {
+		if (isSpecialKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == true) {
+			specialKey = NativeKeyEvent.getKeyText(e.getKeyCode());
+		} else if (isPunctKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == true) {
+			punctKey = NativeKeyEvent.getKeyText(e.getKeyCode());
+		} else {
+			isStandardKey(NativeKeyEvent.getKeyText(e.getKeyCode()));
+		}
+	}
+
+	@Override
+	public void nativeKeyReleased(NativeKeyEvent e) {
+
+	}
+
+	@Override
+	public void nativeKeyTyped(NativeKeyEvent e) {
+		System.out.println();
+	}
+
+	public void isStandardKey(String key){
+		System.out.print(key);
+	}
+
+	private boolean isSpecialKey(String key) {
+		switch (key) {
+			case "Tab":
+				return true;
+			case "Space":
+				// buf.clear();
+				return true;
+			case "Shift":
+				return true;
+			case "Return":
+				return true;
+			case "Delete":
+				return true;
+			case "Backspace":
+				return true;
+			case "Enter":
+				// buf.clear();
+				return true;
+			case "Ctrl":
+				return true;
+			case "Alt":
+				return true;
+			case "Meta":
+				return true;
+			case "Escape":
+				return true;
+			case "Undefined":
+				return true;
+			case "Left":
+				return true;
+			case "Down":
+				return true;
+			case "Right":
+				return true;
+			case "Up":
+				return true;
+			case "Unknown keyCode: 0xe36":
+				return true;
+			case "Back Quote":
+				return true;
+			case "Minus":
+				return true;
+			case "Equals":
+				return true;
+			case "Open Bracket":
+				return true;
+			case "Close Bracket":
+				return true;
+			case "Semicolon":
+				return true;
+			case "Quote":
+				return true;
+			case "Comma":
+				return true;
+			case "Period":
+				return true;
+			case "Slash":
+				return true;
+			case "Back Slash":
+				return true;
+			default:
+				return false;
+		}
+	}
+
+	private boolean isPunctKey(String key) {
+		switch (key) {
+			case "Space":
+				return true;
+			case "Return":
+				return true;
+			case "Enter":
+				return true;
+			case "Tab":
+				return true;
+			case "Back Quote":
+				return true;
+			case "Minus":
+				return true;
+			case "Equals":
+				return true;
+			case "Open Bracket":
+				return true;
+			case "Close Bracket":
+				return true;
+			case "Semicolon":
+				return true;
+			case "Quote":
+				return true;
+			case "Comma":
+				return true;
+			case "Period":
+				return true;
+			case "Slash":
+				return true;
+			case "Back Slash":
+				return true;
+			default:
+				return false;
+		}
 	}
 }
+
+// private boolean isPunctKey(String key) {
+// switch(key) {
+// case "Space":
+//
+// return true;
+// case "Return":
+// // return true;
+// case "Enter":
+// // return true;
+// case "Tab":
+// ;
+// return true;
+// case "Back Quote":
+//
+// return true;
+// case "Minus":
+//
+// return true;
+// case "Equals":
+//
+// return true;
+// case "Open Bracket":
+//
+// return true;
+// case "Close Bracket":
+//
+// return true;
+// case "Semicolon":
+//
+// return true;
+// case "Quote":
+//
+// return true;
+// case "Comma":
+//
+// return true;
+// case "Period":
+//
+// return true;
+// case "Slash":
+//
+// return true;
+// case "Back Slash":
+// Sy/ return true;
+// default:
+// return;
+// }
+// }
+// public static void textExpander(Buffer buf){
+// String ret = "";
+
+// try {
+// textExpanderData();
+// } catch (FileNotFoundException e) {
+// e.printStackTrace();
+// }
+
+// Object[] arr = buf.toArray();
+// for(int i = 0; i < arr.length; i++) {
+// ret += arr[i];
+// }
+
+// ret = ret.toLowerCase();
+
+// if(m.containsKey(ret)) {
+// System.out.println(m.get(ret));
+// }
+// }
+// private static void textExpanderData() {
+// }
