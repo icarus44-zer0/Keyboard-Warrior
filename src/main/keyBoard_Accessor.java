@@ -10,13 +10,18 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+
 public class keyBoard_Accessor implements NativeKeyListener {
 	String standardKey;
 	String specialKey;
 	String punctKey;
+	CircularFifoBuffer buffer;
+	Boolean keyFlag;
+	public static final int MAX_BUFFER_SIZE = 10;
 
 	keyBoard_Accessor() {
-
+		buffer = new CircularFifoBuffer(MAX_BUFFER_SIZE);
 	}
 
 	public void setup() {
@@ -38,12 +43,14 @@ public class keyBoard_Accessor implements NativeKeyListener {
 
 	@Override
 	public void nativeKeyPressed(NativeKeyEvent e) {
-		if (isSpecialKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == true) {
-			specialKey = NativeKeyEvent.getKeyText(e.getKeyCode());
-		} else if (isPunctKey(NativeKeyEvent.getKeyText(e.getKeyCode())) == true) {
-			punctKey = NativeKeyEvent.getKeyText(e.getKeyCode());
+		String key = NativeKeyEvent.getKeyText(e.getKeyCode());
+
+		if (isSpecialKey(key) == true) {
+			specialKey = key;
+		} else if (isPunctKey(key) == true) {
+			punctKey = key;
 		} else {
-			isStandardKey(NativeKeyEvent.getKeyText(e.getKeyCode()));
+			isStandardKey(key);
 		}
 	}
 
@@ -54,11 +61,32 @@ public class keyBoard_Accessor implements NativeKeyListener {
 
 	@Override
 	public void nativeKeyTyped(NativeKeyEvent e) {
-		System.out.println();
+
+	}
+
+	public Boolean getKeyFlag() {
+		return keyFlag;
+	}
+
+	public void setKeyFlag(){
+		keyFlag = false;
+	}
+
+	public void setCircularBuffer(CircularFifoBuffer buffer){
+		this.buffer = buffer;
+	}
+
+	public CircularFifoBuffer getCircularBuffer(){
+		return buffer.to;
 	}
 
 	public void isStandardKey(String key){
-		System.out.print(key);
+		buffer.add(key);
+		//System.out.println(key);
+	}
+
+	public void display(){
+		System.out.println(buffer.toString());
 	}
 
 	private boolean isSpecialKey(String key) {

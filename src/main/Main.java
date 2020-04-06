@@ -2,21 +2,24 @@ package main;
 
 public class Main{
 	public static final int MAX_BUFFER_SIZE = 10;
-	//public CircularFifoBuffer buffer = new CircularFifoBuffer(10);
 
 	public static void main(String[] args) {
+
 		keyBoard_Accessor keyListner = new keyBoard_Accessor();
-		//CircularFifoBuffer buffer = new CircularFifoBuffer(MAX_BUFFER_SIZE);
+		CircularFifoBuffer buffer = new CircularFifoBuffer(MAX_BUFFER_SIZE);
 
 		keyListner.setup();
-		// keyListner.
-		//String key = keyListner.get_currentKey();
+		keyListner.setCircularBuffer(buffer);
 
-		//  while(true){
-		// 	 if (keyListner.get_currentKey() == null)
-		// 	 	key = keyListner.get_currentKey();
-		// 	else 		 
-		//  		System.out.println(key);
-		// }
+		buffer = keyListner.getCircularBuffer();
+
+		
+		System.out.println(buffer.toString());
+		 while(true){
+			 if (buffer.isFull())
+			 	System.out.print(buffer.toString());
+			else 		 
+				buffer = keyListner.getCircularBuffer();
+		}
 	}
 }
