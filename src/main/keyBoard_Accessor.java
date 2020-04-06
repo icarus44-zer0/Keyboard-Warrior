@@ -5,23 +5,17 @@ import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
-import java.io.FileNotFoundException;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
 
 public class keyBoard_Accessor implements NativeKeyListener {
 	String standardKey;
 	String specialKey;
 	String punctKey;
-	CircularFifoBuffer buffer;
-	Boolean keyFlag;
-	public static final int MAX_BUFFER_SIZE = 10;
 
 	keyBoard_Accessor() {
-		buffer = new CircularFifoBuffer(MAX_BUFFER_SIZE);
+
 	}
 
 	public void setup() {
@@ -64,29 +58,10 @@ public class keyBoard_Accessor implements NativeKeyListener {
 
 	}
 
-	public Boolean getKeyFlag() {
-		return keyFlag;
-	}
-
-	public void setKeyFlag(){
-		keyFlag = false;
-	}
-
-	public void setCircularBuffer(CircularFifoBuffer buffer){
-		this.buffer = buffer;
-	}
-
-	public CircularFifoBuffer getCircularBuffer(){
-		return buffer.to;
-	}
-
-	public void isStandardKey(String key){
-		buffer.add(key);
-		//System.out.println(key);
-	}
-
-	public void display(){
-		System.out.println(buffer.toString());
+	public void isStandardKey(String key) {
+		CircularBuffer buffer = CircularBuffer.getInstance();
+		buffer.addToBuffer(key);
+		standardKey = key;
 	}
 
 	private boolean isSpecialKey(String key) {
@@ -191,74 +166,3 @@ public class keyBoard_Accessor implements NativeKeyListener {
 		}
 	}
 }
-
-// private boolean isPunctKey(String key) {
-// switch(key) {
-// case "Space":
-//
-// return true;
-// case "Return":
-// // return true;
-// case "Enter":
-// // return true;
-// case "Tab":
-// ;
-// return true;
-// case "Back Quote":
-//
-// return true;
-// case "Minus":
-//
-// return true;
-// case "Equals":
-//
-// return true;
-// case "Open Bracket":
-//
-// return true;
-// case "Close Bracket":
-//
-// return true;
-// case "Semicolon":
-//
-// return true;
-// case "Quote":
-//
-// return true;
-// case "Comma":
-//
-// return true;
-// case "Period":
-//
-// return true;
-// case "Slash":
-//
-// return true;
-// case "Back Slash":
-// Sy/ return true;
-// default:
-// return;
-// }
-// }
-// public static void textExpander(Buffer buf){
-// String ret = "";
-
-// try {
-// textExpanderData();
-// } catch (FileNotFoundException e) {
-// e.printStackTrace();
-// }
-
-// Object[] arr = buf.toArray();
-// for(int i = 0; i < arr.length; i++) {
-// ret += arr[i];
-// }
-
-// ret = ret.toLowerCase();
-
-// if(m.containsKey(ret)) {
-// System.out.println(m.get(ret));
-// }
-// }
-// private static void textExpanderData() {
-// }
