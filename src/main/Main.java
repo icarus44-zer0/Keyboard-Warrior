@@ -7,6 +7,10 @@ import org.jnativehook.keyboard.NativeKeyListener;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.awt.Toolkit;
+import java.awt.datatransfer.*;
+import java.io.IOException;
+
 
 public class Main implements NativeKeyListener {
 	
@@ -28,6 +32,13 @@ public class Main implements NativeKeyListener {
 			handlers[i].setLevel(Level.OFF);
 		}
 		
+		
+		try{
+			System.out.println("Clipboard: " + readClipboard());
+		}catch (IOException e) {
+			//TODO: handle exception
+		}
+
 	}
 	    @Override
 	    public void nativeKeyPressed(NativeKeyEvent e) {
@@ -49,6 +60,23 @@ public class Main implements NativeKeyListener {
 	    public void nativeKeyTyped(NativeKeyEvent e) {
 	    
 		
+	}
+
+	public static String readClipboard() throws IOException{
+		Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard();
+		Transferable t = cb.getContents(null);
+		try{
+			String data = (String) t.getTransferData(DataFlavor.stringFlavor);
+			return data;
+		}catch(UnsupportedFlavorException e) {}
+		return "";
+		
+	}
+
+	public static void writeClipboard(String toClipbboard){
+		StringSelection stringSelection = new StringSelection(toClipbboard);
+		Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard();
+		cb.setContents(stringSelection, null);
 	}
 
 	public boolean containsLoggerKey(String key) {
