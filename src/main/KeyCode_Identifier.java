@@ -5,17 +5,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class KeyCode_Identifier {
+    private static Map<String, String> shift_Keys = new HashMap<String, String>();
+    private static Map<String, String> m = new HashMap<String, String>();
+    private static ArrayList<String> mBool = new ArrayList<String>();
 
-    public static Map<String, String> m = new HashMap<String, String>();
-    public static ArrayList<String> mBool = new ArrayList<String>();
 
-    public static boolean isSpecialKey(String key, Buffer buf) {
+
+    public static boolean isSpecialKey(String key) {
+        CircularBuffer buffer = CircularBuffer.getInstance();
+        //isSpacingKeys(key);
         setUp();
-        isSpacingKeys(key);
 
         if (mBool.contains(key)) {
-            if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tap")) {
-                buf.clear();
+            if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
+                buffer.clear();
             }
 
             return false;
@@ -27,9 +30,6 @@ public class KeyCode_Identifier {
     }
 
     public static void isSpacingKeys(String key) {
-        if (m.containsKey(key)) {
-            System.out.print(m.get(key));
-        }
 
         switch (key) {
             case "Space":
@@ -50,11 +50,31 @@ public class KeyCode_Identifier {
         }
     }
 
-    public static Map setUpSpecialKeys() {
-        return m;
-    }
-
     public static void setUp() {
+        shift_Keys.put("BACK QUOTE","~");
+        shift_Keys.put("1","!");
+        shift_Keys.put("2","@");
+        shift_Keys.put("3","#");
+        shift_Keys.put("4","$");
+        shift_Keys.put("5","%");
+        shift_Keys.put("6","^");
+        shift_Keys.put("7","&");
+        shift_Keys.put("8","*");
+        shift_Keys.put("9","(");
+        shift_Keys.put("0",")");
+        shift_Keys.put("MINUS","_");
+        shift_Keys.put("EQUALS","+");
+        shift_Keys.put("OPEN BRACKET","{");
+        shift_Keys.put("CLOSE BRACKET","}");
+        shift_Keys.put("SEMICOLON",":");
+        shift_Keys.put("QUOTE","\"");
+        shift_Keys.put("COMMA","<");
+        shift_Keys.put("PERIOD",">");
+        shift_Keys.put("SLASH","?");
+        shift_Keys.put("BACK SLASH","|");
+        
+
+
         mBool.add("Space");
         mBool.add("Return");
         mBool.add("Enter");
@@ -85,10 +105,7 @@ public class KeyCode_Identifier {
         mBool.add("Back Slash");
         mBool.add("Open Bracket");
 
-        // m.put("Space", " ");
-        // m.put("Return", "\n");
-        // m.put("Enter", "\n ");
-        // m.put("Tab", " ");
+        
         m.put("Back Quote", "`");
         m.put("Minus", "-");
         m.put("Equals", "=");
@@ -100,7 +117,14 @@ public class KeyCode_Identifier {
         m.put("Period", ".");
         m.put("Slash", "/");
         m.put("Back Slash", "\\");
-        // m.put("Open Bracket", "[");
+    }
+
+    public static Map<String,String> getSpecialKeys() {
+        return m;
+    }
+
+    public static Map<String,String> getShiftKeys(){
+        return shift_Keys;
     }
 
 }

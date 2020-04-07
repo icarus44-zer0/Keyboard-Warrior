@@ -34,4 +34,8 @@ public final class CircularBuffer {
     public String toString(){
         return _buffer.toString();
      }
+
+	public void clear() {
+        _buffer.clear();
+	}
 }

@@ -5,11 +5,13 @@ import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
+import java.util.Map;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class keyBoard_Accessor implements NativeKeyListener {
+	boolean shiftPress = false;
 	String standardKey;
 	String specialKey;
 	String punctKey;
@@ -37,20 +39,14 @@ public class keyBoard_Accessor implements NativeKeyListener {
 
 	@Override
 	public void nativeKeyPressed(NativeKeyEvent e) {
-		String key = NativeKeyEvent.getKeyText(e.getKeyCode());
-
-		if (isSpecialKey(key) == true) {
-			specialKey = key;
-		} else if (isPunctKey(key) == true) {
-			punctKey = key;
-		} else {
-			isStandardKey(key);
-		}
+		String key = getKeyCodeValue(NativeKeyEvent.getKeyText(e.getKeyCode()));
+		keyPressFunc(key);
 	}
 
 	@Override
 	public void nativeKeyReleased(NativeKeyEvent e) {
-
+		String key = NativeKeyEvent.getKeyText(e.getKeyCode());
+		keyReleasedFunc(key);
 	}
 
 	@Override
@@ -64,105 +60,49 @@ public class keyBoard_Accessor implements NativeKeyListener {
 		standardKey = key;
 	}
 
-	private boolean isSpecialKey(String key) {
-		switch (key) {
-			case "Tab":
-				return true;
-			case "Space":
-				// buf.clear();
-				return true;
-			case "Shift":
-				return true;
-			case "Return":
-				return true;
-			case "Delete":
-				return true;
-			case "Backspace":
-				return true;
-			case "Enter":
-				// buf.clear();
-				return true;
-			case "Ctrl":
-				return true;
-			case "Alt":
-				return true;
-			case "Meta":
-				return true;
-			case "Escape":
-				return true;
-			case "Undefined":
-				return true;
-			case "Left":
-				return true;
-			case "Down":
-				return true;
-			case "Right":
-				return true;
-			case "Up":
-				return true;
-			case "Unknown keyCode: 0xe36":
-				return true;
-			case "Back Quote":
-				return true;
-			case "Minus":
-				return true;
-			case "Equals":
-				return true;
-			case "Open Bracket":
-				return true;
-			case "Close Bracket":
-				return true;
-			case "Semicolon":
-				return true;
-			case "Quote":
-				return true;
-			case "Comma":
-				return true;
-			case "Period":
-				return true;
-			case "Slash":
-				return true;
-			case "Back Slash":
-				return true;
-			default:
-				return false;
+	public String getKeyCodeValue(String key){
+		Map<String, String> mapKeyCode = KeyCode_Identifier.getSpecialKeys();
+		if(mapKeyCode.containsKey(key)) {
+			return mapKeyCode.get(key);
+		}
+
+		return key;
+	}
+
+	public String getShiftValue(String key){
+		Map<String, String> m = KeyCode_Identifier.getShiftKeys();
+		if(m.containsKey(key)) {
+			return m.get(key);
+		}
+
+		return key;
+	}
+
+	//Helper methods 
+	public void keyPressFunc(String key){
+		if(shiftPress == true){ 
+			//while shift is press alone dont display anything
+		}else{
+			if(key.equals("Shift") || key.equals("Unknown keyCode: 0xe36")){
+				shiftPress = true;
+			}else{
+				if(KeyCode_Identifier.isSpecialKey(key) == false){
+					//specialKey = key;
+				}else{
+					isStandardKey(key.toLowerCase());
+				}
+			}
 		}
 	}
 
-	private boolean isPunctKey(String key) {
-		switch (key) {
-			case "Space":
-				return true;
-			case "Return":
-				return true;
-			case "Enter":
-				return true;
-			case "Tab":
-				return true;
-			case "Back Quote":
-				return true;
-			case "Minus":
-				return true;
-			case "Equals":
-				return true;
-			case "Open Bracket":
-				return true;
-			case "Close Bracket":
-				return true;
-			case "Semicolon":
-				return true;
-			case "Quote":
-				return true;
-			case "Comma":
-				return true;
-			case "Period":
-				return true;
-			case "Slash":
-				return true;
-			case "Back Slash":
-				return true;
-			default:
-				return false;
+	//Helper methods
+	public void keyReleasedFunc(String key){
+		//if shift key is pressed and not released then display a shift key value
+		if(shiftPress == true && !key.equals("Shift") && !key.equals("Unknown keyCode: 0xe36")){
+			isStandardKey(getShiftValue(key.toUpperCase()));
+		}else{
+			shiftPress = false;
 		}
 	}
+
 }

@@ -6,7 +6,6 @@ public class Main {
 	public static void main(String[] args) {
 		keyBoard_Accessor keyListner = new keyBoard_Accessor();
 		keyListner.setup();
-		//static CircularFifoBuffer circ = new CircularFifoBuffer(10);
 
 		while (true) {
 			CircularBuffer buffer = CircularBuffer.getInstance();
