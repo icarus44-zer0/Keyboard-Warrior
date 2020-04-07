@@ -1,6 +1,6 @@
 package main;
 
-public final class CircularBuffer {
+public final class CircularBuffer extends CircularFifoBuffer {
     private static CircularBuffer INSTANCE;
     private static final int MAX_BUFFER_SIZE = 10;
     private static CircularFifoBuffer _buffer = new CircularFifoBuffer(MAX_BUFFER_SIZE);
