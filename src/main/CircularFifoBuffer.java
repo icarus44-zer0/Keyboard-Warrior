@@ -44,6 +44,11 @@ public class CircularFifoBuffer extends BoundedFifoBuffer {
     //private static final long serialVersionUID = -8423413834657610406L;
 
     /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
      * Constructor that creates a buffer with the default size of 32.
      */
     public CircularFifoBuffer() {

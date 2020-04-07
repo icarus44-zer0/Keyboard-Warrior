@@ -52,6 +52,11 @@ public class BoundedFifoBuffer extends AbstractCollection
     /** Serialization version */
     //private static final long serialVersionUID = 5603722811189451017L;
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     /** Underlying storage array */
     private transient Object[] elements;
     

@@ -22,6 +22,10 @@ package main;
 
 public class BufferOverflowException extends RuntimeException {
     
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     /** The root cause throwable */
     private final Throwable throwable;
 
