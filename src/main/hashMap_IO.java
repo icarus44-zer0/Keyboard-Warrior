@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
-import java.util.Map;
 
 public class hashMap_IO {
 
@@ -14,7 +13,7 @@ public class hashMap_IO {
 
     }
 
-    public void hashMap_Out(HashMap<String, String> map) {
+    public static void hashMap_Out(HashMap<String, String> map) {
         try {
             FileOutputStream fos = new FileOutputStream("hashmap.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -26,7 +25,7 @@ public class hashMap_IO {
         }
     }
 
-    public Map<String, String> hashMap_In(HashMap<String, String> map) {
+    public static HashMap<String, String> hashMap_In(HashMap<String, String> map) {
         try {
             FileInputStream fis = new FileInputStream("hashmap.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
