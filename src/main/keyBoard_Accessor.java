@@ -59,8 +59,8 @@ public class keyBoard_Accessor implements NativeKeyListener {
 	}
 
 	public void isStandardKey(String key) {
-		CircularBuffer buffer = CircularBuffer.getInstance();
-		buffer.addToBuffer(key);
+		CircularFifoBuffer buffer = TextExpander_Buffer.getBuffer();
+		buffer.add(key);
 		standardKey = key;
 	}
 
