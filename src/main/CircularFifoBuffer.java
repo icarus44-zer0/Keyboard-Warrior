@@ -84,5 +84,4 @@ public class CircularFifoBuffer extends BoundedFifoBuffer {
         }
         return super.add(element);
     }
-    
 }

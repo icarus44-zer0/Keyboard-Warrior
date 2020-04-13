@@ -1,11 +1,11 @@
 package main;
 
 
-public final class TextExpander_Buffer{
+public final class Shortcut_Buffer {
     private static final int MAX_BUFFER_SIZE = 10;
     private static CircularFifoBuffer _buffer;
    
-    private TextExpander_Buffer() { 
+    private Shortcut_Buffer() { 
     }
      
     public static CircularFifoBuffer getBuffer() {
@@ -13,4 +13,12 @@ public final class TextExpander_Buffer{
             _buffer = new CircularFifoBuffer(MAX_BUFFER_SIZE);
         return _buffer;
     }
+
+    // @Override
+    // public String toString() {
+    //     String str = "";
+    //     while(_buffer.iterator().hasNext())
+    //         str += _buffer.iterator().next();
+    //     return str;
+    // }
 }
