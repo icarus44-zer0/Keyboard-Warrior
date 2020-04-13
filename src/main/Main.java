@@ -5,7 +5,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		keyBoard_Accessor keyListner = new keyBoard_Accessor();
-		Shortcut_Search search = new Shortcut_Search();
+		Shortcut_Search search = Shortcut_Search.get_Instance();
 		String shortcut = "";
 		keyListner.setup();
 
