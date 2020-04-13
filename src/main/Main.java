@@ -11,9 +11,12 @@ public class Main {
 
 		while (true) {
 			Shortcut_Buffer buffer = Shortcut_Buffer.getBuffer();
-			shortcut = search.search_BufferforKeys(buffer);
-			//if(!shortcut.equals(""))
-				System.out.println(shortcut);
+			try {
+				shortcut = search.search_BufferforKeys(buffer);
+			} catch (Exception e) {
+				System.out.println("UNKNOWN ERROR");
+			}
+			System.out.println(shortcut);
 		}
 	}
 }
