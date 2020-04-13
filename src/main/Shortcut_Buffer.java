@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Iterator;
-
 public final class Shortcut_Buffer extends CircularFifoBuffer {
     private static final int MAX_BUFFER_SIZE = 10;
     private static Shortcut_Buffer _buffer;
