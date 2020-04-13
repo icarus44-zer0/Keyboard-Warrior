@@ -19,20 +19,22 @@ public final class Shortcut_Buffer extends CircularFifoBuffer {
     // // BROKEN N SHITTY
     @Override
     public String toString() {
-        Iterator<Object> it = _buffer.iterator();
-        StringBuilder sb = new StringBuilder();
 
-        if (!it.hasNext())
-            return " ";
+        return "shit";
+        // Iterator<Object> it = _buffer.iterator();
+        // StringBuilder sb = new StringBuilder();
+
+        // if (!it.hasNext())
+        //     return " ";
         
-        for (;;) {
-            Object e = it.next();
-            sb.append(e);
+        // for (;;) {
+        //     Object e = it.next();
+        //     sb.append(e);
 
-            if (!it.hasNext())
-                return " ";;
-            sb.append(" ").append(" ");
-        }
+        //     if (!it.hasNext())
+        //         return " ";;
+        //     sb.append(" ").append(" ");
+        // }
     }
 
     /*

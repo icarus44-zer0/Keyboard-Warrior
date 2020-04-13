@@ -11,7 +11,7 @@ public class Main {
 		while (true) {
 			Shortcut_Buffer buffer = Shortcut_Buffer.getBuffer();
 			System.out.println(buffer.toString());
-			buffer.
+			
 		}
 	}
 }
