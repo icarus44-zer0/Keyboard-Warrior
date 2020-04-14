@@ -1,4 +1,4 @@
-package main;
+package com.purplecobras.keyboardwarrior;
 
 import org.apache.commons.collections.CircularFifoBuffer;
 

@@ -1,4 +1,4 @@
-package main;
+package com.purplecobras.keyboardwarrior;
 
 public class Main {
 	public static final int MAX_BUFFER_SIZE = 10;
