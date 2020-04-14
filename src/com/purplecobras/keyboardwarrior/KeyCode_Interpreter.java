@@ -1,4 +1,4 @@
-package main;
+package com.purplecobras.keyboardwarrior;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class KeyCode_Interpreter {
     private static Map<String, String> shift_Keys = new HashMap<String, String>();
-    private static Map<String, String> comman_Keys = new HashMap<String, String>();
+    private static Map<String, String> command_Keys = new HashMap<String, String>();
     private static ArrayList<String> dead_Keys = new ArrayList<String>();
     private static boolean shiftPress = false;
 
@@ -91,23 +91,23 @@ public class KeyCode_Interpreter {
         dead_Keys.add("UNDEFINED");
             
         //Standard key usage lowercase letters
-        comman_Keys.put("Back Quote", "`");
-        comman_Keys.put("back quote", "`");
-        comman_Keys.put("Minus", "-");
-        comman_Keys.put("Equals", "=");
-        comman_Keys.put("Open Bracket", "[");
-        comman_Keys.put("Close Bracket", "]");
-        comman_Keys.put("Semicolon", ";");
-        comman_Keys.put("Quote", "'");
-        comman_Keys.put("Comma", ",");
-        comman_Keys.put("Period", ".");
-        comman_Keys.put("Slash", "/");
-        comman_Keys.put("Back Slash", "\\");
+        command_Keys.put("Back Quote", "`");
+        command_Keys.put("back quote", "`");
+        command_Keys.put("Minus", "-");
+        command_Keys.put("Equals", "=");
+        command_Keys.put("Open Bracket", "[");
+        command_Keys.put("Close Bracket", "]");
+        command_Keys.put("Semicolon", ";");
+        command_Keys.put("Quote", "'");
+        command_Keys.put("Comma", ",");
+        command_Keys.put("Period", ".");
+        command_Keys.put("Slash", "/");
+        command_Keys.put("Back Slash", "\\");
     }
 
 
     public static boolean isSpecialKey(String key) {
-        CircularBuffer buffer = CircularBuffer.getInstance();
+        KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
         //isSpacingKeys(key);
         addKeyCollection();
 
@@ -153,13 +153,13 @@ public class KeyCode_Interpreter {
     // }
 
     public static void isStandardKey(String key) {
-        CircularBuffer buffer = CircularBuffer.getInstance();
-        buffer.addToBuffer(key);
+        KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
+        buffer.add(key);
     }
 
     public static String getKeyCodeValue(String key) {
-        if (comman_Keys.containsKey(key)) {
-            return comman_Keys.get(key);
+        if (command_Keys.containsKey(key)) {
+            return command_Keys.get(key);
         }
 
         return key;
@@ -183,8 +183,8 @@ public class KeyCode_Interpreter {
             } else {
                 if (!isSpecialKey(key) == false) {
                     isStandardKey(key.toLowerCase());
-                } else if (comman_Keys.containsKey(key)) {
-                    isStandardKey(comman_Keys.get(key));
+                } else if (command_Keys.containsKey(key)) {
+                    isStandardKey(command_Keys.get(key));
                 }
             }
         }
