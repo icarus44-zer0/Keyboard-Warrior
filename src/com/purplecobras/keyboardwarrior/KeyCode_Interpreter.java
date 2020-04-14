@@ -10,8 +10,16 @@ public class KeyCode_Interpreter {
     private static ArrayList<String> dead_Keys = new ArrayList<String>();
     private static boolean shiftPress = false;
 
-    public static void addKeyCollection() {
-        //Shift keys 
+    KeyCode_Interpreter() {
+        add_KeyTYPE1_Collection();
+        add_KeyTYPE2_Collection();
+        add_KeyTYPE3_Collection();
+        add_KeyTYPE4_Collection();
+    }
+
+    // Shift keys
+    public static void add_KeyTYPE1_Collection() {
+
         shift_Keys.put("BACK QUOTE", "~");
         shift_Keys.put("1", "!");
         shift_Keys.put("2", "@");
@@ -33,8 +41,11 @@ public class KeyCode_Interpreter {
         shift_Keys.put("PERIOD", ">");
         shift_Keys.put("SLASH", "?");
         shift_Keys.put("BACK SLASH", "|");
+    }
 
-        //Standard NO SHIFT PRESS
+     // Standard NO SHIFT PRESS
+    public static void add_KeyTYPE2_Collection() {
+
         dead_Keys.add("Space");
         dead_Keys.add("Return");
         dead_Keys.add("Enter");
@@ -65,8 +76,10 @@ public class KeyCode_Interpreter {
         dead_Keys.add("Slash");
         dead_Keys.add("Back Slash");
         dead_Keys.add("Open Bracket");
-       
-        //For keys that use shift
+    }
+
+    // For keys that use shift
+    public static void add_KeyTYPE3_Collection() {
         dead_Keys.add("SPACE");
         dead_Keys.add("RETURN");
         dead_Keys.add("ENTER");
@@ -89,8 +102,10 @@ public class KeyCode_Interpreter {
         dead_Keys.add("PLAY");
         dead_Keys.add("PREVIOUS");
         dead_Keys.add("UNDEFINED");
-            
-        //Standard key usage lowercase letters
+    }
+
+    // Standard key usage lowercase letters
+    public static void add_KeyTYPE4_Collection() {
         command_Keys.put("Back Quote", "`");
         command_Keys.put("back quote", "`");
         command_Keys.put("Minus", "-");
@@ -105,21 +120,20 @@ public class KeyCode_Interpreter {
         command_Keys.put("Back Slash", "\\");
     }
 
-
     public static boolean isSpecialKey(String key) {
-        addKeyCollection();
 
-        if (dead_Keys.contains(key)){
+
+        if (dead_Keys.contains(key)) {
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
                 KeyBoard_In_Buffer.reset();
             }
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
-    //This method will be used after clipboard class is created
+    // This method will be used after clipboard class is created
     public static void isSpacingKeys(String key) {
 
         switch (key) {
@@ -141,21 +155,22 @@ public class KeyCode_Interpreter {
         }
     }
 
-    //Future Use
-    // public static Map<String,String> getSpecialKeys() {
-    //     return comman_Keys;
-    // }
+    // Future Use
+    public static Map<String, String> getSpecialKeys() {
+        return command_Keys;
+    }
 
-    // public static Map<String, String> getShiftKeys() {
-    //     return shift_Keys;
-    // }
+    // Future Use
+    public static Map<String, String> getShiftKeys() {
+        return shift_Keys;
+    }
 
     public static void isStandardKey(String key) {
         KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
         buffer.add(key);
     }
 
-    public static String getKeyCodeValue(String key) {
+    public static String formatKeyCode(String key) {
         if (command_Keys.containsKey(key)) {
             return command_Keys.get(key);
         }
@@ -189,12 +204,12 @@ public class KeyCode_Interpreter {
     }
 
     // Helper methods
+    // if shift key is pressed and not released then display a shift key value
     public static void keyReleasedFunc(String key) {
-        // if shift key is pressed and not released then display a shift key value
         if (shiftPress == true && !key.equals("Shift") && !key.equals("Unknown keyCode: 0xe36")) {
-            if(!isSpecialKey(key.toUpperCase()) == false){
-                isStandardKey(getShiftValue(key.toUpperCase())); 
-            }         
+            if (!isSpecialKey(key.toUpperCase()) == false) {
+                isStandardKey(getShiftValue(key.toUpperCase()));
+            }
         } else {
             shiftPress = false;
         }

@@ -36,10 +36,11 @@ public class Global_Keyboard_Listener implements NativeKeyListener {
 	}
 
 	@Override
-	public void nativeKeyPressed(NativeKeyEvent e) {
-		String key = KeyCode_Interpreter.getKeyCodeValue(NativeKeyEvent.getKeyText(e.getKeyCode()));
-		KeyCode_Interpreter.keyPressFunc(key);
-	}
+    public void nativeKeyPressed(NativeKeyEvent e) {
+        String key_Raw = NativeKeyEvent.getKeyText(e.getKeyCode());
+        String key_Formated = KeyCode_Interpreter.formatKeyCode(key_Raw);
+        KeyCode_Interpreter.keyPressFunc(key_Formated);
+    }
 
 	@Override
 	public void nativeKeyReleased(NativeKeyEvent e) {
