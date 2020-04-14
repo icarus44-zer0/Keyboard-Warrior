@@ -2,17 +2,17 @@ package main;
 
 import org.apache.commons.collections.CircularFifoBuffer;
 
-public final class Shortcut_Buffer extends CircularFifoBuffer {
+public final class KeyBoard_In_Buffer extends CircularFifoBuffer {
     private static final int MAX_BUFFER_SIZE = 10;
-    private static Shortcut_Buffer _buffer;
+    private static KeyBoard_In_Buffer _buffer;
 
-    private Shortcut_Buffer() {
+    private KeyBoard_In_Buffer() {
         super(MAX_BUFFER_SIZE);
     }
 
-    public static Shortcut_Buffer getBuffer() {
+    public static KeyBoard_In_Buffer getBuffer() {
         if (_buffer == null){
-            _buffer = new Shortcut_Buffer();
+            _buffer = new KeyBoard_In_Buffer();
             fillEmptyBuffer_debug();
         }
         return _buffer;

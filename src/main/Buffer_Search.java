@@ -2,26 +2,26 @@ package main;
 
 import java.util.HashMap;
 
-public final class Shortcut_Search{
-    private static Shortcut_Search _instance = null; 
+public final class Buffer_Search{
+    private static Buffer_Search _instance = null; 
     private HashMap<String, String> _shortcut_Map;
     private String _key;
     private String _nextChar;
     private Object[] _buffer_array;
 
-    private Shortcut_Search(){
+    private Buffer_Search(){
         _shortcut_Map = new HashMap<String, String>();          // move to seperate class sington 
-        _shortcut_Map = hashMap_IO.hashMap_In(_shortcut_Map);   // move to seperate class sington
+        _shortcut_Map = HashMap_File_Reader.hashMap_In(_shortcut_Map);   // move to seperate class sington
     }
 
-    public static Shortcut_Search get_Instance(){
+    public static Buffer_Search get_Instance(){
         if (_instance == null){
-            _instance = new Shortcut_Search();
+            _instance = new Buffer_Search();
         }
         return _instance;
     }
 
-    public String search_BufferforKeys(Shortcut_Buffer buffer){ 
+    public String search_BufferforKeys(KeyBoard_In_Buffer buffer){ 
         while(buffer.isFull()){
             _buffer_array = buffer.toArray();
             resetKey();

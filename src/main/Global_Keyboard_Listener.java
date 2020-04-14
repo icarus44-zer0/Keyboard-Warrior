@@ -9,12 +9,12 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class keyBoard_Accessor implements NativeKeyListener {
+public class Global_Keyboard_Listener implements NativeKeyListener {
 	String standardKey;
 	String specialKey;
 	String punctKey;
 
-	keyBoard_Accessor() {
+	Global_Keyboard_Listener() {
 
 	}
 
@@ -24,7 +24,7 @@ public class keyBoard_Accessor implements NativeKeyListener {
 		} catch (NativeHookException e) {
 			e.printStackTrace();
 		}
-		GlobalScreen.addNativeKeyListener(new keyBoard_Accessor());
+		GlobalScreen.addNativeKeyListener(new Global_Keyboard_Listener());
 
 		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
 		logger.setLevel(Level.OFF);
@@ -59,7 +59,7 @@ public class keyBoard_Accessor implements NativeKeyListener {
 	}
 
 	public void isStandardKey(String key) {
-		CircularFifoBuffer buffer = Shortcut_Buffer.getBuffer();
+		CircularFifoBuffer buffer = KeyBoard_In_Buffer.getBuffer();
 		buffer.add(key);
 		standardKey = key;
 	}
