@@ -1,9 +1,7 @@
-package main;
+package com.purplecobras.keyboardwarrior;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-
-
 
 public class Insert_At_Cursor{
 

@@ -1,4 +1,4 @@
-package main;
+package com.purplecobras.keyboardwarrior;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.*;
