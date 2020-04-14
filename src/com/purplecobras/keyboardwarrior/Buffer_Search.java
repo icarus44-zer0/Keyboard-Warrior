@@ -28,6 +28,7 @@ public final class Buffer_Search{
             for(int i = 0 ; i < buffer.size(); i++){
                 _nextChar = (String) _buffer_array[buffer.size() - 1 - i];
                 _key = _nextChar + _key;
+                printAllKeys(_key, i);
                 if (_shortcut_Map.containsKey(_key)){
                     return _shortcut_Map.get(_key);
                 }
