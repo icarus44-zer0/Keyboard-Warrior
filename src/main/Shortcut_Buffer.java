@@ -1,5 +1,7 @@
 package main;
 
+import org.apache.commons.collections.CircularFifoBuffer;
+
 public final class Shortcut_Buffer extends CircularFifoBuffer {
     private static final int MAX_BUFFER_SIZE = 10;
     private static Shortcut_Buffer _buffer;

@@ -14,7 +14,7 @@ public class Main {
 			try {
 				shortcut = search.search_BufferforKeys(buffer);
 			} catch (Exception e) {
-				System.out.println("UNKNOWN ERROR");
+				//System.out.println("UNKNOWN ERROR");
 			}
 			System.out.println(shortcut);
 		}
