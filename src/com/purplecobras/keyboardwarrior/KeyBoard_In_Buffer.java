@@ -13,7 +13,7 @@ public final class KeyBoard_In_Buffer extends CircularFifoBuffer {
     public static KeyBoard_In_Buffer getBuffer() {
         if (_buffer == null){
             _buffer = new KeyBoard_In_Buffer();
-            fillEmptyBuffer_debug();
+            reset();
         }
         return _buffer;
     }
@@ -31,9 +31,9 @@ public final class KeyBoard_In_Buffer extends CircularFifoBuffer {
         _buffer.add("9");
     }
 
-    private static void fillEmptyBuffer() {
+    public static void reset() {
         for(int i = 0; i < MAX_BUFFER_SIZE ;i++){
-            _buffer.add(i);
+            _buffer.add("~");
         }
     }
 }

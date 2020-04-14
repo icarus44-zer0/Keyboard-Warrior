@@ -107,13 +107,11 @@ public class KeyCode_Interpreter {
 
 
     public static boolean isSpecialKey(String key) {
-        KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
-        //isSpacingKeys(key);
         addKeyCollection();
 
         if (dead_Keys.contains(key)){
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
-                buffer.clear();
+                KeyBoard_In_Buffer.reset();
             }
             return false;
         }else{
