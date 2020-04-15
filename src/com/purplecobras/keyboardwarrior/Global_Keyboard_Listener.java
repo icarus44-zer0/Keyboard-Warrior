@@ -39,7 +39,7 @@ public class Global_Keyboard_Listener implements NativeKeyListener {
     public void nativeKeyPressed(NativeKeyEvent e) {
         String key_Raw = NativeKeyEvent.getKeyText(e.getKeyCode());
         String key_Formated = KeyCode_Interpreter.formatKeyCode(key_Raw);
-        KeyCode_Interpreter.keyPressFunc(key_Formated);
+        KeyCode_Interpreter.interpretKeyPress(key_Formated);
     }
 
 	@Override
