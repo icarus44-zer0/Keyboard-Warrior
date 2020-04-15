@@ -7,19 +7,18 @@ import java.util.Map;
 public class KeyCode_Interpreter {
     private static Map<String, String> shift_Keys = new HashMap<String, String>();
     private static Map<String, String> command_Keys = new HashMap<String, String>();
-    private static ArrayList<String> dead_Keys = new ArrayList<String>();
+    private static Map<String,String> dead_Keys = new HashMap<String,String>();
     private static boolean shiftPress = false;
 
     KeyCode_Interpreter() {
-        add_KeyTYPE1_Collection();
-        add_KeyTYPE2_Collection();
-        add_KeyTYPE3_Collection();
-        add_KeyTYPE4_Collection();
+        KeyTYPE1_Collection();
+        KeyTYPE2_Collection();
+        KeyTYPE3_Collection();
+        KeyTYPE4_Collection();
     }
 
     // Shift keys
-    public static void add_KeyTYPE1_Collection() {
-
+    public static void KeyTYPE1_Collection() {
         shift_Keys.put("BACK QUOTE", "~");
         shift_Keys.put("1", "!");
         shift_Keys.put("2", "@");
@@ -43,69 +42,67 @@ public class KeyCode_Interpreter {
         shift_Keys.put("BACK SLASH", "|");
     }
 
-     // Standard NO SHIFT PRESS
-    public static void add_KeyTYPE2_Collection() {
-
-        dead_Keys.add("Space");
-        dead_Keys.add("Return");
-        dead_Keys.add("Enter");
-        dead_Keys.add("Tab");
-        dead_Keys.add("Ctrl");
-        dead_Keys.add("Alt");
-        dead_Keys.add("Meta");
-        dead_Keys.add("Escape");
-        dead_Keys.add("Undefined");
-        dead_Keys.add("Left");
-        dead_Keys.add("Down");
-        dead_Keys.add("Right");
-        dead_Keys.add("Up");
-        dead_Keys.add("Unknown keyCode: 0xe36");
-        dead_Keys.add("Shift");
-        dead_Keys.add("Backspace");
-        dead_Keys.add("Caps Lock");
-
-        dead_Keys.add("Back Quote");
-        dead_Keys.add("Minus");
-        dead_Keys.add("Equals");
-        dead_Keys.add("Open Bracket");
-        dead_Keys.add("Close Bracket");
-        dead_Keys.add("Semicolon");
-        dead_Keys.add("Quote");
-        dead_Keys.add("Comma");
-        dead_Keys.add("Period");
-        dead_Keys.add("Slash");
-        dead_Keys.add("Back Slash");
-        dead_Keys.add("Open Bracket");
+    // Standard NO SHIFT PRESS
+    public static void KeyTYPE2_Collection() {
+        dead_Keys.put("1","Space");
+        dead_Keys.put("2","Return");
+        dead_Keys.put("3","Enter");
+        dead_Keys.put("4","Tab");
+        dead_Keys.put("5","Ctrl");
+        dead_Keys.put("6","Alt");
+        dead_Keys.put("7","Meta");
+        dead_Keys.put("8","Escape");
+        dead_Keys.put("9","Undefined");
+        dead_Keys.put("10","Left");
+        dead_Keys.put("11","Down");
+        dead_Keys.put("12","Right");
+        dead_Keys.put("13","Up");
+        dead_Keys.put("14","Unknown keyCode: 0xe36");
+        dead_Keys.put("15","Shift");
+        dead_Keys.put("16","Backspace");
+        dead_Keys.put("17","Caps Lock");
+        dead_Keys.put("18","Back Quote");
+        dead_Keys.put("19","Minus");
+        dead_Keys.put("20","Equals");
+        dead_Keys.put("21","Open Bracket");
+        dead_Keys.put("22","Close Bracket");
+        dead_Keys.put("23","Semicolon");
+        dead_Keys.put("24","Quote");
+        dead_Keys.put("25","Comma");
+        dead_Keys.put("26","Period");
+        dead_Keys.put("27","Slash");
+        dead_Keys.put("28","Back Slash");
+        dead_Keys.put("29","Open Bracket");
     }
 
-    // For keys that use shift
-    public static void add_KeyTYPE3_Collection() {
-        dead_Keys.add("SPACE");
-        dead_Keys.add("RETURN");
-        dead_Keys.add("ENTER");
-        dead_Keys.add("TAB");
-        dead_Keys.add("CTRL");
-        dead_Keys.add("ALT");
-        dead_Keys.add("META");
-        dead_Keys.add("ESCAPE");
-        dead_Keys.add("UNDEFINE");
-        dead_Keys.add("LEFT");
-        dead_Keys.add("DOWN");
-        dead_Keys.add("RIGHT");
-        dead_Keys.add("UP");
-        dead_Keys.add("BACKSPACE");
-        dead_Keys.add("CAPS LOCK");
-        dead_Keys.add("VOLUME DOWN");
-        dead_Keys.add("VOLUME UP");
-        dead_Keys.add("MUTE");
-        dead_Keys.add("NEXT");
-        dead_Keys.add("PLAY");
-        dead_Keys.add("PREVIOUS");
-        dead_Keys.add("UNDEFINED");
+    // For keys that use shift 
+    public static void KeyTYPE3_Collection() {
+        dead_Keys.put("","SPACE");
+        dead_Keys.put("","RETURN");
+        dead_Keys.put("","ENTER");
+        dead_Keys.put("","TAB");
+        dead_Keys.put("","CTRL");
+        dead_Keys.put("","ALT");
+        dead_Keys.put("","META");
+        dead_Keys.put("","ESCAPE");
+        dead_Keys.put("","UNDEFINE");
+        dead_Keys.put("","LEFT");
+        dead_Keys.put("","DOWN");
+        dead_Keys.put("","RIGHT");
+        dead_Keys.put("","UP");
+        dead_Keys.put("","BACKSPACE");
+        dead_Keys.put("","CAPS LOCK");
+        dead_Keys.put("","VOLUME DOWN");
+        dead_Keys.put("","VOLUME UP");
+        dead_Keys.put("","MUTE");
+        dead_Keys.put("","NEXT");
+        dead_Keys.put("","PLAY");
+        dead_Keys.put("","PREVIOUS");
+        dead_Keys.put("","UNDEFINED");
     }
 
     // Standard key usage lowercase letters
-    public static void add_KeyTYPE4_Collection() {
+    public static void KeyTYPE4_Collection() {
         command_Keys.put("Back Quote", "`");
         command_Keys.put("back quote", "`");
         command_Keys.put("Minus", "-");
@@ -123,35 +120,13 @@ public class KeyCode_Interpreter {
     public static boolean isSpecialKey(String key) {
 
 
-        if (dead_Keys.contains(key)) {
+        if (dead_Keys.containsValue(key)) {
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
                 KeyBoard_In_Buffer.reset();
             }
             return false;
         } else {
             return true;
-        }
-    }
-
-    // This method will be used after clipboard class is created
-    public static void isSpacingKeys(String key) {
-
-        switch (key) {
-            case "Space":
-                System.out.print(" ");
-                break;
-            case "Return":
-                System.out.println();
-                break;
-            case "Enter":
-                System.out.println();
-                break;
-            case "Tab":
-                System.out.print("	");
-                break;
-            default:
-                return;
-
         }
     }
 
