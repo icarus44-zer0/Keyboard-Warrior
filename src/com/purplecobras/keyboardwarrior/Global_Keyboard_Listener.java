@@ -9,9 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Global_Keyboard_Listener implements NativeKeyListener {
-	String standardKey;
-	String specialKey;
-	String punctKey;
 
 	Global_Keyboard_Listener() {
 
@@ -37,8 +34,8 @@ public class Global_Keyboard_Listener implements NativeKeyListener {
 	@Override
     public void nativeKeyPressed(NativeKeyEvent e) {
         String key_Raw = NativeKeyEvent.getKeyText(e.getKeyCode());
-        String key_Formated = KeyCode_Interpreter.formatKeyCode(key_Raw);
-        KeyCode_Interpreter.interpretKeyPress(key_Formated);
+        key_Raw = KeyCode_Interpreter.formatKeyCode(key_Raw);
+        KeyCode_Interpreter.interpretKeyPress(key_Raw);
     }
 
 	@Override

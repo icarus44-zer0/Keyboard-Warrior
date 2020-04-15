@@ -5,7 +5,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		Global_Keyboard_Listener listener = new Global_Keyboard_Listener();
+		
 		Buffer_Search search = Buffer_Search.get_Instance();
+		KeyCode_Interpreter key = key.get_Instance();
 		
 		listener.setup();
 

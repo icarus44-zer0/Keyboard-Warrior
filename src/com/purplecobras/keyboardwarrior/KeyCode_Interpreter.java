@@ -3,17 +3,17 @@ package com.purplecobras.keyboardwarrior;
 import java.util.HashMap;
 
 public class KeyCode_Interpreter {
-    private static final String shiftkey = "shiftkey.ser";
-    private static final String commandkey = "commandkey.ser";
-    private static final String deadkey = "deadkey.ser";
+    private final String shiftkey = "shiftkey.ser";
+    private final String commandkey = "commandkey.ser";
+    private final String deadkey = "deadkey.ser";
+
     private static HashMap<String, String> shift_Keys;
     private static HashMap<String, String> command_Keys;
-    private static HashMap<String,String> dead_Keys;
+    private static HashMap<String, String> dead_Keys;
     private static boolean shiftPress;
-    
 
     KeyCode_Interpreter() {
-        shift_Keys = HashMap_File_Reader.hashMap_In(shift_Keys,shiftkey);
+        shift_Keys = HashMap_File_Reader.hashMap_In(shift_Keys, shiftkey);
         command_Keys = HashMap_File_Reader.hashMap_In(command_Keys, commandkey);
         dead_Keys = HashMap_File_Reader.hashMap_In(dead_Keys, deadkey);
         shiftPress = false;
