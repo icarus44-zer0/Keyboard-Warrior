@@ -2,25 +2,20 @@ package com.purplecobras.keyboardwarrior;
 
 import java.util.HashMap;
 
-
 public class KeyCode_Interpreter_Driver {
     public static void main(String[] args) {
-        final String shiftkey = "shiftkey.ser";
-        final String commandkey = "commandkey.ser";
-        final String deadkey = "deadkey.ser";
 
         HashMap<String, String> shift_Keys = new HashMap<String, String>();
         HashMap<String, String> command_Keys = new HashMap<String, String>();
-        HashMap<String,String> dead_Keys = new HashMap<String,String>();
+        HashMap<String, String> dead_Keys = new HashMap<String, String>();
 
-    
         KeyTYPE1_Collection(shift_Keys);
         KeyTYPE2_Collection(command_Keys);
         KeyTYPE3_Collection(dead_Keys);
 
-        HashMap_File_Writer.hashMap_Out(shift_Keys, shiftkey);
-        HashMap_File_Writer.hashMap_Out(command_Keys, commandkey);
-        HashMap_File_Writer.hashMap_Out(dead_Keys, deadkey);
+        HashMap_File_Writer.hashMap_Out(shift_Keys, Ser_File_Name.SF2);
+        HashMap_File_Writer.hashMap_Out(command_Keys, Ser_File_Name.SF3);
+        HashMap_File_Writer.hashMap_Out(dead_Keys, Ser_File_Name.SF4);
     }
 
     // Shift keys
@@ -49,7 +44,7 @@ public class KeyCode_Interpreter_Driver {
     }
 
     // Standard key usage lowercase letters
-    static void KeyTYPE2_Collection(HashMap<String, String> command_Keys) {   
+    static void KeyTYPE2_Collection(HashMap<String, String> command_Keys) {
         command_Keys.put("Back Quote", "`");
         command_Keys.put("back quote", "`");
         command_Keys.put("Minus", "-");

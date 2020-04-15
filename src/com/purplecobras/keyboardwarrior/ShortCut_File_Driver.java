@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 public class ShortCut_File_Driver {
     public static void main(String[] args) {
-        final String shortCut = "shortCut.ser";
-
         HashMap<String, String> short_Cut = new HashMap<String, String>();
 
         short_Cut.put("/jp", "Josh Poe");
@@ -14,6 +12,6 @@ public class ShortCut_File_Driver {
         short_Cut.put("/vp", "Viktoriya Penkova");
         short_Cut.put("/do", "Daniel Olsen");
         short_Cut.put("/pc", "Purple Cobras");
-        HashMap_File_Writer.hashMap_Out(short_Cut,shortCut);
+        HashMap_File_Writer.hashMap_Out(short_Cut, Ser_File_Name.SF1);
     }
 }
