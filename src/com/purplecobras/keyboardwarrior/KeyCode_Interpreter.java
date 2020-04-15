@@ -8,14 +8,15 @@ public class KeyCode_Interpreter {
     private static final String deadkey = "deadkey.ser";
     private static HashMap<String, String> shift_Keys;
     private static HashMap<String, String> command_Keys;
-    private static HashMap<String,String> dead_Keys = new HashMap<String,String>();
-    private static boolean shiftPress = false;
+    private static HashMap<String,String> dead_Keys;
+    private static boolean shiftPress;
     
 
     KeyCode_Interpreter() {
         shift_Keys = HashMap_File_Reader.hashMap_In(shift_Keys,shiftkey);
         command_Keys = HashMap_File_Reader.hashMap_In(command_Keys, commandkey);
         dead_Keys = HashMap_File_Reader.hashMap_In(dead_Keys, deadkey);
+        shiftPress = false;
     }
 
     public static boolean isSpecialKey(String key) {
