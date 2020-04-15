@@ -4,7 +4,6 @@ import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
-import org.apache.commons.collections.CircularFifoBuffer;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;

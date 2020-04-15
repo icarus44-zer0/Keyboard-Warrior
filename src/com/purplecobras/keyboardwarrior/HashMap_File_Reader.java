@@ -11,9 +11,9 @@ public class HashMap_File_Reader {
 
     }
 
-    public static HashMap<String, String> hashMap_In(HashMap<String, String> map) {
+    public static HashMap<String, String> hashMap_In(HashMap<String, String> map, String fileName) {
         try {
-            FileInputStream fis = new FileInputStream("hashmap.ser");
+            FileInputStream fis = new FileInputStream("ser/com/purplecobras/keyboardwarrior/" + fileName);
             ObjectInputStream ois = new ObjectInputStream(fis);
             map = (HashMap) ois.readObject();
             ois.close();

@@ -11,9 +11,9 @@ public class HashMap_File_Writer {
 
     }
 
-    public static void hashMap_Out(HashMap<String, String> map) {
+    public static void hashMap_Out(HashMap<String, String> map,String fileName) {
         try {
-            FileOutputStream fos = new FileOutputStream("hashmap.ser");
+            FileOutputStream fos = new FileOutputStream("ser/com/purplecobras/keyboardwarrior/" + fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(map);
             oos.close();

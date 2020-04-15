@@ -1,19 +1,30 @@
 package com.purplecobras.keyboardwarrior;
 
 import java.util.HashMap;
-import java.util.Map;
+
 
 public class KeyCode_Interpreter_Driver {
     public static void main(String[] args) {
-        
-        
-        
-        
+        final String shiftkey = "shiftkey.ser";
+        final String commandkey = "commandkey.ser";
+        final String deadkey = "deadkey.ser";
+
+        HashMap<String, String> shift_Keys = new HashMap<String, String>();
+        HashMap<String, String> command_Keys = new HashMap<String, String>();
+        HashMap<String,String> dead_Keys = new HashMap<String,String>();
+
+    
+        KeyTYPE1_Collection(shift_Keys);
+        KeyTYPE2_Collection(command_Keys);
+        KeyTYPE3_Collection(dead_Keys);
+
+        HashMap_File_Writer.hashMap_Out(shift_Keys, shiftkey);
+        HashMap_File_Writer.hashMap_Out(command_Keys, commandkey);
+        HashMap_File_Writer.hashMap_Out(dead_Keys, deadkey);
     }
 
     // Shift keys
-    public static void KeyTYPE1_Collection() {
-        Map<String, String> shift_Keys = new HashMap<String, String>();
+    static void KeyTYPE1_Collection(HashMap<String, String> shift_Keys) {
         shift_Keys.put("BACK QUOTE", "~");
         shift_Keys.put("1", "!");
         shift_Keys.put("2", "@");
@@ -38,8 +49,7 @@ public class KeyCode_Interpreter_Driver {
     }
 
     // Standard key usage lowercase letters
-    public static void KeyTYPE4_Collection() {
-        Map<String, String> command_Keys = new HashMap<String, String>();
+    static void KeyTYPE2_Collection(HashMap<String, String> command_Keys) {   
         command_Keys.put("Back Quote", "`");
         command_Keys.put("back quote", "`");
         command_Keys.put("Minus", "-");
@@ -55,8 +65,7 @@ public class KeyCode_Interpreter_Driver {
     }
 
     // For keys that use shift
-    public static void KeyTYPE3_Collection() {
-        Map<String,String> dead_Keys = new HashMap<String,String>();
+    static void KeyTYPE3_Collection(HashMap<String, String> dead_Keys) {
         dead_Keys.put("", "SPACE");
         dead_Keys.put("", "RETURN");
         dead_Keys.put("", "ENTER");
@@ -109,14 +118,5 @@ public class KeyCode_Interpreter_Driver {
         dead_Keys.put("27", "Slash");
         dead_Keys.put("28", "Back Slash");
         dead_Keys.put("29", "Open Bracket");
-
-
-        
     }
-
-    // Standard NO SHIFT PRESS
-    public static void KeyTYPE2_Collection() {
-
-    }
-
 }

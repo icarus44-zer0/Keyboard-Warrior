@@ -1,24 +1,24 @@
 package com.purplecobras.keyboardwarrior;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class KeyCode_Interpreter {
-    private static Map<String, String> shift_Keys = new HashMap<String, String>();
-    private static Map<String, String> command_Keys = new HashMap<String, String>();
-    private static Map<String,String> dead_Keys = new HashMap<String,String>();
+    private static final String shiftkey = "shiftkey.ser";
+    private static final String commandkey = "commandkey.ser";
+    private static final String deadkey = "deadkey.ser";
+    private static HashMap<String, String> shift_Keys;
+    private static HashMap<String, String> command_Keys;
+    private static HashMap<String,String> dead_Keys = new HashMap<String,String>();
     private static boolean shiftPress = false;
+    
 
     KeyCode_Interpreter() {
-        // KeyTYPE1_Collection();
-        // KeyTYPE2_Collection();
-        // KeyTYPE3_Collection();
-        // KeyTYPE4_Collection();
+        shift_Keys = HashMap_File_Reader.hashMap_In(shift_Keys,shiftkey);
+        command_Keys = HashMap_File_Reader.hashMap_In(command_Keys, commandkey);
+        dead_Keys = HashMap_File_Reader.hashMap_In(dead_Keys, deadkey);
     }
 
     public static boolean isSpecialKey(String key) {
-
-
         if (dead_Keys.containsValue(key)) {
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
                 KeyBoard_In_Buffer.reset();
@@ -30,12 +30,12 @@ public class KeyCode_Interpreter {
     }
 
     // Future Use
-    public static Map<String, String> getSpecialKeys() {
+    public static HashMap<String, String> getSpecialKeys() {
         return command_Keys;
     }
 
     // Future Use
-    public static Map<String, String> getShiftKeys() {
+    public static HashMap<String, String> getShiftKeys() {
         return shift_Keys;
     }
 

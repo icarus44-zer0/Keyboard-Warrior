@@ -3,6 +3,7 @@ package com.purplecobras.keyboardwarrior;
 import java.util.HashMap;
 
 public final class Buffer_Search{
+    private static final String shortcut = "shortcut.ser";
     private static Buffer_Search _instance = null; 
     private HashMap<String, String> _shortcut_Map;
     private String _key;
@@ -11,7 +12,7 @@ public final class Buffer_Search{
 
     private Buffer_Search(){
         _shortcut_Map = new HashMap<String, String>();          // move to seperate class sington 
-        _shortcut_Map = HashMap_File_Reader.hashMap_In(_shortcut_Map);   // move to seperate class sington
+        _shortcut_Map = HashMap_File_Reader.hashMap_In(_shortcut_Map,shortcut);   // move to seperate class sington
     }
 
     public static Buffer_Search get_Instance(){
