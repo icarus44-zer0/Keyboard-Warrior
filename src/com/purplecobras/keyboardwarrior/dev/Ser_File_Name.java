@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior;
+package com.purplecobras.keyboardwarrior.dev;
 
 public final class Ser_File_Name {
     public static final String SF1 = "shortCut.ser";

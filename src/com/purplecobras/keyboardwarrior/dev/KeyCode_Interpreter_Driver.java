@@ -1,5 +1,6 @@
-package com.purplecobras.keyboardwarrior;
+package com.purplecobras.keyboardwarrior.dev;
 
+import com.purplecobras.keyboardwarrior.HashMap_File_Writer;
 import java.util.HashMap;
 
 public class KeyCode_Interpreter_Driver {
