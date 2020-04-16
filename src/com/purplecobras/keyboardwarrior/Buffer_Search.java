@@ -1,5 +1,6 @@
 package com.purplecobras.keyboardwarrior;
 
+import java.security.KeyPair;
 import java.util.HashMap;
 
 public final class Buffer_Search{
@@ -21,7 +22,7 @@ public final class Buffer_Search{
         return _instance;
     }
 
-    public String search_BufferforKeys(KeyBoard_In_Buffer buffer){ 
+    public Shortcut bufferSearch(KeyBoard_In_Buffer buffer){ 
         while(buffer.isFull()){
             _buffer_array = buffer.toArray();
             resetKey();
@@ -30,7 +31,10 @@ public final class Buffer_Search{
                 _key = _nextChar + _key;
                 //printAllKeys(_key, i);   //used for debug
                 if (_shortcut_Map.containsKey(_key)){
-                    return _shortcut_Map.get(_key);
+                    Shortcut shortcut = new Shortcut();
+                    shortcut.set_scKey(_key);
+                    shortcut.set_scValue(_shortcut_Map.get(_key));
+                    return shortcut;
                 }
             }
         }
