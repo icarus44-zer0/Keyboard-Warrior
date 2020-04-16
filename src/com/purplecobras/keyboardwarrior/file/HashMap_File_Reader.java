@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior;
+package com.purplecobras.keyboardwarrior.file;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class HashMap_File_Reader {
 
     public static HashMap<String, String> hashMap_In(HashMap<String, String> map, String fileName) {
         try {
-            FileInputStream fis = new FileInputStream("ser/com/purplecobras/keyboardwarrior/" + fileName);
+            FileInputStream fis = new FileInputStream(Ser_File_Name.SER_PATH + fileName);
             ObjectInputStream ois = new ObjectInputStream(fis);
             map = (HashMap) ois.readObject();
             ois.close();

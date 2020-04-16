@@ -3,11 +3,14 @@ package com.purplecobras.keyboardwarrior;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
-public class Insert_At_Cursor{
+public class Insertion_Point_Accessor{
+    Robot robot;
 
-    Insert_At_Cursor() {}
+    Insertion_Point_Accessor() {
 
-    public static void paste(Robot robot) throws InterruptedException {
+    }
+
+    public static void paste_scKey(Robot robot) throws InterruptedException {
 
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_V);
@@ -18,6 +21,14 @@ public class Insert_At_Cursor{
             robot.keyPress(KeyEvent.VK_SPACE);
             robot.keyRelease(KeyEvent.VK_SPACE);
     }
+
+    public static void delete_sckey(Robot robot,String key) throws InterruptedException {
+        for(int i = 0 ; i < key.length(); i++){
+                robot.keyPress(KeyEvent.VK_BACK_SPACE);
+                robot.keyRelease(KeyEvent.VK_BACK_SPACE);
+        }
+}
+
 
 }
 

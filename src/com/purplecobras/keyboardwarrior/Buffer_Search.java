@@ -1,18 +1,16 @@
 package com.purplecobras.keyboardwarrior;
 
-import java.util.HashMap;
+import com.purplecobras.keyboardwarrior.file.Shortcut_Key;
 
 public final class Buffer_Search{
-    private static final String shortcut = "shortcut.ser";
     private static Buffer_Search _instance = null; 
-    private HashMap<String, String> _shortcut_Map;
+    private Shortcut_Key shotcut_key = Shortcut_Key.getInstance();
     private String _key;
     private String _nextChar;
     private Object[] _buffer_array;
 
     private Buffer_Search(){
-        _shortcut_Map = new HashMap<String, String>();          // move to seperate class sington 
-        _shortcut_Map = HashMap_File_Reader.hashMap_In(_shortcut_Map,shortcut);   // move to seperate class sington
+
     }
 
     public static Buffer_Search get_Instance(){
@@ -22,7 +20,7 @@ public final class Buffer_Search{
         return _instance;
     }
 
-    public String search_BufferforKeys(KeyBoard_In_Buffer buffer){ 
+    public Shortcut bufferSearch(KeyBoard_In_Buffer buffer){ 
         while(buffer.isFull()){
             _buffer_array = buffer.toArray();
             resetKey();
@@ -30,15 +28,19 @@ public final class Buffer_Search{
                 _nextChar = (String) _buffer_array[buffer.size() - 1 - i];
                 _key = _nextChar + _key;
                 //printAllKeys(_key, i);   //used for debug
-                if (_shortcut_Map.containsKey(_key)){
-                    return _shortcut_Map.get(_key);
+                if (shotcut_key.getShortcut_Key().containsKey(_key)){
+                    Shortcut shortcut = new Shortcut();
+                    shortcut.set_scKey(_key);
+                    shortcut.set_scValue(shotcut_key.getShortcut_Key().get(_key));
+                    return shortcut;
                 }
             }
         }
         return null;
     }
 
-    private void printAllKeys(String _key,int i) {
+
+    private void printAllKeys(String _key,int i){
         System.out.println("KEY_INDEX: " + i + " "+ "KEY: " + _key);
     }
 

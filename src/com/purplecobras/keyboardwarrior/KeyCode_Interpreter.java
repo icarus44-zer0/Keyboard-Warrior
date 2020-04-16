@@ -2,27 +2,24 @@ package com.purplecobras.keyboardwarrior;
 
 import java.util.HashMap;
 
-public class KeyCode_Interpreter {
-    private final String shiftkey = "shiftkey.ser";
-    private final String commandkey = "commandkey.ser";
-    private final String deadkey = "deadkey.ser";
+import com.purplecobras.keyboardwarrior.file.Command_Key;
+import com.purplecobras.keyboardwarrior.file.Dead_Key;
+import com.purplecobras.keyboardwarrior.file.Shift_Key;
 
-    private static HashMap<String, String> shift_Keys;
-    private static HashMap<String, String> command_Keys;
-    private static HashMap<String, String> dead_Keys;
+public class KeyCode_Interpreter {
     private static boolean shiftPress;
+    private static Dead_Key dead_key = Dead_Key.getInstance();
+    private static Command_Key command_key = Command_Key.getInstance();
+    private static Shift_Key shift_Key = Shift_Key.getInstance();
 
     KeyCode_Interpreter() {
-        shift_Keys = HashMap_File_Reader.hashMap_In(shift_Keys, shiftkey);
-        command_Keys = HashMap_File_Reader.hashMap_In(command_Keys, commandkey);
-        dead_Keys = HashMap_File_Reader.hashMap_In(dead_Keys, deadkey);
         shiftPress = false;
     }
-
+    
     public static boolean isSpecialKey(String key) {
-        if (dead_Keys.containsValue(key)) {
+        if (dead_key.getDead_Key().containsValue(key)) {
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
-                KeyBoard_In_Buffer.reset();
+                KeyBoard_In_Buffer.reset_Buffer();
             }
             return false;
         } else {
@@ -32,12 +29,12 @@ public class KeyCode_Interpreter {
 
     // Future Use
     public static HashMap<String, String> getSpecialKeys() {
-        return command_Keys;
+        return command_key.getCommand_Key();
     }
 
     // Future Use
     public static HashMap<String, String> getShiftKeys() {
-        return shift_Keys;
+        return shift_Key.getShift_Key();
     }
 
     public static void isStandardKey(String key) {
@@ -46,16 +43,16 @@ public class KeyCode_Interpreter {
     }
 
     public static String formatKeyCode(String key) {
-        if (command_Keys.containsKey(key)) {
-            return command_Keys.get(key);
+        if (command_key.getCommand_Key().containsKey(key)) {
+            return command_key.getCommand_Key().get(key);
         }
 
         return key;
     }
 
     public static String getShiftValue(String key) {
-        if (shift_Keys.containsKey(key)) {
-            return shift_Keys.get(key);
+        if (shift_Key.getShift_Key().containsKey(key)) {
+            return shift_Key.getShift_Key().get(key);
         }
 
         return key;
@@ -71,8 +68,8 @@ public class KeyCode_Interpreter {
             } else {
                 if (!isSpecialKey(key) == false) {
                     isStandardKey(key.toLowerCase());
-                } else if (command_Keys.containsKey(key)) {
-                    isStandardKey(command_Keys.get(key));
+                } else if (command_key.getCommand_Key().containsKey(key)) {
+                    isStandardKey(command_key.getCommand_Key().get(key));
                 }
             }
         }
