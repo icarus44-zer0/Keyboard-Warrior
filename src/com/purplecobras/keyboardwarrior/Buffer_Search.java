@@ -1,8 +1,6 @@
 package com.purplecobras.keyboardwarrior;
 
-import com.purplecobras.keyboardwarrior.file.Shortcut_Map;
-
-public final class Buffer_Search{
+public final class Buffer_Search {
     private static Buffer_Search _instance = null; 
     private Shortcut_Map shotcut_key = Shortcut_Map.getInstance();
     private String _key;

@@ -2,10 +2,6 @@ package com.purplecobras.keyboardwarrior;
 
 import java.util.HashMap;
 
-import com.purplecobras.keyboardwarrior.file.CommandKey_Map;
-import com.purplecobras.keyboardwarrior.file.DeadKey_Map;
-import com.purplecobras.keyboardwarrior.file.Shift_Key_Map;
-
 public class KeyCode_Interpreter {
     private static boolean shiftPress;
     private static DeadKey_Map dead_key = DeadKey_Map.getInstance();
