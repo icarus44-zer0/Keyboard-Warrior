@@ -2,10 +2,16 @@ package com.purplecobras.keyboardwarrior.dev;
 
 import java.util.HashMap;
 
+/**
+ *
+ * @author Purple Cobras
+ * @version 0.0.1
+ * @since 2020-04-16
+ */
 public class CommandKey_Map_Driver {
     public static void main(String[] args) {
 
-        HashMap<String,String> map = new HashMap<String,String>();
+        HashMap<String, String> map = new HashMap<String, String>();
 
         map.put("Back Quote", "`");
         map.put("back quote", "`");

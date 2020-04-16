@@ -5,13 +5,19 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
+/**
+ *
+ * @author Purple Cobras
+ * @version 0.0.1
+ * @since 2020-04-16
+ */
 public class HashMap_File_Writer {
 
     HashMap_File_Writer() {
 
     }
 
-    public static void hashMap_Out(HashMap<String, String> map,String fileName) {
+    public static void hashMap_Out(HashMap<String, String> map, String fileName) {
         try {
             FileOutputStream fos = new FileOutputStream(Ser_File_Lib.SER_PATH + fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);

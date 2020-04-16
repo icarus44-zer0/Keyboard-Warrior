@@ -5,6 +5,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
 
+/**
+ *
+ * @author Purple Cobras
+ * @version 0.0.1
+ * @since 2020-04-16
+ */
 public class HashMap_File_Reader {
 
     public HashMap_File_Reader() {
