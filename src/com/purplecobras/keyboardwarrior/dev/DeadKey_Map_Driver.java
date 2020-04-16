@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior.file;
+package com.purplecobras.keyboardwarrior.dev;
 
 import java.util.HashMap;
 
@@ -60,6 +60,6 @@ public class DeadKey_Map_Driver {
         map.put("28", "Back Slash");
         map.put("29", "Open Bracket");
 
-        HashMap_File_Writer.hashMap_Out(map, Ser_File_Name.SF4);
+        HashMap_File_Writer.hashMap_Out(map, Ser_File_Lib.SF4);
     }
 }

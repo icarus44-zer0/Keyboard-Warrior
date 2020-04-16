@@ -1,4 +1,7 @@
-package com.purplecobras.keyboardwarrior.file;
+package com.purplecobras.keyboardwarrior;
+
+import com.purplecobras.keyboardwarrior.dev.HashMap_File_Reader;
+import com.purplecobras.keyboardwarrior.dev.Ser_File_Lib;
 
 import java.util.HashMap;
 
@@ -7,7 +10,7 @@ public final class Shift_Key_Map {
     private static HashMap<String, String> shift_Key;
 
     private Shift_Key_Map() {
-        shift_Key = HashMap_File_Reader.hashMap_In(shift_Key, Ser_File_Name.SF2);
+        shift_Key = HashMap_File_Reader.hashMap_In(shift_Key, Ser_File_Lib.SF2);
     }
 
     public static Shift_Key_Map getInstance(){

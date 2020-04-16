@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior.file;
+package com.purplecobras.keyboardwarrior.dev;
 
 import java.util.HashMap;
 
@@ -20,7 +20,7 @@ public class CommandKey_Map_Driver {
         map.put("Slash", "/");
         map.put("Back Slash", "\\");
 
-        HashMap_File_Writer.hashMap_Out(map, Ser_File_Name.SF3);
+        HashMap_File_Writer.hashMap_Out(map, Ser_File_Lib.SF3);
 
     }
 }

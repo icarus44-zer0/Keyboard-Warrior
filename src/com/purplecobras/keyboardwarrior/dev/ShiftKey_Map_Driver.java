@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior.file;
+package com.purplecobras.keyboardwarrior.dev;
 
 import java.util.HashMap;
 
@@ -30,7 +30,7 @@ public class ShiftKey_Map_Driver {
         map.put("SLASH", "?");
         map.put("BACK SLASH", "|");
 
-        HashMap_File_Writer.hashMap_Out(map, Ser_File_Name.SF2);
+        HashMap_File_Writer.hashMap_Out(map, Ser_File_Lib.SF2);
 
     }
 

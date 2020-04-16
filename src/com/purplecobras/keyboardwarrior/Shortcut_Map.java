@@ -1,4 +1,7 @@
-package com.purplecobras.keyboardwarrior.file;
+package com.purplecobras.keyboardwarrior;
+
+import com.purplecobras.keyboardwarrior.dev.HashMap_File_Reader;
+import com.purplecobras.keyboardwarrior.dev.Ser_File_Lib;
 
 import java.util.HashMap;
 
@@ -8,7 +11,7 @@ public final class Shortcut_Map {
 
     private Shortcut_Map() {
 
-            shortcut_Key = HashMap_File_Reader.hashMap_In(shortcut_Key, Ser_File_Name.SF1);
+            shortcut_Key = HashMap_File_Reader.hashMap_In(shortcut_Key, Ser_File_Lib.SF1);
 
     }
 

@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior.file;
+package com.purplecobras.keyboardwarrior.dev;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class HashMap_File_Writer {
 
     public static void hashMap_Out(HashMap<String, String> map,String fileName) {
         try {
-            FileOutputStream fos = new FileOutputStream(Ser_File_Name.SER_PATH + fileName);
+            FileOutputStream fos = new FileOutputStream(Ser_File_Lib.SER_PATH + fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(map);
             oos.close();
