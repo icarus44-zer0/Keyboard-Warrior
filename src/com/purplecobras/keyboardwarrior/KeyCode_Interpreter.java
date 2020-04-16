@@ -111,7 +111,7 @@ public class KeyCode_Interpreter {
 
         if (dead_Keys.contains(key)){
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
-                KeyBoard_In_Buffer.reset();
+                KeyBoard_In_Buffer.reset_Buffer();
             }
             return false;
         }else{
