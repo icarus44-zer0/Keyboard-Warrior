@@ -1,18 +1,14 @@
 package com.purplecobras.keyboardwarrior;
 
-import java.security.KeyPair;
-import java.util.HashMap;
-
-public final class Buffer_Search{
+public final class Buffer_Search {
     private static Buffer_Search _instance = null; 
-    private HashMap<String, String> _shortcut_Map;
+    private Shortcut_Map shotcut_key = Shortcut_Map.getInstance();
     private String _key;
     private String _nextChar;
     private Object[] _buffer_array;
 
     private Buffer_Search(){
-        _shortcut_Map = new HashMap<String, String>();          // move to seperate class sington 
-        _shortcut_Map = HashMap_File_Reader.hashMap_In(_shortcut_Map);   // move to seperate class sington
+
     }
 
     public static Buffer_Search get_Instance(){
@@ -29,20 +25,15 @@ public final class Buffer_Search{
             for(int i = 0 ; i < buffer.size(); i++){
                 _nextChar = (String) _buffer_array[buffer.size() - 1 - i];
                 _key = _nextChar + _key;
-                //printAllKeys(_key, i);   //used for debug
-                if (_shortcut_Map.containsKey(_key)){
+                if (shotcut_key.getShortcut_Key().containsKey(_key)){
                     Shortcut shortcut = new Shortcut();
                     shortcut.set_scKey(_key);
-                    shortcut.set_scValue(_shortcut_Map.get(_key));
+                    shortcut.set_scValue(shotcut_key.getShortcut_Key().get(_key));
                     return shortcut;
                 }
             }
         }
         return null;
-    }
-
-    private void printAllKeys(String _key,int i) {
-        System.out.println("KEY_INDEX: " + i + " "+ "KEY: " + _key);
     }
 
     private void resetKey() {
