@@ -4,9 +4,10 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 import java.io.IOException;
 
-public class Clipboard_accessor{
+public class Clipboard_Accessor {
 
-    Clipboard_accessor(){}
+	Clipboard_Accessor() {
+	}
 
     public static String readClipboard() throws IOException{
 		Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard();
