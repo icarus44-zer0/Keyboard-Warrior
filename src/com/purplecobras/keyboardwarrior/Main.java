@@ -19,8 +19,6 @@ public class Main {
 
 		listener.setup();
 
-		//Paste_debug();
-
 		while (true) {
 			KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
 			try {
