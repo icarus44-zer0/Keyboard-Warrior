@@ -2,7 +2,7 @@ package com.purplecobras.keyboardwarrior.file;
 
 import java.util.HashMap;
 
-public class ShortCut_File_Driver {
+public class ShortCut_Map_Driver {
     public static void main(String[] args) {
 
         HashMap<String,String> map = new HashMap<String,String>();

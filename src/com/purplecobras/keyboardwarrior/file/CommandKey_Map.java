@@ -2,17 +2,17 @@ package com.purplecobras.keyboardwarrior.file;
 
 import java.util.HashMap;
 
-public final class Command_Key {
-    private static Command_Key _instance = null;
+public final class CommandKey_Map {
+    private static CommandKey_Map _instance = null;
     private static HashMap<String, String> command_Key;
 
-    private Command_Key() {
+    private CommandKey_Map() {
         command_Key = HashMap_File_Reader.hashMap_In(command_Key, Ser_File_Name.SF3);
     }
 
-    public static Command_Key getInstance() {
+    public static CommandKey_Map getInstance() {
         if (_instance == null) {
-            _instance = new Command_Key();
+            _instance = new CommandKey_Map();
         }
         return _instance;
     }
@@ -26,7 +26,7 @@ public final class Command_Key {
     }
 
     public void setCommand_Key(HashMap<String, String> command_Key) {
-        Command_Key.command_Key = command_Key;
+        CommandKey_Map.command_Key = command_Key;
     }
     
 

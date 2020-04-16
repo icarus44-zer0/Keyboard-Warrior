@@ -2,15 +2,15 @@ package com.purplecobras.keyboardwarrior;
 
 import java.util.HashMap;
 
-import com.purplecobras.keyboardwarrior.file.Command_Key;
-import com.purplecobras.keyboardwarrior.file.Dead_Key;
-import com.purplecobras.keyboardwarrior.file.Shift_Key;
+import com.purplecobras.keyboardwarrior.file.CommandKey_Map;
+import com.purplecobras.keyboardwarrior.file.DeadKey_Map;
+import com.purplecobras.keyboardwarrior.file.Shift_Key_Map;
 
 public class KeyCode_Interpreter {
     private static boolean shiftPress;
-    private static Dead_Key dead_key = Dead_Key.getInstance();
-    private static Command_Key command_key = Command_Key.getInstance();
-    private static Shift_Key shift_Key = Shift_Key.getInstance();
+    private static DeadKey_Map dead_key = DeadKey_Map.getInstance();
+    private static CommandKey_Map command_key = CommandKey_Map.getInstance();
+    private static Shift_Key_Map shift_Key = Shift_Key_Map.getInstance();
 
     KeyCode_Interpreter() {
         shiftPress = false;

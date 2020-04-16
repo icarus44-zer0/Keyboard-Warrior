@@ -2,7 +2,7 @@ package com.purplecobras.keyboardwarrior.file;
 
 import java.util.HashMap;
 
-public class Shift_Key_Driver {
+public class ShiftKey_Map_Driver {
 
     public static void main(String[] args) {
 

@@ -2,7 +2,7 @@ package com.purplecobras.keyboardwarrior.file;
 
 import java.util.HashMap;
 
-public class Dead_Key_Driver {
+public class DeadKey_Map_Driver {
     public static void main(String[] args) {
 
         HashMap<String,String> map = new HashMap<String,String>();

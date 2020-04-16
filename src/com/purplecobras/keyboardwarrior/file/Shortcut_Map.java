@@ -2,19 +2,19 @@ package com.purplecobras.keyboardwarrior.file;
 
 import java.util.HashMap;
 
-public final class Shortcut_Key {
-    private static Shortcut_Key _instance = null;
+public final class Shortcut_Map {
+    private static Shortcut_Map _instance = null;
     public static HashMap<String, String> shortcut_Key;
 
-    private Shortcut_Key() {
+    private Shortcut_Map() {
 
             shortcut_Key = HashMap_File_Reader.hashMap_In(shortcut_Key, Ser_File_Name.SF1);
 
     }
 
-    public static Shortcut_Key getInstance(){
+    public static Shortcut_Map getInstance(){
         if (_instance == null) {
-            _instance = new Shortcut_Key();
+            _instance = new Shortcut_Map();
         }
         return _instance;
     }
@@ -29,7 +29,7 @@ public final class Shortcut_Key {
     }
 
     public void setShortcut_Key(HashMap<String, String> shortcut_Key) {
-        Shortcut_Key.shortcut_Key = shortcut_Key;
+        Shortcut_Map.shortcut_Key = shortcut_Key;
     }
 
 }
