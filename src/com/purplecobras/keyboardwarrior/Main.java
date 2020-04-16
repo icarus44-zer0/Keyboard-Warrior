@@ -2,6 +2,13 @@ package com.purplecobras.keyboardwarrior;
 
 import java.awt.Robot;
 
+/**
+ *
+ * @author Purple Cobras
+ * @version 0.0.1
+ * @since 2020-04-16
+ */
+
 public class Main {
 	public static final int MAX_BUFFER_SIZE = 10;
 
