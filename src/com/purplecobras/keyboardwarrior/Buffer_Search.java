@@ -1,8 +1,10 @@
 package com.purplecobras.keyboardwarrior;
 
 /**
- * Buffer Search class for searching a Circular Fifo. Singleton Class Builds key
- * combinations from all buffer elements Compares key combinations to HashMap
+ * A Buffer Search class for searching a Circular Fifo. 
+ * Singleton Class 
+ * Builds all possible sequentail key combinations from buffer elements 
+ * Compares key combinations to HashMap
  * Stores Key & Value pairs in a custom Shortcut Object
  *
  * @author Purple Cobras
@@ -11,10 +13,11 @@ package com.purplecobras.keyboardwarrior;
  */
 public final class Buffer_Search {
     private static Buffer_Search _instance = null;
-    private Shortcut_Map _shotcut_key = Shortcut_Map.getInstance();
-    private String _element;
-    private String _nextChar;
-    private Object[] _buffer_array;
+    private static Shortcut_Map _shotcut_map;
+    private static Shortcut _shortcut;
+    private static String _element;
+    private static String _nextChar;
+    private static Object[] _bufferArray;
 
     /**
      * private contructor for Singleton class
@@ -31,6 +34,11 @@ public final class Buffer_Search {
     public static Buffer_Search get_Instance() {
         if (_instance == null) {
             _instance = new Buffer_Search();
+            _shortcut = new Shortcut();
+            _shotcut_map = Shortcut_Map.getInstance();
+            _element = null;
+            _nextChar = null;
+            _bufferArray = null;
         }
         return _instance;
     }
@@ -45,16 +53,15 @@ public final class Buffer_Search {
      */
     public Shortcut bufferSearch(KeyBoard_In_Buffer buffer) {
         while (buffer.isFull()) {
-            _buffer_array = buffer.toArray();
+            _bufferArray = buffer.toArray();
             resetKey();
             for (int i = 0; i < buffer.size(); i++) {
-                _nextChar = (String) _buffer_array[buffer.size() - 1 - i];
+                _nextChar = (String) _bufferArray[buffer.size() - 1 - i];
                 _element = _nextChar + _element;
-                if (_shotcut_key.get_Shortcut_Map().containsKey(_element)) {
-                    Shortcut shortcut = new Shortcut();
-                    shortcut.set_scKey(_element);
-                    shortcut.set_scValue(_shotcut_key.get_Shortcut_Map().get(_element));
-                    return shortcut;
+                if (_shotcut_map.get_Shortcut_Map().containsKey(_element)) {
+                    _shortcut.set_scKey(_element);
+                    _shortcut.set_scValue(_shotcut_map.get_Shortcut_Map().get(_element));
+                    return _shortcut;
                 }
             }
         }
