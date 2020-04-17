@@ -44,7 +44,7 @@ public final class CommandKey_Map {
      * 
      * @return
      */
-    public HashMap<String, String> getCommand_Key() {
+    public HashMap<String, String> get_CommandKey_Map() {
         return command_Key;
     }
 
@@ -52,7 +52,7 @@ public final class CommandKey_Map {
      * 
      * @param command_Key
      */
-    public void setCommand_Key(HashMap<String, String> command_Key) {
+    public void set_CommandKey_Map(HashMap<String, String> command_Key) {
         CommandKey_Map.command_Key = command_Key;
     }
 

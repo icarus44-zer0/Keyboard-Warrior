@@ -45,7 +45,7 @@ public final class Shortcut_Map {
      * 
      * @return
      */
-    public HashMap<String, String> getShortcut_Key() {
+    public HashMap<String, String> get_Shortcut_Map() {
         return shortcut_Key;
     }
 
@@ -53,7 +53,7 @@ public final class Shortcut_Map {
      * 
      * @param shortcut_Key
      */
-    public void setShortcut_Key(HashMap<String, String> shortcut_Key) {
+    public void set_Shortcut_Map(HashMap<String, String> shortcut_Key) {
         Shortcut_Map.shortcut_Key = shortcut_Key;
     }
 

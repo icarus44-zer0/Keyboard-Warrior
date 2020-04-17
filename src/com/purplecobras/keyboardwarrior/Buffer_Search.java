@@ -50,10 +50,10 @@ public final class Buffer_Search {
             for (int i = 0; i < buffer.size(); i++) {
                 _nextChar = (String) _buffer_array[buffer.size() - 1 - i];
                 _element = _nextChar + _element;
-                if (_shotcut_key.getShortcut_Key().containsKey(_element)) {
+                if (_shotcut_key.get_Shortcut_Map().containsKey(_element)) {
                     Shortcut shortcut = new Shortcut();
                     shortcut.set_scKey(_element);
-                    shortcut.set_scValue(_shotcut_key.getShortcut_Key().get(_element));
+                    shortcut.set_scValue(_shotcut_key.get_Shortcut_Map().get(_element));
                     return shortcut;
                 }
             }

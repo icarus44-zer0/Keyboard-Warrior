@@ -43,7 +43,7 @@ public final class DeadKey_Map {
      * 
      * @return
      */
-    public HashMap<String, String> getDead_Key() {
+    public HashMap<String, String> get_DeadKey_Map() {
         return dead_Key;
     }
 
@@ -51,7 +51,7 @@ public final class DeadKey_Map {
      * 
      * @param dead_Keys
      */
-    public void setDead_Key(HashMap<String, String> dead_Keys) {
+    public void set_DeadKey_Map(HashMap<String, String> dead_Keys) {
         DeadKey_Map.dead_Key = dead_Keys;
     }
 
