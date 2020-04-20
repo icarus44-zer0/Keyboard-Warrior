@@ -12,7 +12,7 @@ public class KeyCode_Interpreter {
     private static boolean shiftPress;
     private static DeadKey_Map dead_key = DeadKey_Map.getInstance();
     private static CommandKey_Map command_key = CommandKey_Map.getInstance();
-    private static Shift_Key_Map shift_Key = Shift_Key_Map.getInstance();
+    private static ShiftKey_Map shift_Key = ShiftKey_Map.getInstance();
 
     /**
      * 
@@ -27,7 +27,7 @@ public class KeyCode_Interpreter {
      * @return
      */
     public static boolean isSpecialKey(String key) {
-        if (dead_key.getDead_Key().containsValue(key)) {
+        if (dead_key.get_DeadKey_Map().containsValue(key)) {
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
                 KeyBoard_In_Buffer.reset_Buffer();
             }
@@ -42,7 +42,7 @@ public class KeyCode_Interpreter {
      * @return
      */
     public static HashMap<String, String> getSpecialKeys() {
-        return command_key.getCommand_Key();
+        return command_key.get_CommandKey_Map();
     }
 
     /**
@@ -50,7 +50,7 @@ public class KeyCode_Interpreter {
      * @return
      */
     public static HashMap<String, String> getShiftKeys() {
-        return shift_Key.getShift_Key();
+        return shift_Key.get_ShiftKey_Map();
     }
 
     /**
@@ -68,8 +68,8 @@ public class KeyCode_Interpreter {
      * @return
      */
     public static String formatKeyCode(String key) {
-        if (command_key.getCommand_Key().containsKey(key)) {
-            return command_key.getCommand_Key().get(key);
+        if (command_key.get_CommandKey_Map().containsKey(key)) {
+            return command_key.get_CommandKey_Map().get(key);
         }
 
         return key;
@@ -81,8 +81,8 @@ public class KeyCode_Interpreter {
      * @return
      */
     public static String getShiftValue(String key) {
-        if (shift_Key.getShift_Key().containsKey(key)) {
-            return shift_Key.getShift_Key().get(key);
+        if (shift_Key.get_ShiftKey_Map().containsKey(key)) {
+            return shift_Key.get_ShiftKey_Map().get(key);
         }
 
         return key;
@@ -100,8 +100,8 @@ public class KeyCode_Interpreter {
             } else {
                 if (!isSpecialKey(key) == false) {
                     isStandardKey(key.toLowerCase());
-                } else if (command_key.getCommand_Key().containsKey(key)) {
-                    isStandardKey(command_key.getCommand_Key().get(key));
+                } else if (command_key.get_CommandKey_Map().containsKey(key)) {
+                    isStandardKey(command_key.get_CommandKey_Map().get(key));
                 }
             }
         }
