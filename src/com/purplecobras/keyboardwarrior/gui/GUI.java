@@ -1,6 +1,9 @@
-package com.purplecobras.keyboardwarrior;
+package com.purplecobras.keyboardwarrior.gui;
 
 import javax.swing.*;
+
+import com.purplecobras.keyboardwarrior.Shortcut_Map;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.Color;
@@ -35,7 +38,7 @@ public class GUI implements ActionListener {
 
     static Shortcut_Map shortcut_map;
 
-    GUI() {
+    public GUI() {
         one = new JPanel(new BorderLayout());
         two = new JPanel(new BorderLayout());
         three = new JPanel(new BorderLayout());
