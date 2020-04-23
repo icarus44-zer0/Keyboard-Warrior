@@ -1,6 +1,7 @@
 package com.purplecobras.keyboardwarrior;
 
-import com.purplecobras.keyboardwarrior.gui.GUI_V2;
+//mport com.purplecobras.keyboardwarrior.gui.GUI_V2;
+import com.purplecobras.keyboardwarrior.gui.KBW_GUI;
 
 import java.awt.Robot;
 
@@ -22,7 +23,9 @@ public class Main {
 		Buffer_Search search = Buffer_Search.get_Instance();
 		Shortcut shortcut = new Shortcut();
 		
-		GUI_V2.init();	
+		KBW_GUI.GUI_Init();
+
+		//GUI_V2.init();	
 		listener.setup();
 	
 		while (true) {

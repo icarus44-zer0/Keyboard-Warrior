@@ -13,9 +13,14 @@ public abstract class GUI_V2 implements ActionListener {
     // ---- GLOBAL ----
     public static final String pageOneName = "PAGE ONE";
     public static final String pageTwoName = "PAGE TWO";
-    //public static final String pageThreeName = "PAGE THREE";
     public static final String pageFourName = "PAGE FOUR";
-    public static final Color PC_PURPLE = new Color(102, 0, 200);
+
+    public static final Color BACKGROUND_COLOR = new Color(102, 0, 200);
+    public static final Color BUTTON_COLOR = Color.GRAY;
+    public static final Color LABEL_COLOR = Color.GRAY;
+    public static final Color TABLE_COLOR = Color.GRAY;
+    public static final Color PANEL_COLOR = Color.GRAY;
+
     static CardLayout contentPaneLayout;
 
     // ---- PAGE ONE ----
@@ -42,12 +47,12 @@ public abstract class GUI_V2 implements ActionListener {
     private static final String editSCButtonLabel = "EDIT SHORTCUTS";
     private static final String deleteButtonLabel = "DELETE";
 
-    //private static final String cancelButtonLabel = "CANCEL";
+    // private static final String cancelButtonLabel = "CANCEL";
     private static JButton addSC_Button = new JButton(addSCButtonLabel);
     private static JButton edit_SCButton = new JButton(editSCButtonLabel);
     private static JButton return_Button = new JButton(returnButtonLabel);
     private static JButton delete_Button = new JButton(deleteButtonLabel);
-    //private static JButton cancel_Button = new JButton(cancelButtonLabel);
+    // private static JButton cancel_Button = new JButton(cancelButtonLabel);
     private static JPanel pageTwo_Panel = new JPanel(new GridLayout(4, 1, 10, 10));
     private static JPanel pageTwo_Center = new JPanel(new GridLayout(3, 4));
     private static JPanel pageTwo_FlowLabel = new JPanel(new FlowLayout());
@@ -72,8 +77,10 @@ public abstract class GUI_V2 implements ActionListener {
 
     private static JLabel table = new JLabel(p4_frameLabel, JLabel.CENTER);
 
-   // private static final String shortCutTableLabel = "<html><font size=4>Labels + Keys List</font></html>";
-   // private static JLabel shortCut_Table = new JLabel(shortCutTableLabel, JLabel.CENTER);
+    // private static final String shortCutTableLabel = "<html><font size=4>Labels +
+    // Keys List</font></html>";
+    // private static JLabel shortCut_Table = new JLabel(shortCutTableLabel,
+    // JLabel.CENTER);
 
     static Object[] shortcutMap_Values;
     static Object[] shortcutMap_Keys;
@@ -91,7 +98,7 @@ public abstract class GUI_V2 implements ActionListener {
 
         p4_Setup();
 
-        // final 
+        // final
         pageConfig();
     }
 
@@ -110,10 +117,10 @@ public abstract class GUI_V2 implements ActionListener {
     }
 
     private static void p1_setColors() {
-        pageOne_Panel.setBackground(PC_PURPLE);
-        exit_Button.setBackground(Color.GRAY);
-        add_Button.setBackground(Color.GRAY);
-        edit_Button.setBackground(Color.GRAY);
+        pageOne_Panel.setBackground(PANEL_COLOR);
+        exit_Button.setBackground(BUTTON_COLOR);
+        add_Button.setBackground(BUTTON_COLOR);
+        edit_Button.setBackground(BUTTON_COLOR);
     }
 
     private static void p1_loadButtons() {
@@ -152,14 +159,20 @@ public abstract class GUI_V2 implements ActionListener {
 
     private static void p2_Setup() {
         pageTwo_Panel.add(new JLabel(p2_frameLabel, JLabel.CENTER), BorderLayout.NORTH);
-        pageTwo_FlowLabel.add(new JLabel("Value:", JLabel.RIGHT));
-        pageTwo_ShortcutValueFeild.setPreferredSize(new Dimension(250,20));
-        pageTwo_FlowLabel.add(pageTwo_ShortcutValueFeild);
+
         pageTWO_flowKey.add(new JLabel("  Key:", JLabel.RIGHT));
-        pageTwo_ShortcutKeyFeild.setPreferredSize(new Dimension(250,20));
+        pageTwo_ShortcutKeyFeild.setPreferredSize(new Dimension(250, 20));
+
         pageTWO_flowKey.add(pageTwo_ShortcutKeyFeild);
-        pageTwo_Center.add(pageTwo_FlowLabel);
+
+        pageTwo_FlowLabel.add(new JLabel("Value:", JLabel.RIGHT));
+        pageTwo_ShortcutValueFeild.setPreferredSize(new Dimension(250, 20));
+
+        pageTwo_FlowLabel.add(pageTwo_ShortcutValueFeild);
+
         pageTwo_Center.add(pageTWO_flowKey);
+        pageTwo_Center.add(pageTwo_FlowLabel);
+
         pageTwo_Panel.add(pageTwo_Center, BorderLayout.CENTER);
 
         p2_loadButtons();
@@ -178,15 +191,16 @@ public abstract class GUI_V2 implements ActionListener {
     }
 
     private static void p2_setColors() {
-        pageTwo_Panel.setBackground(Color.GRAY);
-        addSC_Button.setBackground(Color.MAGENTA);
-        edit_SCButton.setBackground(Color.GRAY);
-        return_Button.setBackground(Color.GRAY);
+        pageTwo_Panel.setBackground(PANEL_COLOR);
+        addSC_Button.setBackground(BUTTON_COLOR);
+        edit_SCButton.setBackground(BUTTON_COLOR);
+        return_Button.setBackground(BUTTON_COLOR);
     }
 
     private static void addSCButtonPress() {
         addSC_Button.addActionListener(e -> {
             addJTEXTtoSCmap();
+            p4_Setup();
             contentPaneLayout.show(contentPane, pageFourName);
         });
     }
@@ -195,10 +209,9 @@ public abstract class GUI_V2 implements ActionListener {
         Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
         String add_key = pageTwo_ShortcutKeyFeild.getText();
         String add_value = pageTwo_ShortcutValueFeild.getText();
-        shortcut_map.get_Shortcut_Map().put(add_key,add_value);
+        shortcut_map.get_Shortcut_Map().put(add_key, add_value);
         shortcut_map = Shortcut_Map.getInstance();
         updateJTable();
-
     }
 
     private static void editSCButtonPress() {
@@ -218,17 +231,19 @@ public abstract class GUI_V2 implements ActionListener {
      * 
      * ////// PAGE FOUR: GRID /////////
      * 
-     * we dont talk about page 3 
+     * we dont talk about page 3
      */
 
     private static void p4_Setup() {
 
         JLabel tableLabel = new JLabel("<html><font size=4>Value & Key List</font></html>", JLabel.CENTER);
         pageFour_Panel.add(tableLabel, BorderLayout.NORTH);
-        updateJTable();
 
-        //JTable tableList = new JTable(shortcutGridArray, list);
-        tableList.setBackground(Color.WHITE);
+        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        shortcutMap_Keys = shortcut_map.get_Shortcut_Map().keySet().toArray();
+        shortcutMap_Values = shortcut_map.get_Shortcut_Map().values().toArray();
+        shortcutGridArray = concat(shortcutMap_Keys, shortcutMap_Values);
+        tableList = new JTable(shortcutGridArray, list);
         JScrollPane tmp = new JScrollPane(tableList);
         JScrollPane tmp2 = new JScrollPane();
         tmp2.setViewport(tmp.getViewport());
@@ -242,8 +257,8 @@ public abstract class GUI_V2 implements ActionListener {
 
     private static void p4_setColors() {
 
-        gridEditButton.setBackground(Color.WHITE);
-        gridDeleteButton.setBackground(Color.WHITE);
+        gridEditButton.setBackground(BUTTON_COLOR);
+        gridDeleteButton.setBackground(BUTTON_COLOR);
     }
 
     private static void p4_loadButtons() {
@@ -266,11 +281,17 @@ public abstract class GUI_V2 implements ActionListener {
     }
 
     private static void updateJTable() {
+        table.invalidate();
+
         Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
         shortcutMap_Keys = shortcut_map.get_Shortcut_Map().keySet().toArray();
         shortcutMap_Values = shortcut_map.get_Shortcut_Map().values().toArray();
         shortcutGridArray = concat(shortcutMap_Keys, shortcutMap_Values);
         tableList = new JTable(shortcutGridArray, list);
+        JScrollPane tmp = new JScrollPane(tableList);
+        JScrollPane tmp2 = new JScrollPane();
+        tmp2.setViewport(tmp.getViewport());
+        pageFour_Panel.add(tmp2, BorderLayout.CENTER);
     }
 
     private static Object[][] concat(Object[] key, Object[] val) {
@@ -292,8 +313,8 @@ public abstract class GUI_V2 implements ActionListener {
         contentPane.add(pageFourName, pageFour_Panel);
 
         // see a specific page (start)
-        contentPaneLayout.show(contentPane, pageOneName);
-        // contentPaneLayout.show(contentPane, pageTwoName);
+        // contentPaneLayout.show(contentPane, pageOneName);
+        contentPaneLayout.show(contentPane, pageTwoName);
         // contentPaneLayout.show(contentPane, pageFourName);
 
         frame.pack();
