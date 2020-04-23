@@ -20,7 +20,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		//splashpage sp = new splashpage();
-		pageOne.show();
+		pageOne.loadPage1();
 		//textExpanderInterface.printFrame();
 		
 		//GUI.setup();

@@ -5,57 +5,89 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.Color;
 
-public abstract class pageOne implements ActionListener{
-    static JFrame frame = new JFrame("Text Expander");
-    static CardLayout contentPaneLayout;
-    static JPanel contentPane;
-    static String list[] = { "Label", "Key" };
-    static Color white = new Color(255, 255, 255);
-    static Color gray = new Color(187, 189, 180);
-    static Color purple = new Color(102, 0, 200);
+public abstract class pageOne implements ActionListener {
+    public static final String frameLabel = "<html><font size=5>Keyboard Shortcut</font></html>";
+    public static final String appNameLabel = "Keyboard Warrior";
+    public static final String addButtonLabel = "ADD";
+    public static final String editButtonLabel = "EDIT";
+    public static final String exitButtonLabel = "EXIT";
 
-    public static void show(){
-        
+    static final Color PC_PURPLE = new Color(102, 0, 200);
+   
+
+    static JFrame frame = new JFrame(appNameLabel);
+    static JPanel pageOne_Panel = new JPanel(new BorderLayout());
+    static JPanel contentPane;
+    static CardLayout contentPaneLayout;
+ 
+    static JButton add_Button = new JButton(addButtonLabel);
+    static JButton edit_Button = new JButton(editButtonLabel);
+    static JButton exit_Button = new JButton(exitButtonLabel);
+
+    static JButton add_Button2 = new JButton("ADD");
+    static JButton cancelExit_Button = new JButton("CANCEL/EXIT");
+    static JButton delete_Button = new JButton("DELETE");
+    static JButton cancel_Button = new JButton("CANCEL");
+
+    public static void loadPage1() {
+        pageSetup();
+        loadButtons();
+        setColors();
+        exitPressed();
+        editPressed();
+        addPressed();
+        pageOreintation();
+    }
+
+    public static void pageSetup() {
         contentPane = (JPanel) frame.getContentPane();
         contentPane.setLayout(contentPaneLayout = new CardLayout());
 
-        // -----ONE > Main Page
-        // -------------------------------------------------------------------
-        JPanel one = new JPanel(new BorderLayout());
-        one.add(new JLabel("<html><font size=5>INTRO</font></html>", JLabel.CENTER), BorderLayout.NORTH);
-        one.add(new JLabel("exit", JLabel.CENTER), BorderLayout.SOUTH);
-        JPanel oneButtons = new JPanel(new FlowLayout());
+        pageOne_Panel.add(new JLabel(frameLabel, JLabel.CENTER), BorderLayout.NORTH);
+        pageOne_Panel.add(new JLabel("Exit", JLabel.CENTER), BorderLayout.SOUTH);
+    }
+
+    public static void setColors() {
+        pageOne_Panel.setBackground(PC_PURPLE);
+        exit_Button.setBackground(Color.GRAY);
+        add_Button.setBackground(Color.WHITE);
+        edit_Button.setBackground(Color.WHITE);
+    }
+
+    public static void loadButtons() {
+        JPanel pageOne_Buttons = new JPanel(new FlowLayout());
 
         // buttons
-        one.add(oneButtons, BorderLayout.SOUTH);
-        oneButtons.add(pageOne_Button.add_Button);
-        oneButtons.add(pageOne_Button.viewEdit_Button);
+        pageOne_Panel.add(pageOne_Buttons, BorderLayout.SOUTH);
+        pageOne_Buttons.add(add_Button);
+        pageOne_Buttons.add(edit_Button);
         // oneButtons.add(B3);
-        oneButtons.add(pageOne_Button.exit_Button);
+        pageOne_Buttons.add(exit_Button);
 
-        // play with colors ---------------------
-        one.setBackground(purple);
-        B4.setBackground(gray);
-        B1.setBackground(white);
-        B2.setBackground(white);
-        // -------------------------------------
+    }
 
-        B1.addActionListener(e -> {
+    public static void exitPressed() {
+        exit_Button.addActionListener(e -> {
+            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+        });
+    }
+
+    public static void editPressed() {
+        edit_Button.addActionListener(e -> {
+            // go to three
+            contentPaneLayout.show(contentPane, "THREE");
+        });
+    }
+
+    public static void addPressed() {
+        add_Button.addActionListener(e -> {
             // go to two
             contentPaneLayout.show(contentPane, "TWO");
         });
-        B2.addActionListener(e -> {
-            contentPaneLayout.show(contentPane, "THREE");
+    }
 
-        });
-        /*
-         * B3.addActionListener(e -> { //go to four });
-         */
-        B4.addActionListener(e -> {
-            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-        });
-
-        contentPane.add("ONE", one);
+    public static void pageOreintation() {
+        contentPane.add("ONE", pageOne_Panel);
         // contentPane.add("TWO", two);
         // contentPane.add("THREE", three);
 
