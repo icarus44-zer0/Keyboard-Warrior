@@ -10,14 +10,12 @@ import java.awt.Color;
 
 public abstract class GUI_V2 implements ActionListener {
 
-    // ---- NEEDED BY ALL ----
+    // ---- GLOBAL ----
     public static final String pageOneName = "PAGE ONE";
     public static final String pageTwoName = "PAGE TWO";
     //public static final String pageThreeName = "PAGE THREE";
     public static final String pageFourName = "PAGE FOUR";
-
     public static final Color PC_PURPLE = new Color(102, 0, 200);
-
     static CardLayout contentPaneLayout;
 
     // ---- PAGE ONE ----
@@ -31,11 +29,9 @@ public abstract class GUI_V2 implements ActionListener {
     static JButton add_Button = new JButton(addButtonLabel);
     static JButton edit_Button = new JButton(editButtonLabel);
     static JButton exit_Button = new JButton(exitButtonLabel);
-
     static JPanel pageOne_Panel = new JPanel(new BorderLayout());
     static JPanel pageOne_Buttons = new JPanel(new FlowLayout());
     static JPanel contentPane;
-
     static JFrame frame = new JFrame(appNameLabel);
 
     // ---- PAGE TWO ----
@@ -45,40 +41,36 @@ public abstract class GUI_V2 implements ActionListener {
     private static final String addSCButtonLabel = "ADD SHORTCUT";
     private static final String editSCButtonLabel = "EDIT SHORTCUTS";
     private static final String deleteButtonLabel = "DELETE";
-    //private static final String cancelButtonLabel = "CANCEL";
 
+    //private static final String cancelButtonLabel = "CANCEL";
     private static JButton addSC_Button = new JButton(addSCButtonLabel);
     private static JButton edit_SCButton = new JButton(editSCButtonLabel);
     private static JButton return_Button = new JButton(returnButtonLabel);
     private static JButton delete_Button = new JButton(deleteButtonLabel);
     //private static JButton cancel_Button = new JButton(cancelButtonLabel);
-
     private static JPanel pageTwo_Panel = new JPanel(new GridLayout(4, 1, 10, 10));
     private static JPanel pageTwo_Center = new JPanel(new GridLayout(3, 4));
     private static JPanel pageTwo_FlowLabel = new JPanel(new FlowLayout());
     private static JTextField pageTwo_ShortcutKeyFeild = new JTextField("");
     private static JPanel pageTWO_flowKey = new JPanel(new FlowLayout());
-
     private static JPanel pageTwo_Buttons = new JPanel(new FlowLayout());
     private static JTextField pageTwo_ShortcutValueFeild = new JTextField("");
 
     // ----- PAGE FOUR : GRID -----
-
+    private static final String p4_frameLabel = "<html><font size=4>Labels + Keys List</font></html>";
     private static JPanel pageFour_Panel = new JPanel(new BorderLayout());
     private static JPanel pageFour_Buttons = new JPanel(new FlowLayout());
-
     private static final String listLabel1 = "VALUE: ";
     private static final String listLabel2 = "KEY: ";
-
     private static final String gridDeleteButtonLabel = "DELETE";
     private static final String gridEditButtonLabel = "EDIT";
 
     private static String list[] = { listLabel1, listLabel2 };
-
     private static JButton gridDeleteButton = new JButton(gridDeleteButtonLabel);
     private static JButton gridEditButton = new JButton(gridEditButtonLabel);
     private static JTable tableList;
-    private static Shortcut_Map shortcut_map;
+
+    private static JLabel table = new JLabel(p4_frameLabel, JLabel.CENTER);
 
    // private static final String shortCutTableLabel = "<html><font size=4>Labels + Keys List</font></html>";
    // private static JLabel shortCut_Table = new JLabel(shortCutTableLabel, JLabel.CENTER);
@@ -187,17 +179,26 @@ public abstract class GUI_V2 implements ActionListener {
 
     private static void p2_setColors() {
         pageTwo_Panel.setBackground(Color.GRAY);
-        addSC_Button.setBackground(Color.GRAY);
+        addSC_Button.setBackground(Color.MAGENTA);
         edit_SCButton.setBackground(Color.GRAY);
         return_Button.setBackground(Color.GRAY);
     }
 
     private static void addSCButtonPress() {
         addSC_Button.addActionListener(e -> {
-            Shortcut_Map.getInstance().get_Shortcut_Map().put(pageTwo_ShortcutKeyFeild.toString(), pageTwo_ShortcutValueFeild.toString());
-            updateJTable();
+            addJTEXTtoSCmap();
             contentPaneLayout.show(contentPane, pageFourName);
         });
+    }
+
+    private static void addJTEXTtoSCmap() {
+        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        String add_key = pageTwo_ShortcutKeyFeild.getText();
+        String add_value = pageTwo_ShortcutValueFeild.getText();
+        shortcut_map.get_Shortcut_Map().put(add_key,add_value);
+        shortcut_map = Shortcut_Map.getInstance();
+        updateJTable();
+
     }
 
     private static void editSCButtonPress() {
@@ -217,13 +218,13 @@ public abstract class GUI_V2 implements ActionListener {
      * 
      * ////// PAGE FOUR: GRID /////////
      * 
-     * 
+     * we dont talk about page 3 
      */
 
     private static void p4_Setup() {
 
-        JLabel table = new JLabel("<html><font size=4>Labels + Keys List</font></html>", JLabel.CENTER);
-        pageFour_Panel.add(table, BorderLayout.NORTH);
+        JLabel tableLabel = new JLabel("<html><font size=4>Value & Key List</font></html>", JLabel.CENTER);
+        pageFour_Panel.add(tableLabel, BorderLayout.NORTH);
         updateJTable();
 
         //JTable tableList = new JTable(shortcutGridArray, list);
@@ -265,7 +266,7 @@ public abstract class GUI_V2 implements ActionListener {
     }
 
     private static void updateJTable() {
-        shortcut_map = Shortcut_Map.getInstance();
+        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
         shortcutMap_Keys = shortcut_map.get_Shortcut_Map().keySet().toArray();
         shortcutMap_Values = shortcut_map.get_Shortcut_Map().values().toArray();
         shortcutGridArray = concat(shortcutMap_Keys, shortcutMap_Values);
