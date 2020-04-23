@@ -19,8 +19,8 @@ public abstract class GUI_SplashPage implements ActionListener {
 
 
     public static void splashPage_Setup() {
-        KBW_GUI.contentPane = (JPanel) KBW_GUI.frame.getContentPane();
-        KBW_GUI.contentPane.setLayout(KBW_GUI.contentPaneLayout = new CardLayout());
+        GUI_KBW.contentPane = (JPanel) GUI_KBW.frame.getContentPane();
+        GUI_KBW.contentPane.setLayout(GUI_KBW.contentPaneLayout = new CardLayout());
         splashPage_Panel.add(new JLabel(splashPage_frameLabel, JLabel.CENTER), BorderLayout.NORTH);
         splashPage_Panel.add(new JLabel("Exit", JLabel.CENTER), BorderLayout.SOUTH);
 
@@ -32,10 +32,10 @@ public abstract class GUI_SplashPage implements ActionListener {
     }
 
     private static void splashPage_setColors() {
-        splashPage_Panel.setBackground(KBW_GUI.PANEL_COLOR);
-        exit_Button.setBackground(KBW_GUI.BUTTON_COLOR);
-        add_Button.setBackground(KBW_GUI.BUTTON_COLOR);
-        edit_Button.setBackground(KBW_GUI.BUTTON_COLOR);
+        splashPage_Panel.setBackground(GUI_KBW.PANEL_COLOR);
+        exit_Button.setBackground(GUI_KBW.BUTTON_COLOR);
+        add_Button.setBackground(GUI_KBW.BUTTON_COLOR);
+        edit_Button.setBackground(GUI_KBW.BUTTON_COLOR);
     }
 
     private static void splashPage_loadButtons() {
@@ -48,19 +48,19 @@ public abstract class GUI_SplashPage implements ActionListener {
 
     private static void exitPressed() {
         exit_Button.addActionListener(e -> {
-            KBW_GUI.frame.dispatchEvent(new WindowEvent(KBW_GUI.frame, WindowEvent.WINDOW_CLOSING));
+            GUI_KBW.frame.dispatchEvent(new WindowEvent(GUI_KBW.frame, WindowEvent.WINDOW_CLOSING));
         });
     }
 
     private static void addPressed() {
         add_Button.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.newShortcutPage_Label);
+            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.newShortcutPage_Label);
         });
     }
 
     private static void editPressed() {
         edit_Button.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.shortcutTable_Lable);
+            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
         });
     }
 

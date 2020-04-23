@@ -64,16 +64,16 @@ public abstract class GUI_NewShotcut implements ActionListener {
     }
 
     private static void newShortcut_setColors() {
-        newShortcut_Panel.setBackground(KBW_GUI.PANEL_COLOR);
-        addSC_Button.setBackground(KBW_GUI.BUTTON_COLOR);
-        edit_SCButton.setBackground(KBW_GUI.BUTTON_COLOR);
-        return_Button.setBackground(KBW_GUI.BUTTON_COLOR);
+        newShortcut_Panel.setBackground(GUI_KBW.PANEL_COLOR);
+        addSC_Button.setBackground(GUI_KBW.BUTTON_COLOR);
+        edit_SCButton.setBackground(GUI_KBW.BUTTON_COLOR);
+        return_Button.setBackground(GUI_KBW.BUTTON_COLOR);
     }
 
     private static void addSCButtonPress() {
         addSC_Button.addActionListener(e -> {
             addJTEXTtoSCmap();
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.shortcutTable_Lable);
+            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
         });
     }
 
@@ -88,13 +88,13 @@ public abstract class GUI_NewShotcut implements ActionListener {
 
     private static void editSCButtonPress() {
         edit_SCButton.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.shortcutTable_Lable);
+            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
         });
     }
 
     private static void returnButtonPress() {
         return_Button.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.splashPage_Label);
+            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.splashPage_Label);
         });
     }
 }

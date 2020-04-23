@@ -58,8 +58,8 @@ public abstract class GUI_ShortcutTable implements ActionListener {
 
     private static void ShortcutTable_setColors() {
 
-        gridEditButton.setBackground(KBW_GUI.BUTTON_COLOR);
-        gridDeleteButton.setBackground(KBW_GUI.BUTTON_COLOR);
+        gridEditButton.setBackground(GUI_KBW.BUTTON_COLOR);
+        gridDeleteButton.setBackground(GUI_KBW.BUTTON_COLOR);
     }
 
     private static void ShortcutTable_loadButtons() {
@@ -70,14 +70,14 @@ public abstract class GUI_ShortcutTable implements ActionListener {
 
     private static void gridDeleteButtonPress() {
         delete_Button.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.shortcutTable_Lable);
+            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
 
         });
     }
 
     private static void gridEditButtonPress() {
         gridDeleteButton.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.shortcutTable_Lable);
+            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
         });
     }
 

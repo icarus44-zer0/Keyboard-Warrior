@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.Color;
 
-public abstract class KBW_GUI implements ActionListener {
+public abstract class GUI_KBW implements ActionListener {
     public static final String splashPage_Label = "SPLASHPAGE";
     public static final String newShortcutPage_Label = "NEW_SHORTCUT";
     public static final String shortcutTable_Lable = "SHORTCUT_TABLE";
@@ -26,10 +26,10 @@ public abstract class KBW_GUI implements ActionListener {
         GUI_SplashPage.splashPage_Setup();
         GUI_NewShotcut.newShortcut_Setup();
         GUI_ShortcutTable.ShortcutTable_Setup();
-        pageConfig();
+        GUI_Config();
     }
 
-    private static void pageConfig() {
+    private static void GUI_Config() {
         contentPane.add(splashPage_Label, GUI_SplashPage.splashPage_Panel);
         contentPane.add(newShortcutPage_Label, GUI_NewShotcut.newShortcut_Panel);
         contentPane.add(shortcutTable_Lable, GUI_ShortcutTable.ShortcutTable_Panel);
