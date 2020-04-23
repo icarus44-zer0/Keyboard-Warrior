@@ -56,11 +56,11 @@ public abstract class GUI_V2 implements ActionListener {
     private static JPanel pageTwo_Panel = new JPanel(new GridLayout(4, 1, 10, 10));
     private static JPanel pageTwo_Center = new JPanel(new GridLayout(3, 4));
     private static JPanel pageTwo_FlowLabel = new JPanel(new FlowLayout());
-    private static JTextField pageTwo_enterKey = new JTextField("");
+    private static JTextField pageTwo_ShortcutKeyFeild = new JTextField("");
     private static JPanel pageTWO_flowKey = new JPanel(new FlowLayout());
 
     private static JPanel pageTwo_Buttons = new JPanel(new FlowLayout());
-    private static JTextField pageTwo_enterLabel = new JTextField("");
+    private static JTextField pageTwo_ShortcutValueFeild = new JTextField("");
 
     // ----- PAGE FOUR : GRID -----
 
@@ -77,6 +77,8 @@ public abstract class GUI_V2 implements ActionListener {
 
     private static JButton gridDeleteButton = new JButton(gridDeleteButtonLabel);
     private static JButton gridEditButton = new JButton(gridEditButtonLabel);
+    private static JTable tableList;
+    private static Shortcut_Map shortcut_map;
 
    // private static final String shortCutTableLabel = "<html><font size=4>Labels + Keys List</font></html>";
    // private static JLabel shortCut_Table = new JLabel(shortCutTableLabel, JLabel.CENTER);
@@ -159,11 +161,11 @@ public abstract class GUI_V2 implements ActionListener {
     private static void p2_Setup() {
         pageTwo_Panel.add(new JLabel(p2_frameLabel, JLabel.CENTER), BorderLayout.NORTH);
         pageTwo_FlowLabel.add(new JLabel("Value:", JLabel.RIGHT));
-        pageTwo_enterLabel.setPreferredSize(new Dimension(250,20));
-        pageTwo_FlowLabel.add(pageTwo_enterLabel);
+        pageTwo_ShortcutValueFeild.setPreferredSize(new Dimension(250,20));
+        pageTwo_FlowLabel.add(pageTwo_ShortcutValueFeild);
         pageTWO_flowKey.add(new JLabel("  Key:", JLabel.RIGHT));
-        pageTwo_enterKey.setPreferredSize(new Dimension(250,20));
-        pageTWO_flowKey.add(pageTwo_enterKey);
+        pageTwo_ShortcutKeyFeild.setPreferredSize(new Dimension(250,20));
+        pageTWO_flowKey.add(pageTwo_ShortcutKeyFeild);
         pageTwo_Center.add(pageTwo_FlowLabel);
         pageTwo_Center.add(pageTWO_flowKey);
         pageTwo_Panel.add(pageTwo_Center, BorderLayout.CENTER);
@@ -192,6 +194,8 @@ public abstract class GUI_V2 implements ActionListener {
 
     private static void addSCButtonPress() {
         addSC_Button.addActionListener(e -> {
+            Shortcut_Map.getInstance().get_Shortcut_Map().put(pageTwo_ShortcutKeyFeild.toString(), pageTwo_ShortcutValueFeild.toString());
+            updateJTable();
             contentPaneLayout.show(contentPane, pageFourName);
         });
     }
@@ -222,7 +226,7 @@ public abstract class GUI_V2 implements ActionListener {
         pageFour_Panel.add(table, BorderLayout.NORTH);
         updateJTable();
 
-        JTable tableList = new JTable(shortcutGridArray, list);
+        //JTable tableList = new JTable(shortcutGridArray, list);
         tableList.setBackground(Color.WHITE);
         JScrollPane tmp = new JScrollPane(tableList);
         JScrollPane tmp2 = new JScrollPane();
@@ -261,10 +265,11 @@ public abstract class GUI_V2 implements ActionListener {
     }
 
     private static void updateJTable() {
-        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        shortcut_map = Shortcut_Map.getInstance();
         shortcutMap_Keys = shortcut_map.get_Shortcut_Map().keySet().toArray();
         shortcutMap_Values = shortcut_map.get_Shortcut_Map().values().toArray();
         shortcutGridArray = concat(shortcutMap_Keys, shortcutMap_Values);
+        tableList = new JTable(shortcutGridArray, list);
     }
 
     private static Object[][] concat(Object[] key, Object[] val) {
