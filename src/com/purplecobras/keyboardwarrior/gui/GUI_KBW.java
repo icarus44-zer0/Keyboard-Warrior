@@ -12,10 +12,10 @@ public abstract class GUI_KBW implements ActionListener {
     public static final String appNameLabel = "Keyboard Warrior";
 
     public static final Color BACKGROUND_COLOR = new Color(102, 0, 200);
-    public static final Color BUTTON_COLOR = Color.GRAY;
-    public static final Color LABEL_COLOR = Color.GRAY;
-    public static final Color TABLE_COLOR = Color.GRAY;
-    public static final Color PANEL_COLOR = Color.GRAY;
+    public static final Color BUTTON_COLOR = Color.WHITE;
+    public static final Color LABEL_COLOR = Color.WHITE;
+    public static final Color TABLE_COLOR = Color.WHITE;
+    public static final Color PANEL_COLOR = Color.WHITE;
 
     public static CardLayout contentPaneLayout;
 
@@ -34,10 +34,7 @@ public abstract class GUI_KBW implements ActionListener {
         contentPane.add(newShortcutPage_Label, GUI_NewShotcut.newShortcut_Panel);
         contentPane.add(shortcutTable_Lable, GUI_ShortcutTable.ShortcutTable_Panel);
 
-        // see a specific page (start)
-        contentPaneLayout.show(contentPane, splashPage_Label);
-        // contentPaneLayout.show(contentPane, pageTwoName);
-        // contentPaneLayout.show(contentPane, pageFourName);
+        setStartPage();
 
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -45,5 +42,22 @@ public abstract class GUI_KBW implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setResizable(false);
+    }
+
+    private static void setStartPage() {
+        /**
+         * Splash page
+         */
+        contentPaneLayout.show(contentPane, splashPage_Label);
+
+        /**
+         * Add New Shortcut Page
+         */
+        // contentPaneLayout.show(contentPane, pageTwoName);
+
+        /**
+         * Short Cut Tabel Page
+         */
+        // contentPaneLayout.show(contentPane, pageFourName);
     }
 }

@@ -10,25 +10,27 @@ import java.awt.event.*;
 public abstract class GUI_NewShotcut implements ActionListener {
     // ---- PAGE TWO ----
 
-    public static final String newShortcut_frameLabel = "<html><font size=5>Enter The Value & Key Below</font></html>";
-    public static final String returnButtonLabel = "RETURN";
-    public static final String addSCButtonLabel = "ADD SHORTCUT";
-    public static final String editSCButtonLabel = "EDIT SHORTCUTS";
+    private static final String newShortcut_frameLabel = "<html><font size=5>Enter The Value & Key Below</font></html>";
+    private static final String returnButtonLabel = "RETURN";
+    private static final String addSCButtonLabel = "ADD SHORTCUT";
+    private static final String editSCButtonLabel = "EDIT SHORTCUTS";
 
     // private static JButton cancel_Button = new JButton(cancelButtonLabel);
     // private static final String cancelButtonLabel = "CANCEL";
 
-    public static JButton addSC_Button = new JButton(addSCButtonLabel);
-    public static JButton edit_SCButton = new JButton(editSCButtonLabel);
-    public static JButton return_Button = new JButton(returnButtonLabel);
+    private static JButton addSC_Button = new JButton(addSCButtonLabel);
+    private static JButton edit_SCButton = new JButton(editSCButtonLabel);
+    private static JButton return_Button = new JButton(returnButtonLabel);
+
+
+    private static JPanel newShortcut_Center = new JPanel(new GridLayout(3, 4));
+    private static JPanel newShortcut_FlowLabel = new JPanel(new FlowLayout());
+    private static JTextField newShortcut_ShortcutKeyFeild = new JTextField("");
+    private static JPanel newShortcut_flowKey = new JPanel(new FlowLayout());
+    private static JPanel newShortcut_Buttons = new JPanel(new FlowLayout());
+    private static JTextField newShortcut_ShortcutValueFeild = new JTextField("");
 
     public static JPanel newShortcut_Panel = new JPanel(new GridLayout(4, 1, 10, 10));
-    public static JPanel newShortcut_Center = new JPanel(new GridLayout(3, 4));
-    public static JPanel newShortcut_FlowLabel = new JPanel(new FlowLayout());
-    public static JTextField newShortcut_ShortcutKeyFeild = new JTextField("");
-    public static JPanel newShortcut_flowKey = new JPanel(new FlowLayout());
-    public static JPanel newShortcut_Buttons = new JPanel(new FlowLayout());
-    public static JTextField newShortcut_ShortcutValueFeild = new JTextField("");
 
     public static void newShortcut_Setup() {
         newShortcut_Panel.add(new JLabel(newShortcut_frameLabel, JLabel.CENTER), BorderLayout.NORTH);

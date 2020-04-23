@@ -8,32 +8,29 @@ import java.awt.*;
 import java.awt.event.*;
 
 public abstract class GUI_ShortcutTable implements ActionListener {
-    public static final String ShortcutTable_frameLabel = "<html><font size=4>Labels + Keys List</font></html>";
+
+    private static final String ShortcutTable_frameLabel = "<html><font size=4>Labels + Keys List</font></html>";
+    private static final String listLabel1 = "VALUE: ";
+    private static final String listLabel2 = "KEY: ";
+    private static final String gridDeleteButtonLabel = "DELETE";
+    private static final String gridEditButtonLabel = "EDIT";
+    private static final String deleteButtonLabel = "DELETE";
+
     public static JPanel ShortcutTable_Panel = new JPanel(new BorderLayout());
     public static JPanel ShortcutTable_Buttons = new JPanel(new FlowLayout());
-    public static final String listLabel1 = "VALUE: ";
-    public static final String listLabel2 = "KEY: ";
-    public static final String gridDeleteButtonLabel = "DELETE";
-    public static final String gridEditButtonLabel = "EDIT";
 
-    public static String list[] = { listLabel1, listLabel2 };
-    public static JButton gridDeleteButton = new JButton(gridDeleteButtonLabel);
-    public static JButton gridEditButton = new JButton(gridEditButtonLabel);
-    public static JTable tableList;
+    private static JButton gridDeleteButton = new JButton(gridDeleteButtonLabel);
+    private static JButton gridEditButton = new JButton(gridEditButtonLabel);
+    private static JButton delete_Button = new JButton(deleteButtonLabel);
 
-    public static final String deleteButtonLabel = "DELETE";
-    public static JButton delete_Button = new JButton(deleteButtonLabel);
+    private static JTable tableList;
+    private static String list[] = { listLabel1, listLabel2 };
 
-    public static JLabel table = new JLabel(ShortcutTable_frameLabel, JLabel.CENTER);
+    private static JLabel table = new JLabel(ShortcutTable_frameLabel, JLabel.CENTER);
 
-    // private static final String shortCutTableLabel = "<html><font size=4>Labels +
-    // Keys List</font></html>";
-    // private static JLabel shortCut_Table = new JLabel(shortCutTableLabel,
-    // JLabel.CENTER);
-
-    static Object[] shortcutMap_Values;
-    static Object[] shortcutMap_Keys;
-    static Object[][] shortcutGridArray;
+    private static Object[] shortcutMap_Values;
+    private static Object[] shortcutMap_Keys;
+    private static Object[][] shortcutGridArray;
 
     public static void ShortcutTable_Setup() {
 
