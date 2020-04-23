@@ -7,7 +7,7 @@ import com.purplecobras.keyboardwarrior.Shortcut_Map;
 import java.awt.*;
 import java.awt.event.*;
 
-public abstract class GUI_AddNewShotcut implements ActionListener {
+public abstract class GUI_NewShotcut implements ActionListener {
     // ---- PAGE TWO ----
 
     public static final String newShortcut_frameLabel = "<html><font size=5>Enter The Value & Key Below</font></html>";
@@ -73,7 +73,7 @@ public abstract class GUI_AddNewShotcut implements ActionListener {
     private static void addSCButtonPress() {
         addSC_Button.addActionListener(e -> {
             addJTEXTtoSCmap();
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.pageFourName);
+            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.shortcutTable_Lable);
         });
     }
 
@@ -88,13 +88,13 @@ public abstract class GUI_AddNewShotcut implements ActionListener {
 
     private static void editSCButtonPress() {
         edit_SCButton.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.pageFourName);
+            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.shortcutTable_Lable);
         });
     }
 
     private static void returnButtonPress() {
         return_Button.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.pageOneName);
+            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.splashPage_Label);
         });
     }
 }

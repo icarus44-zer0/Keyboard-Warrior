@@ -70,14 +70,14 @@ public abstract class GUI_ShortcutTable implements ActionListener {
 
     private static void gridDeleteButtonPress() {
         delete_Button.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.pageFourName);
+            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.shortcutTable_Lable);
 
         });
     }
 
     private static void gridEditButtonPress() {
         gridDeleteButton.addActionListener(e -> {
-            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.pageFourName);
+            KBW_GUI.contentPaneLayout.show(KBW_GUI.contentPane, KBW_GUI.shortcutTable_Lable);
         });
     }
 
