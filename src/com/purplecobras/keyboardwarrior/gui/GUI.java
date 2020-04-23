@@ -186,36 +186,30 @@ public abstract class GUI implements ActionListener {
 
     }
 
+    private static Object[][] concat(Object[] key, Object[] val) {
+        Object res[][] = new Object[key.length][2];
+        if (key.length != val.length) {
+            throw new IllegalArgumentException("lenght are not equal, cannot perform");
+        }
+        for (int i = 0; i < key.length; i++) {
+            res[i][0] = key[i];
+            res[i][1] = val[i];
+        }
+        return res;
+    }
+
+    public static void updateJTable() {
+        shortcut_map = Shortcut_Map.getInstance();
+        Object[] key = shortcut_map.get_Shortcut_Map().keySet().toArray();
+        Object[] val = shortcut_map.get_Shortcut_Map().values().toArray();
+        Object[][] data = concat(key, val);
+        tableList = new JTable(data, list);
+        tableList.setBackground(white);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
 
     }
-
-    // private static Object[][] concat(Object[] key, Object[] val) {
-    //     Object res[][] = new Object[key.length][2];
-    //     if (key.length != val.length) {
-    //         throw new IllegalArgumentException("lenght are not equal, cannot perform");
-    //     }
-    //     for (int i = 0; i < key.length; i++) {
-    //         res[i][0] = key[i];
-    //         res[i][1] = val[i];
-    //     }
-    //     return res;
-    // }
-
-    // public static void updateJTable() {
-    //     shortcut_map = Shortcut_Map.getInstance();
-    //     Object[] key = shortcut_map.get_Shortcut_Map().keySet().toArray();
-    //     Object[] val = shortcut_map.get_Shortcut_Map().values().toArray();
-    //     Object[][] data = concat(key, val);
-    //     tableList = new JTable(data, list);
-    //     tableList.setBackground(white);
-    // }
-
-    // @Override
-    // public void actionPerformed(ActionEvent e) {
-    //     // TODO Auto-generated method stub
-
-    // }
 }

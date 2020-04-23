@@ -114,7 +114,9 @@ public abstract class textExpanderInterface implements ActionListener {
         });
 
         // ----- THREE > (edit/View)--------->>>NEEDS WORK<<<-------------------------------------
-        //add data                      
+        //add data         
+        
+        
         JPanel three = new JPanel(new BorderLayout());
         JLabel table = new JLabel("<html><font size=4>Labels + Keys List</font></html>", JLabel.CENTER);
         three.add(table, BorderLayout.NORTH);
