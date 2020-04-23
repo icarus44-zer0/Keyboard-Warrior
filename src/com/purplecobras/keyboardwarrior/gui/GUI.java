@@ -8,45 +8,36 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.Color;
 
-public class GUI implements ActionListener {
+public abstract class GUI implements ActionListener {
     static JFrame frame;
-
     static CardLayout contentPaneLayout;
-
     static JPanel contentPane;
     static JPanel one;
     static JPanel two;
     static JPanel three;
-
     static String list[] = { "Label", "Key" };
-
     static Color white;
     static Color gray;
     static Color purple;
-
     static JButton goTo_Page2_Button;
     static JButton view_List_Button;
     static JButton view_Button;
     static JButton exit_Button;
     static JButton add_Button;
     static JButton edit_Button;
-    static JButton cancel_Button;
+    static  JButton cancel_Button;
     static JButton delete_Button;
     static JButton return_Button;
-
     static JTable tableList;
-
     static Shortcut_Map shortcut_map;
 
-    public GUI() {
+    public static void setup() {
         one = new JPanel(new BorderLayout());
-        two = new JPanel(new BorderLayout());
+        two =  new JPanel(new GridLayout(4, 1, 10, 10));     
         three = new JPanel(new BorderLayout());
-
         white = new Color(255, 255, 255);
         gray = new Color(187, 189, 180);
         purple = new Color(102, 0, 200);
-
         goTo_Page2_Button = new JButton(" ADD ");
         view_List_Button = new JButton("View/EDIT");
         view_Button = new JButton("VIEW");
@@ -57,19 +48,14 @@ public class GUI implements ActionListener {
         delete_Button = new JButton("DELETE");
         return_Button = new JButton("RETURN");
         shortcut_map = Shortcut_Map.getInstance();
-    }
-
-    public void setup() {
         page1();
         page2();
         page3();
-
+        
         contentPane.add("ONE", one);
         contentPane.add("TWO", two);
         contentPane.add("THREE", three);
-
         contentPaneLayout.show(contentPane, "ONE");
-
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setSize(600, 350);
@@ -78,18 +64,19 @@ public class GUI implements ActionListener {
         frame.setResizable(false);
     }
 
-    private void page1() {
-        JPanel one = new JPanel(new BorderLayout());
+    private static void page1() {
+
+        // one = new JPanel(new BorderLayout());
         one.add(new JLabel("<html><font size=5>INTRO</font></html>", JLabel.CENTER), BorderLayout.NORTH);
         one.add(new JLabel("exit", JLabel.CENTER), BorderLayout.SOUTH);
-        JPanel oneButtons = new JPanel(new FlowLayout());
+        JPanel page_one_Buttons = new JPanel(new FlowLayout());
 
         // buttons
-        one.add(oneButtons, BorderLayout.SOUTH);
-        oneButtons.add(goTo_Page2_Button);
-        oneButtons.add(view_List_Button);
+        one.add(page_one_Buttons, BorderLayout.SOUTH);
+        page_one_Buttons.add(goTo_Page2_Button);
+        page_one_Buttons.add(view_List_Button);
         // oneButtons.add(B3);
-        oneButtons.add(exit_Button);
+        page_one_Buttons.add(exit_Button);
 
         // play with colors ---------------------
         one.setBackground(purple);
@@ -115,8 +102,8 @@ public class GUI implements ActionListener {
 
     }
 
-    private void page2() {
-        JPanel two = new JPanel(new GridLayout(4, 1, 10, 10));
+    private static void page2() {
+        // two = new JPanel(new GridLayout(4, 1, 10, 10));
         two.add(new JLabel("<html><font size=5>Enter The Label & Key Below</font></html>", JLabel.CENTER),
                 BorderLayout.NORTH);
 
@@ -162,7 +149,7 @@ public class GUI implements ActionListener {
 
     }
 
-    private void page3() {
+    private static void page3() {
         JLabel table = new JLabel("<html><font size=4>Labels + Keys List</font></html>", JLabel.CENTER);
         three.add(table, BorderLayout.NORTH);
 
@@ -172,18 +159,18 @@ public class GUI implements ActionListener {
                 { "you", "u" }, { "to be", "2b" }, { "at the moment", "atm" } };
         // -------------------------------------------
 
-        JTable tableList = new JTable(data, list);
-        tableList.setBackground(white);
-        JScrollPane tmp = new JScrollPane(tableList);
+        JTable Shortcut_tableList = new JTable(data, list);
+        Shortcut_tableList.setBackground(white);
+        JScrollPane tmp = new JScrollPane(Shortcut_tableList);
         JScrollPane tmp2 = new JScrollPane();
         tmp2.setViewport(tmp.getViewport());
         three.add(tmp2, BorderLayout.CENTER);
 
         // buttons
-        JPanel threeButtons = new JPanel(new FlowLayout());
-        three.add(threeButtons, BorderLayout.SOUTH);
-        threeButtons.add(delete_Button);
-        threeButtons.add(return_Button);
+        JPanel page_threeButtons = new JPanel(new FlowLayout());
+        three.add(page_threeButtons, BorderLayout.SOUTH);
+        page_threeButtons.add(delete_Button);
+        page_threeButtons.add(return_Button);
         delete_Button.setBackground(white);
         return_Button.setBackground(gray);
 
@@ -199,36 +186,36 @@ public class GUI implements ActionListener {
 
     }
 
-    private static Object[][] concat(Object[] key, Object[] val) {
-        Object res[][] = new Object[key.length][2];
-        if (key.length != val.length) {
-            throw new IllegalArgumentException("lenght are not equal, cannot perform");
-        }
-        for (int i = 0; i < key.length; i++) {
-            res[i][0] = key[i];
-            res[i][1] = val[i];
-        }
-        return res;
-    }
-
-    private static void updateJTable() {
-        shortcut_map = Shortcut_Map.getInstance();
-        Object[] key = shortcut_map.get_Shortcut_Map().keySet().toArray();
-        Object[] val = shortcut_map.get_Shortcut_Map().values().toArray();
-        Object[][] data = concat(key, val);
-        tableList = new JTable(data, list);
-        tableList.setBackground(white);
-    }
-
-    private static void addNewShortCut() {
-
-        updateJTable();
-
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
 
     }
+
+    // private static Object[][] concat(Object[] key, Object[] val) {
+    //     Object res[][] = new Object[key.length][2];
+    //     if (key.length != val.length) {
+    //         throw new IllegalArgumentException("lenght are not equal, cannot perform");
+    //     }
+    //     for (int i = 0; i < key.length; i++) {
+    //         res[i][0] = key[i];
+    //         res[i][1] = val[i];
+    //     }
+    //     return res;
+    // }
+
+    // public static void updateJTable() {
+    //     shortcut_map = Shortcut_Map.getInstance();
+    //     Object[] key = shortcut_map.get_Shortcut_Map().keySet().toArray();
+    //     Object[] val = shortcut_map.get_Shortcut_Map().values().toArray();
+    //     Object[][] data = concat(key, val);
+    //     tableList = new JTable(data, list);
+    //     tableList.setBackground(white);
+    // }
+
+    // @Override
+    // public void actionPerformed(ActionEvent e) {
+    //     // TODO Auto-generated method stub
+
+    // }
 }
