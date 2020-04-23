@@ -16,11 +16,31 @@ public class Main {
 		//textExpanderInterface.printFrame();
 
 		Global_Keyboard_Listener listener = new Global_Keyboard_Listener();
-		Buffer_Search search = Buffer_Search.get_Instance();
-		Shortcut shortcut = new Shortcut();
-		
 		listener.setup();
 	
+		mac();
+		//windows();
+	}
+
+	private static void mac() {
+		Shortcut shortcut = new Shortcut();
+		Buffer_Search search = Buffer_Search.get_Instance();
+		while (true) {
+			KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
+			try {
+				shortcut = search.bufferSearch(buffer);	
+				if (shortcut.get_scValue() != null) {
+					System.out.println(shortcut.toString());
+				}
+			} catch (Exception e) {
+				// System.out.println(e + "");
+			}
+		}
+	}
+
+	private static void windows() {
+		Shortcut shortcut = new Shortcut();
+		Buffer_Search search = Buffer_Search.get_Instance();
 		while (true) {
 			KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
 			try {
