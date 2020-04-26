@@ -70,13 +70,19 @@ public abstract class GUI_NewShotcut implements ActionListener {
         addSC_Button.setBackground(GUI_KBW.BUTTON_COLOR);
         edit_SCButton.setBackground(GUI_KBW.BUTTON_COLOR);
         return_Button.setBackground(GUI_KBW.BUTTON_COLOR);
+        newShortcut_Center.setBackground(GUI_KBW.PANEL_COLOR);
+        newShortcut_FlowLabel.setBackground(GUI_KBW.PANEL_COLOR);
+        newShortcut_Buttons.setBackground(GUI_KBW.PANEL_COLOR);
+        newShortcut_flowKey.setBackground(GUI_KBW.PANEL_COLOR);
     }
 
     private static void addSCButtonPress() {
         addSC_Button.addActionListener(e -> {
             addJTEXTtoSCmap();
+            GUI_ShortcutTable.updateJTable();
             GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
         });
+
     }
 
     private static void addJTEXTtoSCmap() {
@@ -85,7 +91,6 @@ public abstract class GUI_NewShotcut implements ActionListener {
         String add_value = newShortcut_ShortcutValueFeild.getText();
         shortcut_map.get_Shortcut_Map().put(add_key, add_value);
         shortcut_map = Shortcut_Map.getInstance();
-        // updateJTable();
     }
 
     private static void editSCButtonPress() {

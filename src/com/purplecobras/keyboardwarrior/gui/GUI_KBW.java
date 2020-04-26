@@ -16,6 +16,7 @@ public abstract class GUI_KBW implements ActionListener {
     public static final Color LABEL_COLOR = Color.WHITE;
     public static final Color TABLE_COLOR = Color.WHITE;
     public static final Color PANEL_COLOR = Color.WHITE;
+    public static final Color PANE_COLOR = Color.WHITE;
 
     public static CardLayout contentPaneLayout;
 
