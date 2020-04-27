@@ -9,7 +9,7 @@ public abstract class GUI_KBW implements ActionListener {
     public static final String splashPage_Label = "SPLASHPAGE";
     public static final String newShortcutPage_Label = "NEW_SHORTCUT";
     public static final String shortcutTable_Lable = "SHORTCUT_TABLE";
-    public static final String appNameLabel = "Keyboard Warrior";
+    public static final String appNameLabel = "KEYBOARD WARRIOR";
 
     public static final Color BACKGROUND_COLOR = new Color(102, 0, 200);
     public static final Color BUTTON_COLOR = Color.WHITE;

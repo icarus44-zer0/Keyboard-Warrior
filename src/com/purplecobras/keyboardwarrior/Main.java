@@ -26,15 +26,35 @@ public class Main {
 
 		listener.setup();
 	
+
+/**
+ * Windows 
+ */
+		// while (true) {
+		// 	KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
+		// 	try {
+		// 		Robot robot = new Robot();
+		// 		shortcut = search.bufferSearch(buffer);	
+		// 		if (shortcut.get_scValue() != null) {
+		// 			 Clipboard_Accessor.writeClipboard(shortcut.get_scValue());
+		// 			 Insertion_Point_Accessor.delete_sckey(robot,shortcut.get_scKey());
+		// 			 Insertion_Point_Accessor.paste_scKey(robot);
+		// 		}
+		// 	} catch (Exception e) {
+		// 		// System.out.println(e + "");
+		// 	}
+		// }
+
+
+/**
+ * mac 
+ */
 		while (true) {
 			KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
 			try {
-				Robot robot = new Robot();
 				shortcut = search.bufferSearch(buffer);	
 				if (shortcut.get_scValue() != null) {
-					 Clipboard_Accessor.writeClipboard(shortcut.get_scValue());
-					 Insertion_Point_Accessor.delete_sckey(robot,shortcut.get_scKey());
-					 Insertion_Point_Accessor.paste_scKey(robot);
+					System.out.println(shortcut.toString());
 				}
 			} catch (Exception e) {
 				// System.out.println(e + "");

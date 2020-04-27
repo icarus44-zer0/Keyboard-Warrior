@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public abstract class GUI_Splashpage implements ActionListener {
+public abstract class GUI_SplashPage implements ActionListener {
 
     private static final String splashPage_frameLabel = "<html><font size=5>Keyboard Shortcut</font></html>";
     private static final String addButtonLabel = "ADD";

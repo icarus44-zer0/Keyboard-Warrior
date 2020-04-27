@@ -3,6 +3,8 @@ package com.purplecobras.keyboardwarrior.gui;
 import javax.swing.*;
 
 import com.purplecobras.keyboardwarrior.Shortcut_Map;
+import com.purplecobras.keyboardwarrior.dev.HashMap_File_Writer;
+import com.purplecobras.keyboardwarrior.dev.Ser_File_Lib;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -78,14 +80,19 @@ public abstract class GUI_NewShotcut implements ActionListener {
 
     private static void addSCButtonPress() {
         addSC_Button.addActionListener(e -> {
-            addJTEXTtoSCmap();
+            addNewSCtoSC_MAP();
+            addNewSCtoSC_SER();
             GUI_ShortcutTable.updateJTable();
             GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
         });
-
     }
 
-    private static void addJTEXTtoSCmap() {
+    private static void addNewSCtoSC_SER() {
+        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        HashMap_File_Writer.hashMap_Out(shortcut_map.get_Shortcut_Map(), Ser_File_Lib.SF1);
+    }
+
+    private static void addNewSCtoSC_MAP() {
         Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
         String add_key = newShortcut_ShortcutKeyFeild.getText();
         String add_value = newShortcut_ShortcutValueFeild.getText();
