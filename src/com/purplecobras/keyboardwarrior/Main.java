@@ -1,6 +1,7 @@
 package com.purplecobras.keyboardwarrior;
 
-import com.purplecobras.keyboardwarrior.gui.GUI_V2;
+//mport com.purplecobras.keyboardwarrior.gui.GUI_V2;
+import com.purplecobras.keyboardwarrior.gui.GUI_KBW;
 
 import java.awt.Robot;
 
@@ -17,28 +18,23 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//textExpanderInterface.printFrame();
-		GUI_V2.init();
-	
-		
 		Global_Keyboard_Listener listener = new Global_Keyboard_Listener();
 		Buffer_Search search = Buffer_Search.get_Instance();
 		Shortcut shortcut = new Shortcut();
 		
+		GUI_KBW.GUI_Init();
+
 		listener.setup();
 	
 		while (true) {
 			KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
 			try {
-				//Robot robot = new Robot();
+				Robot robot = new Robot();
 				shortcut = search.bufferSearch(buffer);	
 				if (shortcut.get_scValue() != null) {
-					String temp = shortcut.toString();
-					//if (temp)
-					System.out.println(shortcut.toString());
-					// Clipboard_Accessor.writeClipboard(shortcut.get_scValue());
-					// Insertion_Point_Accessor.delete_sckey(robot,shortcut.get_scKey());
-					// Insertion_Point_Accessor.paste_scKey(robot);
+					 Clipboard_Accessor.writeClipboard(shortcut.get_scValue());
+					 Insertion_Point_Accessor.delete_sckey(robot,shortcut.get_scKey());
+					 Insertion_Point_Accessor.paste_scKey(robot);
 				}
 			} catch (Exception e) {
 				// System.out.println(e + "");

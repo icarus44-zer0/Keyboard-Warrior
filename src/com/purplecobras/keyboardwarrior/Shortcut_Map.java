@@ -56,5 +56,10 @@ public final class Shortcut_Map {
     public void set_Shortcut_Map(HashMap<String, String> shortcut_Key) {
         Shortcut_Map.shortcut_map = shortcut_Key;
     }
-
+   
+    public void printToConsole() {
+        shortcut_map.entrySet().forEach(entry -> {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        });
+    }
 }
