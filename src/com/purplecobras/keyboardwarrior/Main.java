@@ -1,9 +1,6 @@
 package com.purplecobras.keyboardwarrior;
 
-import com.purplecobras.keyboardwarrior.gui.GUI;
 import com.purplecobras.keyboardwarrior.gui.GUI_V2;
-import com.purplecobras.keyboardwarrior.gui.pageTwo;
-import com.purplecobras.keyboardwarrior.gui.textExpanderInterface;
 
 import java.awt.Robot;
 
@@ -36,6 +33,9 @@ public class Main {
 				//Robot robot = new Robot();
 				shortcut = search.bufferSearch(buffer);	
 				if (shortcut.get_scValue() != null) {
+					String temp = shortcut.toString();
+					//if (temp)
+					System.out.println(shortcut.toString());
 					// Clipboard_Accessor.writeClipboard(shortcut.get_scValue());
 					// Insertion_Point_Accessor.delete_sckey(robot,shortcut.get_scKey());
 					// Insertion_Point_Accessor.paste_scKey(robot);

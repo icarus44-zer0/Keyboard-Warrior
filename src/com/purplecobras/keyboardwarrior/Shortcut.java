@@ -60,7 +60,7 @@ public class Shortcut {
 
     @Override
     public String toString() {
-        return "[Sc_Key: " + this._scKey + ", _scValue: " + this._scValue + "]";
+        return "Key: " + this._scKey + ", Value: " + this._scValue + "]";
     }
 
 }
