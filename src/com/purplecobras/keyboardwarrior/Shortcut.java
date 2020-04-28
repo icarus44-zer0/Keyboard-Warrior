@@ -58,4 +58,9 @@ public class Shortcut {
         this._scValue = value;
     }
 
+    @Override
+    public String toString() {
+        return "Key: " + this._scKey + ", Value: " + this._scValue + "]";
+    }
+
 }

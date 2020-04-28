@@ -52,6 +52,7 @@ public final class Buffer_Search {
      * @return Shortcut
      */
     public Shortcut bufferSearch(KeyBoard_In_Buffer buffer) {
+        _shotcut_map = Shortcut_Map.getInstance();
         while (buffer.isFull()) {
             _bufferArray = buffer.toArray();
             resetKey();

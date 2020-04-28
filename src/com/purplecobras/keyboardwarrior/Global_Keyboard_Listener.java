@@ -2,6 +2,7 @@ package com.purplecobras.keyboardwarrior;
 
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
+import org.jnativehook.NativeLibraryLocator;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 import java.util.logging.Handler;
@@ -37,10 +38,13 @@ public class Global_Keyboard_Listener implements NativeKeyListener {
 		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
 		logger.setLevel(Level.OFF);
 
+
 		Handler[] handlers = Logger.getLogger("").getHandlers();
 		for (int i = 0; i < handlers.length; i++) {
 			handlers[i].setLevel(Level.OFF);
 		}
+		
+		
 	}
 
 	/**
