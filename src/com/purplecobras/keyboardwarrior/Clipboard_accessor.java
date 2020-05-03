@@ -12,6 +12,7 @@ import java.io.IOException;
  */
 public class Clipboard_Accessor {
 
+	//TODO make into singlton 
 	Clipboard_Accessor() {
 	}
 

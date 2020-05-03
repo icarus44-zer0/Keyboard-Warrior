@@ -1,7 +1,7 @@
 package com.purplecobras.keyboardwarrior;
 
 import com.purplecobras.keyboardwarrior.dev.HashMap_File_Reader;
-import com.purplecobras.keyboardwarrior.dev.Ser_File_Lib;
+import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
 import java.util.HashMap;
 
@@ -12,12 +12,12 @@ import java.util.HashMap;
  * @since 2020-04-16
  */
 public final class Shortcut_Map {
-    private static Shortcut_Map _instance = null;
+    private static Shortcut_Map instance = null;
     public static HashMap<String, String> shortcut_map;
 
     private Shortcut_Map() {
 
-        shortcut_map = HashMap_File_Reader.hashMap_In(shortcut_map, Ser_File_Lib.SF1);
+        shortcut_map = HashMap_File_Reader.hashMap_SerFileIn(shortcut_map, Ser_File_Dir.SF1);
 
     }
 
@@ -26,10 +26,10 @@ public final class Shortcut_Map {
      * @return
      */
     public static Shortcut_Map getInstance() {
-        if (_instance == null) {
-            _instance = new Shortcut_Map();
+        if (instance == null) {
+            instance = new Shortcut_Map();
         }
-        return _instance;
+        return instance;
     }
 
     /**

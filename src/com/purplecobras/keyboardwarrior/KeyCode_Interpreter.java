@@ -58,7 +58,7 @@ public class KeyCode_Interpreter {
      * @param key
      */
     public static void isStandardKey(String key) {
-        KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
+        KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getInstance();
         buffer.add(key);
     }
 
