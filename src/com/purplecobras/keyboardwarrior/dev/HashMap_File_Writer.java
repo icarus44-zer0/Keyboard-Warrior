@@ -17,9 +17,9 @@ public class HashMap_File_Writer {
 
     }
 
-    public static void hashMap_Out(HashMap<String, String> map, String fileName) {
+    public static void hashMap_SerFileOut(HashMap<String, String> map, String fileName) {
         try {
-            FileOutputStream fos = new FileOutputStream(Ser_File_Lib.SER_PATH + fileName);
+            FileOutputStream fos = new FileOutputStream(Ser_File_Dir.FILE_PATH + fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(map);
             oos.close();

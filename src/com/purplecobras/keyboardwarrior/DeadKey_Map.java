@@ -1,7 +1,7 @@
 package com.purplecobras.keyboardwarrior;
 
 import com.purplecobras.keyboardwarrior.dev.HashMap_File_Reader;
-import com.purplecobras.keyboardwarrior.dev.Ser_File_Lib;
+import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
 import java.util.HashMap;
 
@@ -19,7 +19,7 @@ public final class DeadKey_Map {
      * 
      */
     private DeadKey_Map() {
-        dead_Key = HashMap_File_Reader.hashMap_In(dead_Key, Ser_File_Lib.SF4);
+        dead_Key = HashMap_File_Reader.hashMap_SerFileIn(dead_Key, Ser_File_Dir.SF4);
     }
 
     /**
