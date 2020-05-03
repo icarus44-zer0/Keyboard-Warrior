@@ -50,9 +50,9 @@ public class Main {
  * mac 
  */
 		while (true) {
-			KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getBuffer();
+			KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getInstance();
 			try {
-				shortcut = search.bufferSearch(buffer);	
+				shortcut = search.search_KBI_Buffer(buffer);	
 				if (shortcut.get_scValue() != null) {
 					System.out.println(shortcut.toString());
 				}

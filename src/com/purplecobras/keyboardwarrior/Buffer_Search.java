@@ -51,7 +51,7 @@ public final class Buffer_Search {
      * @param KeyBoard_In_Buffer
      * @return Shortcut
      */
-    public Shortcut bufferSearch(KeyBoard_In_Buffer buffer) {
+    public Shortcut search_KBI_Buffer(KeyBoard_In_Buffer buffer) {
         _shotcut_map = Shortcut_Map.getInstance();
         while (buffer.isFull()) {
             _bufferArray = buffer.toArray();
@@ -71,6 +71,7 @@ public final class Buffer_Search {
 
     /**
      * Resets Search element to be empty key for next search
+     * TODO move back into search_KBI_Buffer
      */
     private void resetKey() {
         _element = "";

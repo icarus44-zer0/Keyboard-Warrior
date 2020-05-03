@@ -18,7 +18,7 @@ public final class KeyBoard_In_Buffer extends CircularFifoBuffer {
      * 
      * @return
      */
-    public static KeyBoard_In_Buffer getBuffer() {
+    public static KeyBoard_In_Buffer getInstance() {
         if (_buffer == null) {
             _buffer = new KeyBoard_In_Buffer();
             reset_Buffer();

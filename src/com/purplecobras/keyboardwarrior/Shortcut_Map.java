@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public final class Shortcut_Map {
     private static Shortcut_Map _instance = null;
-    public static HashMap<String, String> shortcut_map;
+    private static HashMap<String, String> shortcut_map;
 
     private Shortcut_Map() {
 
