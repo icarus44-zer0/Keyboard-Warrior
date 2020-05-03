@@ -1,7 +1,7 @@
 package com.purplecobras.keyboardwarrior;
 
 import com.purplecobras.keyboardwarrior.dev.HashMap_File_Reader;
-import com.purplecobras.keyboardwarrior.dev.Ser_File_Lib;
+import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 import java.util.HashMap;
 
 /**
@@ -18,7 +18,7 @@ public final class CommandKey_Map {
     * 
     */
     private CommandKey_Map() {
-        command_Key = HashMap_File_Reader.hashMap_In(command_Key, Ser_File_Lib.SF3);
+        command_Key = HashMap_File_Reader.hashMap_SerFileIn(command_Key, Ser_File_Dir.SF3);
     }
 
     /**

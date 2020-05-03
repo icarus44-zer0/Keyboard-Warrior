@@ -19,6 +19,6 @@ public class ShortCut_Map_Driver {
         map.put("/vp", "Viktoriya Penkova");
         map.put("/do", "Daniel Olsen");
         map.put("/pc", "Purple Cobras");
-        HashMap_File_Writer.hashMap_Out(map, Ser_File_Lib.SF1);
+        HashMap_File_Writer.hashMap_SerFileOut(map, Ser_File_Dir.SF1);
     }
 }

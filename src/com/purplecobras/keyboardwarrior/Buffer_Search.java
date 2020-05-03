@@ -60,8 +60,8 @@ public final class Buffer_Search {
                 _nextChar = (String) _bufferArray[buffer.size() - 1 - i];
                 _element = _nextChar + _element;
                 if (_shotcut_map.get_Shortcut_Map().containsKey(_element)) {
-                    _shortcut.set_scKey(_element);
-                    _shortcut.set_scValue(_shotcut_map.get_Shortcut_Map().get(_element));
+                    _shortcut.set_Key(_element);
+                    _shortcut.set_value(_shotcut_map.get_Shortcut_Map().get(_element));
                     return _shortcut;
                 }
             }

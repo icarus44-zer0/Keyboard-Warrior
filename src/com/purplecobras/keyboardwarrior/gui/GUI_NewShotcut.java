@@ -4,27 +4,20 @@ import javax.swing.*;
 
 import com.purplecobras.keyboardwarrior.Shortcut_Map;
 import com.purplecobras.keyboardwarrior.dev.HashMap_File_Writer;
-import com.purplecobras.keyboardwarrior.dev.Ser_File_Lib;
+import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
 import java.awt.*;
 import java.awt.event.*;
 
 public abstract class GUI_NewShotcut implements ActionListener {
-    // ---- PAGE TWO ----
 
     private static final String newShortcut_frameLabel = "<html><font size=5>Enter The Value & Key Below</font></html>";
     private static final String returnButtonLabel = "RETURN";
     private static final String addSCButtonLabel = "ADD SHORTCUT";
     private static final String editSCButtonLabel = "EDIT SHORTCUTS";
-
-    // private static JButton cancel_Button = new JButton(cancelButtonLabel);
-    // private static final String cancelButtonLabel = "CANCEL";
-
     private static JButton addSC_Button = new JButton(addSCButtonLabel);
     private static JButton edit_SCButton = new JButton(editSCButtonLabel);
     private static JButton return_Button = new JButton(returnButtonLabel);
-
-
     private static JPanel newShortcut_Center = new JPanel(new GridLayout(3, 4));
     private static JPanel newShortcut_FlowLabel = new JPanel(new FlowLayout());
     private static JTextField newShortcut_ShortcutKeyFeild = new JTextField("");
@@ -89,7 +82,7 @@ public abstract class GUI_NewShotcut implements ActionListener {
 
     private static void addNewSCtoSC_SER() {
         Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
-        HashMap_File_Writer.hashMap_Out(shortcut_map.get_Shortcut_Map(), Ser_File_Lib.SF1);
+        HashMap_File_Writer.hashMap_SerFileOut(shortcut_map.get_Shortcut_Map(), Ser_File_Dir.SF1);
     }
 
     private static void addNewSCtoSC_MAP() {

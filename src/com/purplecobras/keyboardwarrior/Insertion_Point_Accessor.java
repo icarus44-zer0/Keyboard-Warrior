@@ -24,7 +24,7 @@ public class Insertion_Point_Accessor {
          * @param robot
          * @throws InterruptedException
          */
-        public static void paste_scKey(Robot robot) throws InterruptedException {
+        public static void paste_Shortcut_Value(Robot robot) throws InterruptedException {
 
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_V);
