@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public abstract class GUI_SplashPage implements ActionListener {
 
-    private static final String splashPage_frameLabel = "<html><font size=5>Keyboard Shortcut</font></html>";
+    private static final String splashPage_frameLabel = "<html><font size=5>PURPLE COBRAS INC</font></html>";
     private static final String addButtonLabel = "ADD";
     private static final String editButtonLabel = "EDIT";
     private static final String exitButtonLabel = "EXIT";
