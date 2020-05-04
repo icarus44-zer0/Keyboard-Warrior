@@ -9,7 +9,7 @@ import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 import java.awt.*;
 import java.awt.event.*;
 
-public abstract class GUI_NewShotcut implements ActionListener {
+public abstract class GUI_NewShortcut implements ActionListener {
 
     private static final String newShortcut_frameLabel = "<html><font size=5>Enter The Value & Key Below</font></html>";
     private static final String returnButtonLabel = "RETURN";

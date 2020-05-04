@@ -33,6 +33,8 @@ public abstract class GUI_SplashPage implements ActionListener {
         GUI_KBW.contentPane.setLayout(GUI_KBW.contentPaneLayout = new CardLayout());
         splashPage_Panel.add(new JLabel(splashPage_frameLabel, JLabel.CENTER), BorderLayout.NORTH);
         splashPage_Panel.add(new JLabel("Exit", JLabel.CENTER), BorderLayout.SOUTH);
+        
+        GUI_Image.splashPageImage();
     }
 
     private static void splashPage_setColors() {
