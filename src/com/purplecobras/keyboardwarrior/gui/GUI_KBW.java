@@ -24,15 +24,16 @@ public abstract class GUI_KBW implements ActionListener {
     public static JFrame frame = new JFrame(appNameLabel);
 
     public static void GUI_Init() {
+        GUI_Image.iconImage();
         GUI_SplashPage.splashPage_Setup();
-        GUI_NewShotcut.newShortcut_Setup();
+        GUI_NewShortcut.newShortcut_Setup();
         GUI_ShortcutTable.ShortcutTable_Setup();
         GUI_Config();
     }
 
     private static void GUI_Config() {
         contentPane.add(splashPage_Label, GUI_SplashPage.splashPage_Panel);
-        contentPane.add(newShortcutPage_Label, GUI_NewShotcut.newShortcut_Panel);
+        contentPane.add(newShortcutPage_Label, GUI_NewShortcut.newShortcut_Panel);
         contentPane.add(shortcutTable_Lable, GUI_ShortcutTable.ShortcutTable_Panel);
 
         setStartPage();

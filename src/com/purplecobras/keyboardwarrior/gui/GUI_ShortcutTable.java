@@ -9,8 +9,8 @@ import java.awt.event.*;
 
 public abstract class GUI_ShortcutTable implements ActionListener {
 
-    private static final String listLabel1 = "VALUE: ";
-    private static final String listLabel2 = "KEY: ";
+    private static final String listLabel1 = "Key: ";
+    private static final String listLabel2 = "Value: ";
     public static String list[] = { listLabel1, listLabel2 };
     private static final String gridDeleteButtonLabel = "DELETE";
     private static final String gridEditButtonLabel = "EDIT";

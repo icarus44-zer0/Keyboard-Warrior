@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public abstract class GUI_SplashPage implements ActionListener {
 
-    private static final String splashPage_frameLabel = "<html><font size=5>Keyboard Shortcut</font></html>";
+    private static final String splashPage_frameLabel = "<html><font size=5>PURPLE COBRAS INC</font></html>";
     private static final String addButtonLabel = "ADD";
     private static final String editButtonLabel = "EDIT";
     private static final String exitButtonLabel = "EXIT";
@@ -33,6 +33,8 @@ public abstract class GUI_SplashPage implements ActionListener {
         GUI_KBW.contentPane.setLayout(GUI_KBW.contentPaneLayout = new CardLayout());
         splashPage_Panel.add(new JLabel(splashPage_frameLabel, JLabel.CENTER), BorderLayout.NORTH);
         splashPage_Panel.add(new JLabel("Exit", JLabel.CENTER), BorderLayout.SOUTH);
+        
+        GUI_Image.splashPageImage();
     }
 
     private static void splashPage_setColors() {
