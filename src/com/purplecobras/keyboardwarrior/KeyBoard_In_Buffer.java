@@ -5,16 +5,16 @@ import org.apache.commons.collections.CircularFifoBuffer;
 /**
  * 
  */
-public final class KeyBoard_In_Buffer extends CircularFifoBuffer {
+public final class Keyboard_In_Buffer extends CircularFifoBuffer {
 
     /**
      *
      */
     private static final long serialVersionUID = 1L;
     private static final int MAX_BUFFER_SIZE = 10;
-    private static KeyBoard_In_Buffer buffer;
+    private static Keyboard_In_Buffer buffer;
 
-    private KeyBoard_In_Buffer() {
+    private Keyboard_In_Buffer() {
         super(MAX_BUFFER_SIZE);
     }
 
@@ -22,9 +22,9 @@ public final class KeyBoard_In_Buffer extends CircularFifoBuffer {
      * 
      * @return
      */
-    public static KeyBoard_In_Buffer getInstance() {
+    public static Keyboard_In_Buffer getInstance() {
         if (buffer == null) {
-            buffer = new KeyBoard_In_Buffer();
+            buffer = new Keyboard_In_Buffer();
             reset_Buffer();
         }
         return buffer;

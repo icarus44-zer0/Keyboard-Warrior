@@ -29,7 +29,7 @@ public class KeyCode_Interpreter {
     public static boolean isSpecialKey(String key) {
         if (dead_key.get_DeadKey_Map().containsValue(key)) {
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
-                KeyBoard_In_Buffer.reset_Buffer();
+                Keyboard_In_Buffer.reset_Buffer();
             }
             return false;
         } else {
@@ -58,7 +58,7 @@ public class KeyCode_Interpreter {
      * @param key
      */
     public static void isStandardKey(String key) {
-        KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getInstance();
+        Keyboard_In_Buffer buffer = Keyboard_In_Buffer.getInstance();
         buffer.add(key);
     }
 

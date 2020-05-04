@@ -12,7 +12,7 @@ import java.awt.Robot;
  * @since 2020-04-16
  */
 
-public class KeyBoardWarrior {
+public class KeyboardWarrior_Main {
 	public static final int MAX_BUFFER_SIZE = 10;
 
 	public static void main(String[] args) {
@@ -25,7 +25,7 @@ public class KeyBoardWarrior {
 		listener.setup();
 
 		while (true) {
-			KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getInstance();
+			Keyboard_In_Buffer buffer = Keyboard_In_Buffer.getInstance();
 			try {
 				Robot robot = new Robot();
 				shortcut = search.search_KBI_Buffer(buffer);

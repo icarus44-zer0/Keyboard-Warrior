@@ -48,10 +48,10 @@ public final class Buffer_Search {
      * for each search element Compares search element to HashMap key set Builds new
      * Shortcu
      * 
-     * @param KeyBoard_In_Buffer
+     * @param Keyboard_In_Buffer
      * @return Shortcut
      */
-    public Shortcut search_KBI_Buffer(KeyBoard_In_Buffer buffer) {
+    public Shortcut search_KBI_Buffer(Keyboard_In_Buffer buffer) {
         _shotcut_map = Shortcut_Map.getInstance();
         while (buffer.isFull()) {
             _bufferArray = buffer.toArray();
