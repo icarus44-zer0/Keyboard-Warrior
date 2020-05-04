@@ -22,7 +22,6 @@ public class KeyBoardWarrior {
 		Shortcut shortcut = new Shortcut();
 
 		GUI_KBW.GUI_Init();
-
 		listener.setup();
 
 		while (true) {
