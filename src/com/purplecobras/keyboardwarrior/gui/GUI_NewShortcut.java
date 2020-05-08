@@ -1,13 +1,13 @@
 package com.purplecobras.keyboardwarrior.gui;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 import com.purplecobras.keyboardwarrior.Shortcut_Map;
 import com.purplecobras.keyboardwarrior.dev.HashMap_File_Writer;
 import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
-import java.awt.*;
-import java.awt.event.*;
 
 public abstract class GUI_NewShortcut implements ActionListener {
 

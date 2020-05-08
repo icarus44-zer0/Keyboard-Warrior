@@ -2,6 +2,8 @@ package com.purplecobras.keyboardwarrior;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
+
 
 /**
  *
@@ -26,11 +28,15 @@ public class Insertion_Point_Accessor {
          */
         public static void paste_Shortcut_Value(Robot robot) throws InterruptedException {
 
-                robot.keyPress(KeyEvent.VK_CONTROL);
-                robot.keyPress(KeyEvent.VK_V);
+                robot.keyPress(KeyEvent.VK_META);
+                TimeUnit.MILLISECONDS.sleep(10);
 
-                robot.keyRelease(KeyEvent.VK_CONTROL);
-                robot.keyRelease(KeyEvent.VK_CONTROL);
+                robot.keyPress(KeyEvent.VK_V);
+                robot.keyRelease(KeyEvent.VK_V);
+                TimeUnit.MILLISECONDS.sleep(10);
+
+                robot.keyRelease(KeyEvent.VK_META);
+                TimeUnit.MILLISECONDS.sleep(10);
 
                 robot.keyPress(KeyEvent.VK_SPACE);
                 robot.keyRelease(KeyEvent.VK_SPACE);

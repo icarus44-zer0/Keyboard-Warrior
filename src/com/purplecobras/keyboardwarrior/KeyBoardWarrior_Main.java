@@ -12,7 +12,7 @@ import java.awt.Robot;
  * @since 2020-04-16
  */
 
-public class KeyBoardWarrior {
+public class KeyBoardWarrior_Main {
 	public static final int MAX_BUFFER_SIZE = 10;
 
 	public static void main(String[] args) {
