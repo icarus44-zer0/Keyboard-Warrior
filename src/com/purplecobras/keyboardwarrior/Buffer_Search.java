@@ -1,5 +1,7 @@
 package com.purplecobras.keyboardwarrior;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * A Buffer Search class for searching a Circular Fifo. 
  * Singleton Class 
@@ -50,10 +52,9 @@ public final class Buffer_Search {
      * 
      * @param Keyboard_In_Buffer
      * @return Shortcut
+     * @throws InterruptedException
      */
-    public Shortcut search_KBI_Buffer(Keyboard_In_Buffer buffer) {
-        shotcut_map = Shortcut_Map.getInstance();
-       // while (buffer.isFull()) {
+    public Shortcut search_KBI_Buffer(Keyboard_In_Buffer buffer) throws InterruptedException {
             bufferArray = buffer.toArray();
             resetKey();
             for (int i = 0; i < buffer.size(); i++) {
@@ -65,9 +66,10 @@ public final class Buffer_Search {
                     return shortcut;
                 }
             }
-       // }
+        TimeUnit.MILLISECONDS.sleep(10);
         return null;
     }
+
 
     /**
      * Resets Search element to be empty key for next search
