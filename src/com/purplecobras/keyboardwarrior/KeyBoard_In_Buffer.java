@@ -6,7 +6,7 @@ import org.apache.commons.collections.CircularFifoBuffer;
  * 
  */
 public final class Keyboard_In_Buffer extends CircularFifoBuffer {
-    private static final int MAX_BUFFER_SIZE = 100;
+    private static final int MAX_BUFFER_SIZE = 10;
     private static Keyboard_In_Buffer buffer;
 
     private Keyboard_In_Buffer() {
