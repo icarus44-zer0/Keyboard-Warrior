@@ -6,6 +6,7 @@ import org.apache.commons.collections.CircularFifoBuffer;
  * 
  */
 public final class KeyBoard_In_Buffer extends CircularFifoBuffer {
+    private boolean isNewElem;
 
     /**
      *
@@ -25,7 +26,8 @@ public final class KeyBoard_In_Buffer extends CircularFifoBuffer {
     public static KeyBoard_In_Buffer getInstance() {
         if (buffer == null) {
             buffer = new KeyBoard_In_Buffer();
-            reset_Buffer();
+            buffer.isNewElem = false;
+            buffer.reset_Buffer();
         }
         return buffer;
     }
@@ -33,9 +35,17 @@ public final class KeyBoard_In_Buffer extends CircularFifoBuffer {
     /**
      * 
      */
-    public static void reset_Buffer() {
+    public void reset_Buffer() {
         for (int i = 0; i < MAX_BUFFER_SIZE; i++) {
             buffer.add("~");
         }
+    }
+
+    public boolean getNewElem() {
+        return isNewElem;
+    }
+
+    public void setNewElem(boolean isNewElem) {
+        this.isNewElem = isNewElem;
     }
 }

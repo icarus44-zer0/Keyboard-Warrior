@@ -12,12 +12,12 @@ package com.purplecobras.keyboardwarrior;
  * @since 2020-04-16
  */
 public final class Buffer_Search {
-    private static Buffer_Search _instance = null;
-    private static Shortcut_Map _shotcut_map;
-    private static Shortcut _shortcut;
-    private static String _element;
-    private static String _nextChar;
-    private static Object[] _bufferArray;
+    private static Buffer_Search instance = null;
+    private Shortcut_Map shotcut_map;
+    private Shortcut shortcut;
+    private String element;
+    private String nextChar;
+    private Object[] bufferArray;
 
     /**
      * private contructor for Singleton class
@@ -32,15 +32,15 @@ public final class Buffer_Search {
      * @return Buffer_Search
      */
     public static Buffer_Search get_Instance() {
-        if (_instance == null) {
-            _instance = new Buffer_Search();
-            _shortcut = new Shortcut();
-            _shotcut_map = Shortcut_Map.getInstance();
-            _element = null;
-            _nextChar = null;
-            _bufferArray = null;
+        if (instance == null) {
+            instance = new Buffer_Search();
+            instance.shortcut = new Shortcut();
+            instance.shotcut_map = Shortcut_Map.getInstance();
+            instance.element = null;
+            instance.nextChar = null;
+            instance.bufferArray = null;
         }
-        return _instance;
+        return instance;
     }
 
     /**
@@ -52,20 +52,20 @@ public final class Buffer_Search {
      * @return Shortcut
      */
     public Shortcut search_KBI_Buffer(KeyBoard_In_Buffer buffer) {
-        _shotcut_map = Shortcut_Map.getInstance();
-        while (buffer.isFull()) {
-            _bufferArray = buffer.toArray();
+        shotcut_map = Shortcut_Map.getInstance();
+       // while (buffer.isFull()) {
+            bufferArray = buffer.toArray();
             resetKey();
             for (int i = 0; i < buffer.size(); i++) {
-                _nextChar = (String) _bufferArray[buffer.size() - 1 - i];
-                _element = _nextChar + _element;
-                if (_shotcut_map.get_Shortcut_Map().containsKey(_element)) {
-                    _shortcut.set_Key(_element);
-                    _shortcut.set_value(_shotcut_map.get_Shortcut_Map().get(_element));
-                    return _shortcut;
+                nextChar = (String) bufferArray[buffer.size() - 1 - i];
+                element = nextChar + element;
+                if (shotcut_map.shortcut_map.containsKey(element)) {
+                    shortcut.set_Key(element);
+                    shortcut.set_value(shotcut_map.get_Shortcut_Map().get(element));
+                    return shortcut;
                 }
             }
-        }
+       // }
         return null;
     }
 
@@ -74,6 +74,6 @@ public final class Buffer_Search {
      * TODO move back into search_KBI_Buffer
      */
     private void resetKey() {
-        _element = "";
+        element = "";
     }
 }

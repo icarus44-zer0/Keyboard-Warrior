@@ -13,12 +13,10 @@ import java.util.HashMap;
  */
 public final class Shortcut_Map {
     private static Shortcut_Map instance = null;
-    public static HashMap<String, String> shortcut_map;
+    public HashMap<String, String> shortcut_map;
 
     private Shortcut_Map() {
-
         shortcut_map = HashMap_File_Reader.hashMap_SerFileIn(shortcut_map, Ser_File_Dir.SF1);
-
     }
 
     /**
@@ -54,7 +52,7 @@ public final class Shortcut_Map {
      * @param shortcut_Key
      */
     public void set_Shortcut_Map(HashMap<String, String> shortcut_Key) {
-        Shortcut_Map.shortcut_map = shortcut_Key;
+        shortcut_map = shortcut_Key;
     }
    
     public void printToConsole() {
