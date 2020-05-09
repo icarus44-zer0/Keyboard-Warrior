@@ -15,12 +15,15 @@ import java.util.logging.Logger;
  * @since 2020-04-16
  */
 public class Global_Keyboard_Listener implements NativeKeyListener {
+	private static KeyCode_Interpreter interpreter;
+	private String key;
+	private String key_Raw;
 
 	/**
 	 * 
 	 */
 	Global_Keyboard_Listener() {
-
+		interpreter = KeyCode_Interpreter.getInstance();
 	}
 
 	/**
@@ -34,15 +37,19 @@ public class Global_Keyboard_Listener implements NativeKeyListener {
 		}
 		GlobalScreen.addNativeKeyListener(new Global_Keyboard_Listener());
 
+		//TODO remove mouse events 
+		// GlobalScreen.removeNativeMouseWheelListener(arg0);
+		// GlobalScreen.removeNativeMouseListener(arg0);
+		// GlobalScreen.removeNativeMouseMotionListener(arg0);
+		
+
 		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
 		logger.setLevel(Level.OFF);
-
 
 		Handler[] handlers = Logger.getLogger("").getHandlers();
 		for (int i = 0; i < handlers.length; i++) {
 			handlers[i].setLevel(Level.OFF);
 		}
-		
 		
 	}
 
@@ -52,9 +59,9 @@ public class Global_Keyboard_Listener implements NativeKeyListener {
 	 */
 	@Override
 	public void nativeKeyPressed(NativeKeyEvent e) {
-		String key_Raw = NativeKeyEvent.getKeyText(e.getKeyCode());
-		key_Raw = KeyCode_Interpreter.formatKeyCode(key_Raw);
-		KeyCode_Interpreter.interpretKeyPress(key_Raw);
+		key_Raw = NativeKeyEvent.getKeyText(e.getKeyCode());
+		key_Raw = interpreter.formatKeyCode(key_Raw);
+		interpreter.interpretKeyPress(key_Raw);
 	}
 
 	/**
@@ -63,8 +70,8 @@ public class Global_Keyboard_Listener implements NativeKeyListener {
 	 */
 	@Override
 	public void nativeKeyReleased(NativeKeyEvent e) {
-		String key = NativeKeyEvent.getKeyText(e.getKeyCode());
-		KeyCode_Interpreter.keyReleasedFunc(key);
+		key = NativeKeyEvent.getKeyText(e.getKeyCode());
+		interpreter.keyReleasedFunc(key);
 	}
 
 	/**
