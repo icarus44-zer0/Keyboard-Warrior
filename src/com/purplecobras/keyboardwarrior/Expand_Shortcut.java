@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 public class Expand_Shortcut {
     private static Expand_Shortcut instance = null;
     private Buffer_Search search = Buffer_Search.get_Instance();
-    private KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getInstance();
+    private Keyboard_In_Buffer buffer = Keyboard_In_Buffer.getInstance();
     private Shortcut shortcut = new Shortcut();
     private Robot robot;
 

@@ -14,7 +14,7 @@ public class KeyCode_Interpreter {
     private DeadKey_Map dead_key;
     private CommandKey_Map command_key;
     private ShiftKey_Map shift_Key;
-    private KeyBoard_In_Buffer buffer;
+    private Keyboard_In_Buffer buffer;
 
     /**
      * 
@@ -24,7 +24,7 @@ public class KeyCode_Interpreter {
         dead_key = DeadKey_Map.getInstance();
         command_key = CommandKey_Map.getInstance();
         shift_Key = ShiftKey_Map.getInstance();
-        buffer = KeyBoard_In_Buffer.getInstance();
+        buffer = Keyboard_In_Buffer.getInstance();
     }
 
     /**

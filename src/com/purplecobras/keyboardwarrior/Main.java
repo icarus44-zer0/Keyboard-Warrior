@@ -19,7 +19,7 @@ public class Main {
 
 		Global_Keyboard_Listener listener = new Global_Keyboard_Listener();
 		Buffer_Search search = Buffer_Search.get_Instance();
-		KeyBoard_In_Buffer buffer = KeyBoard_In_Buffer.getInstance();
+		Keyboard_In_Buffer buffer = Keyboard_In_Buffer.getInstance();
 		Shortcut shortcut = new Shortcut();
 		Robot robot;
 
