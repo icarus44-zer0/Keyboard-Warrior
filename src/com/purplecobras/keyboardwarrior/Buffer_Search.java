@@ -3,15 +3,13 @@ package com.purplecobras.keyboardwarrior;
 import java.util.concurrent.TimeUnit;
 
 /**
- * A Buffer Search class for searching a Circular Fifo. 
- * Singleton Class 
- * Builds all possible sequentail key combinations from buffer elements 
- * Compares key combinations to HashMap
- * Stores Key & Value pairs in a custom Shortcut Object
+ * A Buffer Search class for searching a Circular Fifo. Singleton Class Builds
+ * all possible sequentail key combinations from buffer elements Compares key
+ * combinations to HashMap Stores Key & Value pairs in a custom Shortcut Object
  *
- * @author Purple Cobras
- * @version 0.0.1
- * @since 2020-04-16
+ * @author Josh Poe
+ * @version 1.0.1
+ * @since 2020-05-09
  */
 public final class Buffer_Search {
     private static Buffer_Search instance = null;
@@ -55,25 +53,24 @@ public final class Buffer_Search {
      * @throws InterruptedException
      */
     public Shortcut search_KBI_Buffer(Keyboard_In_Buffer buffer) throws InterruptedException {
-            bufferArray = buffer.toArray();
-            resetKey();
-            for (int i = 0; i < buffer.size(); i++) {
-                nextChar = (String) bufferArray[buffer.size() - 1 - i];
-                element = nextChar + element;
-                if (shotcut_map.shortcut_map.containsKey(element)) {
-                    shortcut.set_Key(element);
-                    shortcut.set_value(shotcut_map.get_Shortcut_Map().get(element));
-                    return shortcut;
-                }
+        bufferArray = buffer.toArray();
+        resetKey();
+        for (int i = 0; i < buffer.size(); i++) {
+            nextChar = (String) bufferArray[buffer.size() - 1 - i];
+            element = nextChar + element;
+            if (shotcut_map.shortcut_map.containsKey(element)) {
+                shortcut.set_Key(element);
+                shortcut.set_value(shotcut_map.get_Shortcut_Map().get(element));
+                return shortcut;
             }
+        }
         TimeUnit.MILLISECONDS.sleep(10);
         return null;
     }
 
-
     /**
-     * Resets Search element to be empty key for next search
-     * TODO move back into search_KBI_Buffer
+     * Resets Search element to be empty key for next search TODO move back into
+     * search_KBI_Buffer
      */
     private void resetKey() {
         element = "";

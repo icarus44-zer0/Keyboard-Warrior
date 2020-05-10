@@ -5,10 +5,9 @@ import java.awt.datatransfer.*;
 import java.io.IOException;
 
 /**
- *
- * @author Purple Cobras
- * @version 0.0.1
- * @since 2020-04-16
+ * @author Josh Poe
+ * @version 1.0.1
+ * @since 2020-05-09
  */
 public class Clipboard_Accessor {
 

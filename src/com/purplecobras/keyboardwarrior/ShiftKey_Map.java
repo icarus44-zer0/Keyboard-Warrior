@@ -6,10 +6,9 @@ import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 import java.util.HashMap;
 
 /**
- *
- * @author Purple Cobras
- * @version 0.0.1
- * @since 2020-04-16
+ * @author Josh Poe
+ * @version 1.0.1
+ * @since 2020-05-09
  */
 public final class ShiftKey_Map {
     private static ShiftKey_Map _instance = null;

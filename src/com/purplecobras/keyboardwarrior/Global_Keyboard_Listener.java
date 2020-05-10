@@ -9,10 +9,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author Purple Cobras
- * @version 0.0.1
- * @since 2020-04-16
+ * @author Josh Poe
+ * @version 1.0.1
+ * @since 2020-05-09
  */
 public class Global_Keyboard_Listener implements NativeKeyListener {
 	private static KeyCode_Interpreter interpreter;

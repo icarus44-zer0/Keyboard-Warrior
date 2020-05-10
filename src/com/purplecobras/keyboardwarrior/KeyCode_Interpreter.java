@@ -3,10 +3,9 @@ package com.purplecobras.keyboardwarrior;
 import java.util.HashMap;
 
 /**
- *
- * @author Oscar Vaquera
- * @version 0.0.1
- * @since 2020-04-16
+ * @author Josh Poe
+ * @version 1.0.1
+ * @since 2020-05-09
  */
 public class KeyCode_Interpreter {
     private static KeyCode_Interpreter instance = null;

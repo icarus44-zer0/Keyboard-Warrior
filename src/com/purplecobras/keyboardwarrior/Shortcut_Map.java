@@ -7,10 +7,9 @@ import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 import java.util.HashMap;
 
 /**
- *
- * @author Purple Cobras
- * @version 0.0.1
- * @since 2020-04-16
+ * @author Josh Poe
+ * @version 1.0.1
+ * @since 2020-05-09
  */
 public final class Shortcut_Map {
     private static Shortcut_Map instance = null;
@@ -66,4 +65,5 @@ public final class Shortcut_Map {
         Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
         HashMap_File_Writer.hashMap_SerFileOut(shortcut_map.get_Shortcut_Map(), Ser_File_Dir.SF1);
     }
+
 }
