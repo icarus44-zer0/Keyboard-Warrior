@@ -5,19 +5,22 @@ import java.awt.*;
 import java.awt.event.*;
 
 import com.purplecobras.keyboardwarrior.Shortcut_Map;
-import com.purplecobras.keyboardwarrior.dev.HashMap_File_Writer;
-import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
 
 public abstract class GUI_NewShortcut implements ActionListener {
 
-    private static final String newShortcut_frameLabel = "<html><font size=5>Enter The Value & Key Below</font></html>";
+    private static final String newShortcut_frameLabel = "<html><font size=5>Enter new key and value</font></html>";
+    
     private static final String returnButtonLabel = "RETURN";
-    private static final String addSCButtonLabel = "ADD SHORTCUT";
+    private static final String addSCButtonLabel = "+";
+
     private static final String editSCButtonLabel = "EDIT SHORTCUTS";
+
     private static JButton addSC_Button = new JButton(addSCButtonLabel);
     private static JButton edit_SCButton = new JButton(editSCButtonLabel);
     private static JButton return_Button = new JButton(returnButtonLabel);
+
+
     private static JPanel newShortcut_Center = new JPanel(new GridLayout(3, 4));
     private static JPanel newShortcut_FlowLabel = new JPanel(new FlowLayout());
     private static JTextField newShortcut_ShortcutKeyFeild = new JTextField("");
@@ -55,7 +58,7 @@ public abstract class GUI_NewShortcut implements ActionListener {
     private static void newShortcut_loadButtons() {
         newShortcut_Panel.add(newShortcut_Buttons, BorderLayout.SOUTH);
         newShortcut_Buttons.add(addSC_Button);
-        newShortcut_Buttons.add(edit_SCButton);
+        //newShortcut_Buttons.add(edit_SCButton);
         newShortcut_Buttons.add(return_Button);
 
     }
@@ -74,15 +77,18 @@ public abstract class GUI_NewShortcut implements ActionListener {
     private static void addSCButtonPress() {
         addSC_Button.addActionListener(e -> {
             addNewSCtoSC_MAP();
-            addNewSCtoSC_SER();
+            updateShortcutSerFile();
+            newShortcut_ShortcutKeyFeild.setText("");
+            newShortcut_ShortcutValueFeild.setText("");
             GUI_ShortcutTable.updateJTable();
             GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
         });
     }
 
-    private static void addNewSCtoSC_SER() {
+    private static void updateShortcutSerFile() {
         Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
-        HashMap_File_Writer.hashMap_SerFileOut(shortcut_map.get_Shortcut_Map(), Ser_File_Dir.SF1);
+        shortcut_map.updateShortcutSerFile();
+
     }
 
     private static void addNewSCtoSC_MAP() {
@@ -90,7 +96,6 @@ public abstract class GUI_NewShortcut implements ActionListener {
         String add_key = newShortcut_ShortcutKeyFeild.getText();
         String add_value = newShortcut_ShortcutValueFeild.getText();
         shortcut_map.get_Shortcut_Map().put(add_key, add_value);
-        shortcut_map = Shortcut_Map.getInstance();
     }
 
     private static void editSCButtonPress() {
@@ -101,7 +106,7 @@ public abstract class GUI_NewShortcut implements ActionListener {
 
     private static void returnButtonPress() {
         return_Button.addActionListener(e -> {
-            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.splashPage_Label);
+            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
         });
     }
 }

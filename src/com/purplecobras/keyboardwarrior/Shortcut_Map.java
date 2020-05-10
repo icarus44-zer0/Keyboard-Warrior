@@ -1,6 +1,7 @@
 package com.purplecobras.keyboardwarrior;
 
 import com.purplecobras.keyboardwarrior.dev.HashMap_File_Reader;
+import com.purplecobras.keyboardwarrior.dev.HashMap_File_Writer;
 import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
 import java.util.HashMap;
@@ -59,5 +60,10 @@ public final class Shortcut_Map {
         shortcut_map.entrySet().forEach(entry -> {
             System.out.println(entry.getKey() + " " + entry.getValue());
         });
+    }
+
+    public void updateShortcutSerFile() {
+        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        HashMap_File_Writer.hashMap_SerFileOut(shortcut_map.get_Shortcut_Map(), Ser_File_Dir.SF1);
     }
 }

@@ -49,17 +49,20 @@ public abstract class GUI_KBW implements ActionListener {
     private static void setStartPage() {
         /**
          * Splash page
+         * page 1
          */
-        contentPaneLayout.show(contentPane, splashPage_Label);
+        //contentPaneLayout.show(contentPane, splashPage_Label);
 
         /**
          * Add New Shortcut Page
+         * page 2
          */
-        // contentPaneLayout.show(contentPane, pageTwoName);
+        // contentPaneLayout.show(contentPane, newShortcutPage_Label);
 
         /**
          * Short Cut Tabel Page
+         * page 3
          */
-        // contentPaneLayout.show(contentPane, pageFourName);
+        contentPaneLayout.show(contentPane, shortcutTable_Lable);
     }
 }
