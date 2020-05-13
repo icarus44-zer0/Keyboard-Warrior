@@ -25,7 +25,7 @@ public class Insertion_Point_Accessor {
          * @param robot
          * @throws InterruptedException
          */
-        public static void paste_Shortcut_Value(Robot robot) throws InterruptedException {
+        public static void paste_Shortcut_Value_MacOS(Robot robot) throws InterruptedException {
 
                 robot.keyPress(KeyEvent.VK_META);
                 TimeUnit.MILLISECONDS.sleep(10);
@@ -40,6 +40,28 @@ public class Insertion_Point_Accessor {
                 robot.keyPress(KeyEvent.VK_SPACE);
                 robot.keyRelease(KeyEvent.VK_SPACE);
         }
+
+        /**
+         * 
+         * @param robot
+         * @throws InterruptedException
+         */
+        public static void paste_Shortcut_Value_Windows(Robot robot) throws InterruptedException {
+
+                robot.keyPress(KeyEvent.VK_CONTROL);
+                TimeUnit.MILLISECONDS.sleep(10);
+
+                robot.keyPress(KeyEvent.VK_V);
+                robot.keyRelease(KeyEvent.VK_V);
+                TimeUnit.MILLISECONDS.sleep(10);
+
+                robot.keyRelease(KeyEvent.VK_CONTROL);
+                TimeUnit.MILLISECONDS.sleep(10);
+
+                robot.keyPress(KeyEvent.VK_SPACE);
+                robot.keyRelease(KeyEvent.VK_SPACE);
+        }
+
 
         /**
          * 

@@ -32,7 +32,7 @@ public class Main {
 					robot = new Robot();
 					Clipboard_Accessor.writeClipboard(shortcut.get_Value());
 					Insertion_Point_Accessor.delete_sckey(robot, shortcut.get_Key());
-					Insertion_Point_Accessor.paste_Shortcut_Value(robot);
+					Insertion_Point_Accessor.paste_Shortcut_Value_Windows(robot);
 				}
 				TimeUnit.MILLISECONDS.sleep(100);
 			} catch (Exception e) {
