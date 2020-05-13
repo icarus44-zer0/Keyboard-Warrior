@@ -2,8 +2,7 @@ package com.purplecobras.keyboardwarrior;
 
 import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
-
-import com.purplecobras.keyboardwarrior.gui.v1.GUI_KBW;
+import com.purplecobras.keyboardwarrior.gui.v2.ShortcutFrame;
 
 /**
  * @author Josh Poe
@@ -19,10 +18,11 @@ public class Main {
 		Global_Keyboard_Listener listener = new Global_Keyboard_Listener();
 		Keyboard_In_Buffer buffer = Keyboard_In_Buffer.getInstance();
 		Buffer_Search search = Buffer_Search.get_Instance();
+		ShortcutFrame scf = new ShortcutFrame();
 		Shortcut shortcut = new Shortcut();
 		Robot robot;
 
-		GUI_KBW.GUI_Init();
+		scf.ShortcutFrame_init();
 		listener.setup();
 
 		while (true) {
