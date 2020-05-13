@@ -8,6 +8,10 @@ import org.apache.commons.collections.CircularFifoBuffer;
  * @since 2020-05-09
  */
 public final class Keyboard_In_Buffer extends CircularFifoBuffer {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private static final int MAX_BUFFER_SIZE = 10;
     private static Keyboard_In_Buffer buffer;
 
