@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @since 2020-05-09
  */
 
-public class KeyboardWarrior_Main {
+public class Main {
 	public static final int MAX_BUFFER_SIZE = 10;
 
 	public static void main(String[] args) {
