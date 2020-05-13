@@ -1,9 +1,9 @@
 package com.purplecobras.keyboardwarrior;
 
-import com.purplecobras.keyboardwarrior.gui.GUI_KBW;
-
 import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
+
+import com.purplecobras.keyboardwarrior.gui.v1.GUI_KBW;
 
 /**
  * @author Josh Poe
@@ -33,6 +33,7 @@ public class Main {
 					Clipboard_Accessor.writeClipboard(shortcut.get_Value());
 					Insertion_Point_Accessor.delete_sckey(robot, shortcut.get_Key());
 					Insertion_Point_Accessor.paste_Shortcut_Value_Windows(robot);
+					//Insertion_Point_Accessor.paste_Shortcut_Value_MacOS(robot);
 				}
 				TimeUnit.MILLISECONDS.sleep(100);
 			} catch (Exception e) {

@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior.dev;
+package com.purplecobras.keyboardwarrior.dev.demo;
 
 /* JNativeHook: Global keyboard and mouse hooking for Java.
  * Copyright (C) 2006-2016 Alexander Barker.  All Rights Received.

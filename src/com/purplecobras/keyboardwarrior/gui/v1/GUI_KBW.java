@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior.gui;
+package com.purplecobras.keyboardwarrior.gui.v1;
 
 import javax.swing.*;
 import java.awt.*;
