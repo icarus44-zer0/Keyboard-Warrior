@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0.1
  * @since 2020-05-09
  */
-public final class Buffer_Search {
-    private static Buffer_Search instance = null;
-    private Shortcut_Map shotcut_map;
+public final class BufferSearch {
+    private static BufferSearch instance = null;
+    private ShortcutMap shotcut_map;
     private Shortcut shortcut;
     private String element;
     private String nextChar;
@@ -22,7 +22,7 @@ public final class Buffer_Search {
     /**
      * private contructor for Singleton class
      */
-    private Buffer_Search() {
+    private BufferSearch() {
 
     }
 
@@ -31,11 +31,11 @@ public final class Buffer_Search {
      * 
      * @return Buffer_Search
      */
-    public static Buffer_Search get_Instance() {
+    public static BufferSearch get_Instance() {
         if (instance == null) {
-            instance = new Buffer_Search();
+            instance = new BufferSearch();
             instance.shortcut = new Shortcut();
-            instance.shotcut_map = Shortcut_Map.getInstance();
+            instance.shotcut_map = ShortcutMap.getInstance();
             instance.element = null;
             instance.nextChar = null;
             instance.bufferArray = null;
@@ -48,11 +48,11 @@ public final class Buffer_Search {
      * for each search element Compares search element to HashMap key set Builds new
      * Shortcu
      * 
-     * @param Keyboard_In_Buffer
+     * @param KeyboardInputBuffer
      * @return Shortcut
      * @throws InterruptedException
      */
-    public Shortcut search_KBI_Buffer(Keyboard_In_Buffer buffer) throws InterruptedException {
+    public Shortcut search_KBI_Buffer(KeyboardInputBuffer buffer) throws InterruptedException {
         bufferArray = buffer.toArray();
         resetKey();
         for (int i = 0; i < buffer.size(); i++) {

@@ -9,23 +9,23 @@ import java.util.HashMap;
  * @version 1.0.1
  * @since 2020-05-09
  */
-public final class CommandKey_Map {
-    private static CommandKey_Map _instance = null;
+public final class CommandKeyMap {
+    private static CommandKeyMap _instance = null;
     private static HashMap<String, String> command_Key;
 
     /**
     * 
     */
-    private CommandKey_Map() {
+    private CommandKeyMap() {
         command_Key = HashMap_File_Reader.hashMap_SerFileIn(command_Key, Ser_File_Dir.SF3);
     }
 
     /**
      * 
      */
-    public static CommandKey_Map getInstance() {
+    public static CommandKeyMap getInstance() {
         if (_instance == null) {
-            _instance = new CommandKey_Map();
+            _instance = new CommandKeyMap();
         }
         return _instance;
     }
@@ -52,7 +52,7 @@ public final class CommandKey_Map {
      * @param command_Key
      */
     public void set_CommandKey_Map(HashMap<String, String> command_Key) {
-        CommandKey_Map.command_Key = command_Key;
+        CommandKeyMap.command_Key = command_Key;
     }
 
 }

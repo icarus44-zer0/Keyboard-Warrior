@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import com.purplecobras.keyboardwarrior.Shortcut_Map;
+import com.purplecobras.keyboardwarrior.ShortcutMap;
 
 
 public abstract class GUI_NewShortcut implements ActionListener {
@@ -86,13 +86,13 @@ public abstract class GUI_NewShortcut implements ActionListener {
     }
 
     private static void updateShortcutSerFile() {
-        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        ShortcutMap shortcut_map = ShortcutMap.getInstance();
         shortcut_map.updateShortcutSerFile();
 
     }
 
     private static void addNewSCtoSC_MAP() {
-        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        ShortcutMap shortcut_map = ShortcutMap.getInstance();
         String add_key = newShortcut_ShortcutKeyFeild.getText();
         String add_value = newShortcut_ShortcutValueFeild.getText();
         shortcut_map.get_Shortcut_Map().put(add_key, add_value);

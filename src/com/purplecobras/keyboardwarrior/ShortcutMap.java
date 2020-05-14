@@ -11,11 +11,11 @@ import java.util.HashMap;
  * @version 1.0.1
  * @since 2020-05-09
  */
-public final class Shortcut_Map {
-    private static Shortcut_Map instance = null;
+public final class ShortcutMap {
+    private static ShortcutMap instance = null;
     public HashMap<String, String> shortcut_map;
 
-    private Shortcut_Map() {
+    private ShortcutMap() {
         shortcut_map = HashMap_File_Reader.hashMap_SerFileIn(shortcut_map, Ser_File_Dir.SF1);
     }
 
@@ -23,9 +23,9 @@ public final class Shortcut_Map {
      * 
      * @return
      */
-    public static Shortcut_Map getInstance() {
+    public static ShortcutMap getInstance() {
         if (instance == null) {
-            instance = new Shortcut_Map();
+            instance = new ShortcutMap();
         }
         return instance;
     }
@@ -62,7 +62,7 @@ public final class Shortcut_Map {
     }
 
     public void updateShortcutSerFile() {
-        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        ShortcutMap shortcut_map = ShortcutMap.getInstance();
         HashMap_File_Writer.hashMap_SerFileOut(shortcut_map.get_Shortcut_Map(), Ser_File_Dir.SF1);
     }
 

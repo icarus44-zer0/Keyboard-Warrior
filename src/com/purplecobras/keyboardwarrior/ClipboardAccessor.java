@@ -9,10 +9,10 @@ import java.io.IOException;
  * @version 1.0.1
  * @since 2020-05-09
  */
-public class Clipboard_Accessor {
+public class ClipboardAccessor {
 
 	//TODO make into singlton 
-	Clipboard_Accessor() {
+	ClipboardAccessor() {
 	}
 
 	/**

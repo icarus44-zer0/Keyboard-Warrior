@@ -10,23 +10,23 @@ import java.util.HashMap;
  * @version 1.0.1
  * @since 2020-05-09
  */
-public final class ShiftKey_Map {
-    private static ShiftKey_Map _instance = null;
+public final class ShiftKeyMap {
+    private static ShiftKeyMap _instance = null;
     private static HashMap<String, String> shift_Key;
 
     /**
      * 
      */
-    private ShiftKey_Map() {
+    private ShiftKeyMap() {
         shift_Key = HashMap_File_Reader.hashMap_SerFileIn(shift_Key, Ser_File_Dir.SF2);
     }
 
     /**
      * @return Shift_Key_Map
      */
-    public static ShiftKey_Map getInstance() {
+    public static ShiftKeyMap getInstance() {
         if (_instance == null) {
-            _instance = new ShiftKey_Map();
+            _instance = new ShiftKeyMap();
         }
         return _instance;
     }
@@ -51,7 +51,7 @@ public final class ShiftKey_Map {
      * @param shift_Keys
      */
     public void set_ShiftKey_Map(HashMap<String, String> shift_Keys) {
-        ShiftKey_Map.shift_Key = shift_Keys;
+        ShiftKeyMap.shift_Key = shift_Keys;
     }
 
 }

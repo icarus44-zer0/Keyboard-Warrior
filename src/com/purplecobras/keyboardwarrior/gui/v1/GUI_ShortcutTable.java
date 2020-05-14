@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.purplecobras.keyboardwarrior.Shortcut_Map;
+import com.purplecobras.keyboardwarrior.ShortcutMap;
 
 
 public abstract class GUI_ShortcutTable implements ActionListener {
@@ -45,7 +45,7 @@ public abstract class GUI_ShortcutTable implements ActionListener {
         JLabel tableLabel = new JLabel("<html><font size=4>Value & Key List</font></html>", JLabel.CENTER);
         ShortcutTable_Panel.add(tableLabel, BorderLayout.NORTH);
 
-        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        ShortcutMap shortcut_map = ShortcutMap.getInstance();
         shortcutMap_Keys = shortcut_map.get_Shortcut_Map().keySet().toArray();
         shortcutMap_Values = shortcut_map.get_Shortcut_Map().values().toArray();
         shortcutGridArray = concat(shortcutMap_Keys, shortcutMap_Values);
@@ -100,7 +100,7 @@ public abstract class GUI_ShortcutTable implements ActionListener {
            int row = tableList.getSelectedRow();
            Object keyRemove = tableList.getValueAt(row, 0);
            Object valueRemove = tableList.getValueAt(row, 1);
-           Shortcut_Map scm = Shortcut_Map.getInstance();
+           ShortcutMap scm = ShortcutMap.getInstance();
            if (displayDeleteMessage(valueRemove)==0){
             scm.get_Shortcut_Map().remove(keyRemove);
             scm.updateShortcutSerFile();
@@ -139,7 +139,7 @@ public abstract class GUI_ShortcutTable implements ActionListener {
      * 
      */
     public static void updateJTable() {
-        Shortcut_Map shortcut_map = Shortcut_Map.getInstance();
+        ShortcutMap shortcut_map = ShortcutMap.getInstance();
         shortcutMap_Keys = shortcut_map.get_Shortcut_Map().keySet().toArray();
         shortcutMap_Values = shortcut_map.get_Shortcut_Map().values().toArray();
         shortcutGridArray = concat(shortcutMap_Keys, shortcutMap_Values);

@@ -10,23 +10,23 @@ import java.util.HashMap;
  * @version 1.0.1
  * @since 2020-05-09
  */
-public final class DeadKey_Map {
-    private static DeadKey_Map _instance = null;
+public final class DeadKeyMap {
+    private static DeadKeyMap _instance = null;
     public static HashMap<String, String> dead_Key;
 
     /**
      * 
      */
-    private DeadKey_Map() {
+    private DeadKeyMap() {
         dead_Key = HashMap_File_Reader.hashMap_SerFileIn(dead_Key, Ser_File_Dir.SF4);
     }
 
     /**
      * 
      */
-    public static DeadKey_Map getInstance() {
+    public static DeadKeyMap getInstance() {
         if (_instance == null) {
-            _instance = new DeadKey_Map();
+            _instance = new DeadKeyMap();
         }
         return _instance;
     }
@@ -51,7 +51,7 @@ public final class DeadKey_Map {
      * @param dead_Keys
      */
     public void set_DeadKey_Map(HashMap<String, String> dead_Keys) {
-        DeadKey_Map.dead_Key = dead_Keys;
+        DeadKeyMap.dead_Key = dead_Keys;
     }
 
 }

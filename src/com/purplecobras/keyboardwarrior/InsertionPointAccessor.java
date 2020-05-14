@@ -10,13 +10,13 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0.1
  * @since 2020-05-09
  */
-public class Insertion_Point_Accessor {
+public class InsertionPointAccessor {
         Robot robot;
 
         /**
          * 
          */
-        Insertion_Point_Accessor() {
+        InsertionPointAccessor() {
 
         }
 

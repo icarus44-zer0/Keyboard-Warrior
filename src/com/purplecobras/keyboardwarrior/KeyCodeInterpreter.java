@@ -7,23 +7,23 @@ import java.util.HashMap;
  * @version 1.0.1
  * @since 2020-05-09
  */
-public class KeyCode_Interpreter {
-    private static KeyCode_Interpreter instance = null;
+public class KeyCodeInterpreter {
+    private static KeyCodeInterpreter instance = null;
     private boolean shiftPress;
-    private DeadKey_Map dead_key;
-    private CommandKey_Map command_key;
-    private ShiftKey_Map shift_Key;
-    private Keyboard_In_Buffer buffer;
+    private DeadKeyMap dead_key;
+    private CommandKeyMap command_key;
+    private ShiftKeyMap shift_Key;
+    private KeyboardInputBuffer buffer;
 
     /**
      * 
      */
-    private KeyCode_Interpreter() {
+    private KeyCodeInterpreter() {
         shiftPress = false;
-        dead_key = DeadKey_Map.getInstance();
-        command_key = CommandKey_Map.getInstance();
-        shift_Key = ShiftKey_Map.getInstance();
-        buffer = Keyboard_In_Buffer.getInstance();
+        dead_key = DeadKeyMap.getInstance();
+        command_key = CommandKeyMap.getInstance();
+        shift_Key = ShiftKeyMap.getInstance();
+        buffer = KeyboardInputBuffer.getInstance();
     }
 
     /**
@@ -31,9 +31,9 @@ public class KeyCode_Interpreter {
      * @return
      */
 
-    public static KeyCode_Interpreter getInstance() {
+    public static KeyCodeInterpreter getInstance() {
         if (instance == null) {
-            instance = new KeyCode_Interpreter();
+            instance = new KeyCodeInterpreter();
         }
         return instance;
     }

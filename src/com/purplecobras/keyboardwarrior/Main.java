@@ -16,9 +16,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Global_Keyboard_Listener listener = new Global_Keyboard_Listener();
-		Keyboard_In_Buffer buffer = Keyboard_In_Buffer.getInstance();
-		Buffer_Search search = Buffer_Search.get_Instance();
+		GlobalKeyboardListener listener = new GlobalKeyboardListener();
+		KeyboardInputBuffer buffer = KeyboardInputBuffer.getInstance();
+		BufferSearch search = BufferSearch.get_Instance();
 		Shortcut shortcut = new Shortcut();
 		Robot robot;
 
@@ -30,9 +30,9 @@ public class Main {
 				shortcut = search.search_KBI_Buffer(buffer);
 				if (shortcut.get_Value() != null) {
 					robot = new Robot();
-					Clipboard_Accessor.writeClipboard(shortcut.get_Value());
-					Insertion_Point_Accessor.delete_sckey(robot, shortcut.get_Key());
-					Insertion_Point_Accessor.paste_Shortcut_Value_Windows(robot);
+					ClipboardAccessor.writeClipboard(shortcut.get_Value());
+					InsertionPointAccessor.delete_sckey(robot, shortcut.get_Key());
+					InsertionPointAccessor.paste_Shortcut_Value_Windows(robot);
 					//Insertion_Point_Accessor.paste_Shortcut_Value_MacOS(robot);
 				}
 				TimeUnit.MILLISECONDS.sleep(100);
