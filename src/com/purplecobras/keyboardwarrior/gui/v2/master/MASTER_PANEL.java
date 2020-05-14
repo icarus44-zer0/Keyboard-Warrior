@@ -5,11 +5,18 @@
  */
 package com.purplecobras.keyboardwarrior.gui.v2.master;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author JoshPoe
  */
 public class MASTER_PANEL extends javax.swing.JPanel {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * Creates new form MASTER_RIGHT_PANEL
@@ -86,12 +93,12 @@ public class MASTER_PANEL extends javax.swing.JPanel {
         Logo_Label.setBackground(new java.awt.Color(11, 11, 11));
         Logo_Label.setForeground(new java.awt.Color(255, 255, 255));
         Logo_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Logo_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/keyboardwarrior/icon/WHITE_W_HELMET.png"))); // NOI18N
+        Logo_Label.setIcon(new ImageIcon("src/com/purplecobras/keyboardwarrior/ico/WHITE_W_HELMET.png")); // NOI18N
 
         Layout_Label.setBackground(new java.awt.Color(11, 11, 11));
         Layout_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Layout_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Layout_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/keyboardwarrior/icon/006-interface.png"))); // NOI18N
+        Layout_Label.setIcon(new ImageIcon("src/com/purplecobras/keyboardwarrior/ico/006-interface.png")); // NOI18N
         Layout_Label.setText("Layout");
         Layout_Label.setPreferredSize(new java.awt.Dimension(70, 50));
         Layout_Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,7 +110,7 @@ public class MASTER_PANEL extends javax.swing.JPanel {
         Shortcut_Label.setBackground(new java.awt.Color(11, 11, 11));
         Shortcut_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Shortcut_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Shortcut_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/keyboardwarrior/icon/computer_1.png"))); // NOI18N
+        Shortcut_Label.setIcon(new ImageIcon("src/com/purplecobras/keyboardwarrior/ico/computer_1.png")); // NOI18N
         Shortcut_Label.setText("Shortcuts");
         Shortcut_Label.setPreferredSize(new java.awt.Dimension(70, 50));
         Shortcut_Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,7 +122,7 @@ public class MASTER_PANEL extends javax.swing.JPanel {
         Share_Label.setBackground(new java.awt.Color(11, 11, 11));
         Share_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Share_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Share_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/keyboardwarrior/icon/share.png"))); // NOI18N
+        Share_Label.setIcon(new ImageIcon("src/com/purplecobras/keyboardwarrior/ico/share.png")); // NOI18N
         Share_Label.setText("Share");
         Share_Label.setPreferredSize(new java.awt.Dimension(70, 50));
         Share_Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -127,7 +134,7 @@ public class MASTER_PANEL extends javax.swing.JPanel {
         Groups_Label.setBackground(new java.awt.Color(11, 11, 11));
         Groups_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Groups_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Groups_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/keyboardwarrior/icon/networking.png"))); // NOI18N
+        Groups_Label.setIcon(new ImageIcon("src/com/purplecobras/keyboardwarrior/ico/networking.png")); // NOI18N
         Groups_Label.setText("Groups");
         Groups_Label.setPreferredSize(new java.awt.Dimension(70, 50));
         Groups_Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -139,7 +146,7 @@ public class MASTER_PANEL extends javax.swing.JPanel {
         Statistics_Label.setBackground(new java.awt.Color(11, 11, 11));
         Statistics_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Statistics_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Statistics_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/keyboardwarrior/icon/analytics.png"))); // NOI18N
+        Statistics_Label.setIcon(new ImageIcon("src/com/purplecobras/keyboardwarrior/ico/analytics.png")); // NOI18N
         Statistics_Label.setText("Statistics");
         Statistics_Label.setPreferredSize(new java.awt.Dimension(70, 50));
         Statistics_Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -151,7 +158,7 @@ public class MASTER_PANEL extends javax.swing.JPanel {
         General_Label.setBackground(new java.awt.Color(11, 11, 11));
         General_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         General_Label.setForeground(new java.awt.Color(255, 255, 255));
-        General_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/keyboardwarrior/icon/010-configuration.png"))); // NOI18N
+        General_Label.setIcon(new ImageIcon("src/com/purplecobras/keyboardwarrior/ico/010-configuration.png")); // NOI18N
         General_Label.setText("General");
         General_Label.setPreferredSize(new java.awt.Dimension(70, 50));
         General_Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -163,7 +170,7 @@ public class MASTER_PANEL extends javax.swing.JPanel {
         Help_Label.setBackground(new java.awt.Color(11, 11, 11));
         Help_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Help_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Help_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/keyboardwarrior/icon/communication.png"))); // NOI18N
+        Help_Label.setIcon(new ImageIcon("src/com/purplecobras/keyboardwarrior/ico/communication.png")); // NOI18N
         Help_Label.setText("Help");
         Help_Label.setPreferredSize(new java.awt.Dimension(70, 50));
         Help_Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,7 +182,7 @@ public class MASTER_PANEL extends javax.swing.JPanel {
         Profile_Label.setBackground(new java.awt.Color(11, 11, 11));
         Profile_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Profile_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Profile_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/keyboardwarrior/icon/user.png"))); // NOI18N
+        Profile_Label.setIcon(new ImageIcon("src/com/purplecobras/keyboardwarrior/ico/user.png")); // NOI18N
         Profile_Label.setText("Profile");
         Profile_Label.setPreferredSize(new java.awt.Dimension(70, 50));
         Profile_Label.addMouseListener(new java.awt.event.MouseAdapter() {

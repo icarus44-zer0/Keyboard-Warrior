@@ -88,7 +88,7 @@ public abstract class GUI_ShortcutTable implements ActionListener {
     private static void deleteButton_Press() {
         deleteButton.addActionListener(e -> {
             deleteFromSCMAP();
-            GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
+            //GUI_KBW.contentPaneLayout.show(GUI_KBW.contentPane, GUI_KBW.shortcutTable_Lable);
 
         });
     }
