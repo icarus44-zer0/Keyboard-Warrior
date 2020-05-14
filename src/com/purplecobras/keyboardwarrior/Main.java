@@ -32,8 +32,8 @@ public class Main {
 					robot = new Robot();
 					ClipboardAccessor.writeClipboard(shortcut.get_Value());
 					InsertionPointAccessor.delete_sckey(robot, shortcut.get_Key());
-					InsertionPointAccessor.paste_Shortcut_Value_Windows(robot);
-					//Insertion_Point_Accessor.paste_Shortcut_Value_MacOS(robot);
+					//InsertionPointAccessor.paste_Shortcut_Value_Windows(robot);
+					InsertionPointAccessor.paste_Shortcut_Value_MacOS(robot);
 				}
 				TimeUnit.MILLISECONDS.sleep(100);
 			} catch (Exception e) {
