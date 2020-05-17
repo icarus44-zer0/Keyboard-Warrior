@@ -5,11 +5,7 @@ import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
 import java.util.HashMap;
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
+
 public final class DeadKeyMap {
     private static DeadKeyMap _instance = null;
     public static HashMap<String, String> dead_Key;

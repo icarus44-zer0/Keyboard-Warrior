@@ -6,11 +6,8 @@ import java.util.concurrent.TimeUnit;
  * A Buffer Search class for searching a Circular Fifo. Singleton Class Builds
  * all possible sequentail key combinations from buffer elements Compares key
  * combinations to HashMap Stores Key & Value pairs in a custom Shortcut Object
- *
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
  */
+
 public final class BufferSearch {
     private static BufferSearch instance = null;
     private ShortcutMap shotcut_map;
@@ -52,7 +49,7 @@ public final class BufferSearch {
      * @return Shortcut
      * @throws InterruptedException
      */
-    public Shortcut search_KBI_Buffer(KeyboardInputBuffer buffer) throws InterruptedException {
+    public Shortcut searchKBIBuffer(KeyboardInputBuffer buffer) throws InterruptedException {
         bufferArray = buffer.toArray();
         resetKey();
         for (int i = 0; i < buffer.size(); i++) {

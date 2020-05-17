@@ -4,11 +4,7 @@ import com.purplecobras.keyboardwarrior.dev.HashMap_File_Reader;
 import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 import java.util.HashMap;
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
+
 public final class CommandKeyMap {
     private static CommandKeyMap _instance = null;
     private static HashMap<String, String> command_Key;

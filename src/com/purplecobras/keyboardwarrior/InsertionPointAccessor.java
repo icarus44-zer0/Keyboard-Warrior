@@ -5,11 +5,6 @@ import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
 public class InsertionPointAccessor {
         Robot robot;
 
@@ -25,7 +20,7 @@ public class InsertionPointAccessor {
          * @param robot
          * @throws InterruptedException
          */
-        public static void paste_Shortcut_Value_MacOS(Robot robot) throws InterruptedException {
+        public static void pasteMacOS(Robot robot) throws InterruptedException {
 
                 robot.keyPress(KeyEvent.VK_META);
                 TimeUnit.MILLISECONDS.sleep(10);
@@ -46,7 +41,7 @@ public class InsertionPointAccessor {
          * @param robot
          * @throws InterruptedException
          */
-        public static void paste_Shortcut_Value_Windows(Robot robot) throws InterruptedException {
+        public static void pasteWindows(Robot robot) throws InterruptedException {
 
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 TimeUnit.MILLISECONDS.sleep(10);
@@ -69,7 +64,7 @@ public class InsertionPointAccessor {
          * @param key
          * @throws InterruptedException
          */
-        public static void delete_sckey(Robot robot, String key) throws InterruptedException {
+        public static void deleteKey(Robot robot, String key) throws InterruptedException {
                 for (int i = 0; i < key.length(); i++) {
                         robot.keyPress(KeyEvent.VK_BACK_SPACE);
                         robot.keyRelease(KeyEvent.VK_BACK_SPACE);

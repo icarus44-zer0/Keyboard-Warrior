@@ -5,11 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
+
 public class HashMap_File_Reader {
 
     public HashMap_File_Reader() {

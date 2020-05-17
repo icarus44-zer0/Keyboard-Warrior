@@ -13,7 +13,7 @@ public class GUI_Image {
     *
     */
     public static void splashPageImage(){
-        ImageIcon background=new ImageIcon("src\\com\\purplecobras\\keyboardwarrior\\images\\logo.png");
+        ImageIcon background=new ImageIcon("src/com/purplecobras/keyboardwarrior/images\\logo.png");
         Image img=background.getImage();
         Image temp=img.getScaledInstance(300,300,Image.SCALE_SMOOTH);
         background=new ImageIcon(temp);

@@ -6,11 +6,7 @@ import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
 import java.util.HashMap;
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
+
 public final class ShortcutMap {
     private static ShortcutMap instance = null;
     public HashMap<String, String> shortcut_map;
@@ -46,6 +42,7 @@ public final class ShortcutMap {
     public HashMap<String, String> get_Shortcut_Map() {
         return shortcut_map;
     }
+
 
     /**
      * 

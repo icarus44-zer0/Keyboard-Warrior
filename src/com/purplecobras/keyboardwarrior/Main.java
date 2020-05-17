@@ -3,13 +3,7 @@ package com.purplecobras.keyboardwarrior;
 import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
 
-import com.purplecobras.keyboardwarrior.gui.v1.GUI_KBW;
-
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
+import com.purplecobras.keyboardwarrior.gui.v2.ShortcutFrame;
 
 public class Main {
 	public static final int MAX_BUFFER_SIZE = 10;
@@ -19,21 +13,29 @@ public class Main {
 		GlobalKeyboardListener listener = new GlobalKeyboardListener();
 		KeyboardInputBuffer buffer = KeyboardInputBuffer.getInstance();
 		BufferSearch search = BufferSearch.get_Instance();
+		ShortcutFrame scf = new ShortcutFrame();
 		Shortcut shortcut = new Shortcut();
 		Robot robot;
 
-		GUI_KBW.GUI_Init();
 		listener.setup();
+		scf.ShortcutFrame_init();
 
 		while (true) {
 			try {
-				shortcut = search.search_KBI_Buffer(buffer);
+				shortcut = search.searchKBIBuffer(buffer);
 				if (shortcut.get_Value() != null) {
 					robot = new Robot();
 					ClipboardAccessor.writeClipboard(shortcut.get_Value());
-					InsertionPointAccessor.delete_sckey(robot, shortcut.get_Key());
-					//InsertionPointAccessor.paste_Shortcut_Value_Windows(robot);
-					InsertionPointAccessor.paste_Shortcut_Value_MacOS(robot);
+					InsertionPointAccessor.deleteKey(robot, shortcut.get_Key());
+
+					/**
+					 * Comment out for mac or for windows
+					 * TODO implement properties build for Mac and Windows
+					 * 
+					 */
+					//InsertionPointAccessor.pasteWindows(robot);
+					InsertionPointAccessor.pasteMacOS(robot);
+
 				}
 				TimeUnit.MILLISECONDS.sleep(100);
 			} catch (Exception e) {

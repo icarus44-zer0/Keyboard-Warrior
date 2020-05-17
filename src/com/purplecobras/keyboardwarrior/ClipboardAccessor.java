@@ -4,11 +4,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 import java.io.IOException;
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
+
 public class ClipboardAccessor {
 
 	//TODO make into singlton 
