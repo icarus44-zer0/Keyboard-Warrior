@@ -9,16 +9,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class GlobalKeyboardListener implements NativeKeyListener {
-	private static KeyCodeInterpreter interpreter;
+public class KeyGlobalListener implements NativeKeyListener {
+	private static KeyInterpreter interpreter;
 	private String key;
 	private String key_Raw;
 
 	/**
 	 * 
 	 */
-	GlobalKeyboardListener() {
-		interpreter = KeyCodeInterpreter.getInstance();
+	KeyGlobalListener() {
+		interpreter = KeyInterpreter.getInstance();
 	}
 
 	/**
@@ -30,7 +30,7 @@ public class GlobalKeyboardListener implements NativeKeyListener {
 		} catch (NativeHookException e) {
 			e.printStackTrace();
 		}
-		GlobalScreen.addNativeKeyListener(new GlobalKeyboardListener());
+		GlobalScreen.addNativeKeyListener(new KeyGlobalListener());
 
 		//TODO remove mouse events 
 		// GlobalScreen.removeNativeMouseWheelListener(arg0);

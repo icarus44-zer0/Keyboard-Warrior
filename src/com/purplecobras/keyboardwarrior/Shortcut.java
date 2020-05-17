@@ -4,6 +4,7 @@ package com.purplecobras.keyboardwarrior;
 public class Shortcut {
     private String _key;
     private String _value;
+    private String _description;
 
     /**
      * 

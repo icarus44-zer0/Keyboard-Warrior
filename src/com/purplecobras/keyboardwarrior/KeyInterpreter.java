@@ -2,23 +2,19 @@ package com.purplecobras.keyboardwarrior;
 
 import java.util.HashMap;
 
-public class KeyCodeInterpreter {
-    private static KeyCodeInterpreter instance = null;
+public class KeyInterpreter {
+    private static KeyInterpreter instance = null;
+    private KeyMap keyMap;
+    private KeyBuffer buffer;
     private boolean shiftPress;
-    private DeadKeyMap dead_key;
-    private CommandKeyMap command_key;
-    private ShiftKeyMap shift_Key;
-    private KeyboardInputBuffer buffer;
 
     /**
      * 
      */
-    private KeyCodeInterpreter() {
+    private KeyInterpreter() {
+        keyMap = KeyMap.getInstance();
+        buffer = KeyBuffer.getInstance();
         shiftPress = false;
-        dead_key = DeadKeyMap.getInstance();
-        command_key = CommandKeyMap.getInstance();
-        shift_Key = ShiftKeyMap.getInstance();
-        buffer = KeyboardInputBuffer.getInstance();
     }
 
     /**
@@ -26,9 +22,9 @@ public class KeyCodeInterpreter {
      * @return
      */
 
-    public static KeyCodeInterpreter getInstance() {
+    public static KeyInterpreter getInstance() {
         if (instance == null) {
-            instance = new KeyCodeInterpreter();
+            instance = new KeyInterpreter();
         }
         return instance;
     }
@@ -39,7 +35,7 @@ public class KeyCodeInterpreter {
      * @return
      */
     public boolean isSpecialKey(String key) {
-        if (instance.dead_key.get_DeadKey_Map().containsValue(key)) {
+        if (keyMap.getDeadKeyMap().containsValue(key)) {
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
                 instance.buffer.reset_Buffer();
             }
@@ -54,7 +50,7 @@ public class KeyCodeInterpreter {
      * @return
      */
     public HashMap<String, String> getSpecialKeys() {
-        return instance.command_key.get_CommandKey_Map();
+        return keyMap.getCommandKeyMap();
     }
 
     /**
@@ -62,7 +58,7 @@ public class KeyCodeInterpreter {
      * @return
      */
     public HashMap<String, String> getShiftKeys() {
-        return instance.shift_Key.get_ShiftKey_Map();
+        return keyMap.getShiftKeyMap();
     }
 
     /**
@@ -81,10 +77,9 @@ public class KeyCodeInterpreter {
      * @return
      */
     public String formatKeyCode(String key) {
-        if (instance.command_key.get_CommandKey_Map().containsKey(key)) {
-            return instance.command_key.get_CommandKey_Map().get(key);
+        if (keyMap.getCommandKeyMap().containsKey(key)) {
+            return keyMap.getCommandKeyMap().get(key);
         }
-
         return key;
     }
 
@@ -94,8 +89,8 @@ public class KeyCodeInterpreter {
      * @return
      */
     public String getShiftValue(String key) {
-        if (instance.shift_Key.get_ShiftKey_Map().containsKey(key)) {
-            return instance.shift_Key.get_ShiftKey_Map().get(key);
+        if (keyMap.getShiftKeyMap().containsKey(key)) {
+            return keyMap.getShiftKeyMap().get(key);
         }
 
         return key;
@@ -113,8 +108,8 @@ public class KeyCodeInterpreter {
             } else {
                 if (!isSpecialKey(key) == false) {
                     isStandardKey(key.toLowerCase());
-                } else if (command_key.get_CommandKey_Map().containsKey(key)) {
-                    isStandardKey(command_key.get_CommandKey_Map().get(key));
+                } else if (keyMap.getCommandKeyMap().containsKey(key)) {
+                    isStandardKey(keyMap.getCommandKeyMap().get(key));
                 }
             }
         }

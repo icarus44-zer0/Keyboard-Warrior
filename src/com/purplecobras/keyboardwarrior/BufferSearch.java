@@ -45,11 +45,11 @@ public final class BufferSearch {
      * for each search element Compares search element to HashMap key set Builds new
      * Shortcu
      * 
-     * @param KeyboardInputBuffer
+     * @param KeyBuffer
      * @return Shortcut
      * @throws InterruptedException
      */
-    public Shortcut searchKBIBuffer(KeyboardInputBuffer buffer) throws InterruptedException {
+    public Shortcut searchKBIBuffer(KeyBuffer buffer) throws InterruptedException {
         bufferArray = buffer.toArray();
         resetKey();
         for (int i = 0; i < buffer.size(); i++) {

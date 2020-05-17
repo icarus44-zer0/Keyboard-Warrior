@@ -2,15 +2,12 @@ package com.purplecobras.keyboardwarrior;
 
 import org.apache.commons.collections.CircularFifoBuffer;
 
-public final class KeyboardInputBuffer extends CircularFifoBuffer {
-    /**
-     *
-     */
+public final class KeyBuffer extends CircularFifoBuffer {
     private static final long serialVersionUID = 1L;
     private static final int MAX_BUFFER_SIZE = 10;
-    private static KeyboardInputBuffer buffer;
+    private static KeyBuffer instance;
 
-    private KeyboardInputBuffer() {
+    private KeyBuffer() {
         super(MAX_BUFFER_SIZE);
     }
 
@@ -18,12 +15,12 @@ public final class KeyboardInputBuffer extends CircularFifoBuffer {
      * 
      * @return
      */
-    public static KeyboardInputBuffer getInstance() {
-        if (buffer == null) {
-            buffer = new KeyboardInputBuffer();
-            buffer.reset_Buffer();
+    public static KeyBuffer getInstance() {
+        if (instance == null) {
+            instance = new KeyBuffer();
+            instance.reset_Buffer();
         }
-        return buffer;
+        return instance;
     }
 
     /**
@@ -31,7 +28,7 @@ public final class KeyboardInputBuffer extends CircularFifoBuffer {
      */
     public void reset_Buffer() {
         for (int i = 0; i < MAX_BUFFER_SIZE; i++) {
-            buffer.add("~");
+            instance.add("~");
         }
     }
 }

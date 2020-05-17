@@ -10,8 +10,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		GlobalKeyboardListener listener = new GlobalKeyboardListener();
-		KeyboardInputBuffer buffer = KeyboardInputBuffer.getInstance();
+		KeyGlobalListener listener = new KeyGlobalListener();
+		KeyBuffer buffer = KeyBuffer.getInstance();
 		BufferSearch search = BufferSearch.get_Instance();
 		ShortcutFrame scf = new ShortcutFrame();
 		Shortcut shortcut = new Shortcut();
@@ -33,8 +33,8 @@ public class Main {
 					 * TODO implement properties build for Mac and Windows
 					 * 
 					 */
-					//InsertionPointAccessor.pasteWindows(robot);
-					InsertionPointAccessor.pasteMacOS(robot);
+					InsertionPointAccessor.pasteWindows(robot);
+					//InsertionPointAccessor.pasteMacOS(robot);
 
 				}
 				TimeUnit.MILLISECONDS.sleep(100);
