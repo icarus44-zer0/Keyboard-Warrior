@@ -2,11 +2,6 @@ package com.purplecobras.keyboardwarrior;
 
 import java.util.HashMap;
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
 public class KeyCode_Interpreter {
     private static KeyCode_Interpreter instance = null;
     private boolean shiftPress;

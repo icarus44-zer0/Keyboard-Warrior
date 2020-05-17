@@ -6,10 +6,7 @@ import javax.swing.JOptionPane;
 import com.purplecobras.keyboardwarrior.Shortcut_Map;
 
 
-/**
- *
- * @author JoshPoe
- */
+
 public class ShortcutFrame extends javax.swing.JFrame {
       // IDE Generated variables declaration - do not modify//GEN-BEGIN:variables
       private javax.swing.JPanel DisplayTextPanel;

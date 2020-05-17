@@ -1,10 +1,6 @@
 package com.purplecobras.keyboardwarrior;
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
+
 public class Shortcut {
     private String _key;
     private String _value;

@@ -4,11 +4,7 @@ import java.util.HashMap;
 import com.purplecobras.keyboardwarrior.dev.HashMap_File_Writer;
 import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
+
 public class ShortCut_Map_Driver {
     public static void main(String[] args) {
 

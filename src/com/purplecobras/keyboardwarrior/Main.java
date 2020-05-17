@@ -5,12 +5,6 @@ import java.util.concurrent.TimeUnit;
 
 import com.purplecobras.keyboardwarrior.gui.v2.ShortcutFrame;
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
-
 public class Main {
 	public static final int MAX_BUFFER_SIZE = 10;
 

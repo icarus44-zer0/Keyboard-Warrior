@@ -5,11 +5,6 @@ import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 
-/**
- * @author Josh Poe
- * @version 1.0.1
- * @since 2020-05-09
- */
 public class Insertion_Point_Accessor {
         Robot robot;
 
