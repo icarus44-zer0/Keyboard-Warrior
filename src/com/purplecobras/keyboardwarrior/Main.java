@@ -26,13 +26,6 @@ public class Main {
 		listener.setup();
 		scf.ShortcutFrame_init();
 
-	
-		//  Shortcut_Map shortcut_Map = Shortcut_Map.getInstance();
-		//  String[] keyArray = shortcut_Map.get_Shortcut_Map().keySet().toArray(new String[0]);
-		//  String[] valueArray = shortcut_Map.get_Shortcut_Map().values().toArray(new String[0]);
-		//  System.out.println(Arrays.toString(keyArray));
-		//  System.out.println(Arrays.toString(valueArray));
-
 		while (true) {
 			try {
 				shortcut = search.search_KBI_Buffer(buffer);
@@ -40,8 +33,15 @@ public class Main {
 					robot = new Robot();
 					Clipboard_Accessor.writeClipboard(shortcut.get_Value());
 					Insertion_Point_Accessor.delete_sckey(robot, shortcut.get_Key());
+
+					/**
+					 * Comment out for mac or for windows
+					 * TODO implement properties build for Mac and Windows
+					 * 
+					 */
 					//Insertion_Point_Accessor.paste_Shortcut_Value_Windows(robot);
 					Insertion_Point_Accessor.paste_Shortcut_Value_MacOS(robot);
+
 				}
 				TimeUnit.MILLISECONDS.sleep(100);
 			} catch (Exception e) {
