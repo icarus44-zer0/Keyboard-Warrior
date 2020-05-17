@@ -2,6 +2,7 @@ package com.purplecobras.keyboardwarrior;
 
 import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
+
 import com.purplecobras.keyboardwarrior.gui.v2.ShortcutFrame;
 
 /**
@@ -22,8 +23,15 @@ public class Main {
 		Shortcut shortcut = new Shortcut();
 		Robot robot;
 
-		scf.ShortcutFrame_init();
 		listener.setup();
+		scf.ShortcutFrame_init();
+
+	
+		//  Shortcut_Map shortcut_Map = Shortcut_Map.getInstance();
+		//  String[] keyArray = shortcut_Map.get_Shortcut_Map().keySet().toArray(new String[0]);
+		//  String[] valueArray = shortcut_Map.get_Shortcut_Map().values().toArray(new String[0]);
+		//  System.out.println(Arrays.toString(keyArray));
+		//  System.out.println(Arrays.toString(valueArray));
 
 		while (true) {
 			try {

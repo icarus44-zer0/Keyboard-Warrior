@@ -3,9 +3,7 @@ package com.purplecobras.keyboardwarrior.gui.v1;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+
 
 import com.purplecobras.keyboardwarrior.Shortcut_Map;
 
