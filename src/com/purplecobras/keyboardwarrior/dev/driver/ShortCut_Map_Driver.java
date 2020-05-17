@@ -14,8 +14,6 @@ public class ShortCut_Map_Driver {
 
         HashMap<String, String> map = new HashMap<String, String>();
 
-        map.put("/jp", "Josh Poe");
-        map.put("/pc", "Purple Cobras");
         map.put("/omw", "On My Way!");
         map.put("/brb", "Be Right Back");
         map.put("/ooo", "Out Of Office");
