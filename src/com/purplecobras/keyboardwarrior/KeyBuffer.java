@@ -1,8 +1,8 @@
 package com.purplecobras.keyboardwarrior;
 
-import org.apache.commons.collections.CircularFifoBuffer;
+import org.apache.commons.collections4.queue.CircularFifoQueue;
 
-public final class KeyBuffer extends CircularFifoBuffer {
+public final class KeyBuffer extends CircularFifoQueue<String> {
     private static final long serialVersionUID = 1L;
     private static final int MAX_BUFFER_SIZE = 10;
     private static KeyBuffer instance;
