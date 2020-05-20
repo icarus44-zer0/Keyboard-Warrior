@@ -1,5 +1,5 @@
 # Keyboard Warrior
-A Keyboard shortcut program for expanding user defined code/text blocks. 
+A Keyboard shortcut program for expanding user defined code and text blocks. 
 
 ### Installing
 
@@ -51,18 +51,12 @@ End with an example of getting some data out of the system or using it for a lit
 ## Built With
 * [Maven](https://maven.apache.org/) - Dependency Management
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 
 ## Authors
 * **Josh Poe** - [icarus44-zer0]https://github.com/icarus44-zer0
 * **Daniel Olsen** - [boomthegoat]https://github.com/boomthegoat
 * **Oscar Vaquera** - [vaqueraoscar0]https://github.com/vaqueraoscar0
 * **Viktoriya Penkova** -[viktoriya-2]https://github.com/viktoriya-2
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 Keyboard-Warrior is covered under *both* the [GNU General Public](LESSER.md) *and* 
