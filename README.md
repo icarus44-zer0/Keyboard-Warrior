@@ -54,14 +54,14 @@ Built With
 
 Authors
 -------------------
-* **Josh Poe** - [icarus44-zer0]https://github.com/icarus44-zer0
-* **Daniel Olsen** - [boomthegoat]https://github.com/boomthegoat
-* **Oscar Vaquera** - [vaqueraoscar0]https://github.com/vaqueraoscar0
-* **Viktoriya Penkova** -[viktoriya-2]https://github.com/viktoriya-2
+* **Josh Poe** - [icarus44-zer0](https://github.com/icarus44-zer0)
+* **Daniel Olsen** - [boomthegoat](https://github.com/boomthegoat)
+* **Oscar Vaquera** - [vaqueraoscar0](https://github.com/vaqueraoscar0)
+* **Viktoriya Penkova** -[viktoriya-2](https://github.com/viktoriya-2)
 
 License
 -------------------
-Keyboard-Warrior is covered under the [GNU General Public](https://www.gnu.org/licenses/gpl-3.0.txt) *and* the
+Keyboard-Warrior is covered under the [GNU General Public](https://www.gnu.org/licenses/licenses.en.html) *and* the
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 Acknowledgments
