@@ -6,20 +6,20 @@ A Keyboard shortcut program for expanding user defined code/text blocks.
   System Requirements
   -------------------
 
-  JDK:
-    1.7 or above (this is to execute Maven - it still allows you to build against 1.3
-    and prior JDK's).
-  Memory:
-    No minimum requirement.
-  Disk:
-    Approximately 10MB is required for the Maven installation itself. In addition to
-    that, additional disk space will be used for your local Maven repository. The size
-    of your local repository will vary depending on usage but expect at least 500MB.
-  Operating System:
-    Windows:
-      Windows 2000 or above.
-    Unix based systems (Linux, Solaris and Mac OS X) and others:
-      No minimum requirement.
+  * JDK:
+    * 1.7 or above (this is to execute Maven - it still allows you to build against 1.3
+    * and prior JDK's).
+  * Memory:
+    * No minimum requirement.
+  * Disk:
+    * Approximately 10MB is required for the Maven installation itself. In addition to
+    * that, additional disk space will be used for your local Maven repository. The size
+    * of your local repository will vary depending on usage but expect at least 500MB.
+  * Operating System:
+    * Windows:
+      * Windows 10 or above.
+    * Unix based systems (Linux, Solaris and Mac OS X) and others:
+      * No minimum requirement.
 
   Installing Maven
   ----------------
