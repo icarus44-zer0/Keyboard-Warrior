@@ -2,6 +2,11 @@ Keyboard-Warrior
 -------------------
 A Keyboard shortcut program for expanding user defined code and text blocks. 
 
+
+#### Version 1.x
+
+The [1.x version](https://github.com/PurpleCobrasIO/Keyboard-Warrior/) is end-of-life as of **May 20, 2020**. No further development, support, maintenance, PRs and updates will happen.
+
 System Requirements
 -------------------
 
