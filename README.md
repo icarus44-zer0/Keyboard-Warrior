@@ -57,7 +57,7 @@ Authors
 * **Josh Poe** - [icarus44-zer0](https://github.com/icarus44-zer0)
 * **Daniel Olsen** - [boomthegoat](https://github.com/boomthegoat)
 * **Oscar Vaquera** - [vaqueraoscar0](https://github.com/vaqueraoscar0)
-* **Viktoriya Penkova** -[viktoriya-2](https://github.com/viktoriya-2)
+* **Viktoriya Penkova** - [viktoriya-2](https://github.com/viktoriya-2)
 
 License
 -------------------
@@ -69,4 +69,3 @@ Acknowledgments
 * [OneGneissGuy](https://github.com/OneGneissGuy)
 * [kwhat](https://github.com/kwhat/jnativehook)
 * [kiranshastry](https://www.flaticon.com/authors/kiranshastry)
-* [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html)
