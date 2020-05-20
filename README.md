@@ -57,7 +57,6 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 
 ## Authors
-
 * **Josh Poe** - [icarus44-zer0]https://github.com/icarus44-zer0
 * **Daniel Olsen** - [boomthegoat]https://github.com/boomthegoat
 * **Oscar Vaquera** - [vaqueraoscar0]https://github.com/vaqueraoscar0
@@ -66,7 +65,6 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
-## Licensing
 Keyboard-Warrior is covered under *both* the [GNU General Public](LESSER.md) *and* 
 [GNU Lesser General Public](COPYING.LESSER.md) Licenses as the latter is an extension of the former granting you 
 additional distribution rights.  You may use this library in proprietary projects so long as it 
