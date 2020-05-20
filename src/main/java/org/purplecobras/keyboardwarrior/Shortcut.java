@@ -26,7 +26,7 @@ public class Shortcut {
      * 
      * @return
      */
-    public String get_Key() {
+    public String getKey() {
         return key;
     }
 
@@ -34,7 +34,7 @@ public class Shortcut {
      * 
      * @param key
      */
-    public void set_Key(String key) {
+    public void setKey(String key) {
         this.key = key;
     }
 
@@ -42,7 +42,7 @@ public class Shortcut {
      * 
      * @return
      */
-    public String get_Value() {
+    public String getValue() {
         return value;
     }
 
@@ -50,7 +50,7 @@ public class Shortcut {
      * 
      * @param value
      */
-    public void set_value(String value) {
+    public void setvalue(String value) {
         this.value = value;
     }
 

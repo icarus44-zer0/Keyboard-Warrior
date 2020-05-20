@@ -28,7 +28,7 @@ public final class BufferSearch {
      * 
      * @return Buffer_Search
      */
-    public static BufferSearch get_Instance() {
+    public static BufferSearch getInstance() {
         if (instance == null) {
             instance = new BufferSearch();
             instance.shortcut = new Shortcut();
@@ -56,8 +56,8 @@ public final class BufferSearch {
             nextChar = (String) bufferArray[buffer.size() - 1 - i];
             element = nextChar + element;
             if (shotcut_map.shortcut_map.containsKey(element)) {
-                shortcut.set_Key(element);
-                shortcut.set_value(shotcut_map.get_Shortcut_Map().get(element));
+                shortcut.setKey(element);
+                shortcut.setvalue(shotcut_map.getShortcutMap().get(element));
                 return shortcut;
             }
         }

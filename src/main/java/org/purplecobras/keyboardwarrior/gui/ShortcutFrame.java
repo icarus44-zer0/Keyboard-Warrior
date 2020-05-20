@@ -531,18 +531,18 @@ public class ShortcutFrame extends javax.swing.JFrame {
         ShortcutMap shortcut_map = ShortcutMap.getInstance();
         String add_key = SC_Key_JTextField.getText();
         String add_value = SC_TextArea.getText();
-        shortcut_map.get_Shortcut_Map().put(add_key, add_value);
+        shortcut_map.getShortcutMap().put(add_key, add_value);
     }
 
     private void removeButtonMouseClicked(java.awt.event.MouseEvent evt) {
         int row = Shortcut_Table.getSelectedRow();
         Object keyRemove = Shortcut_Table.getValueAt(row, 0);
         Object valueRemove = Shortcut_Table.getValueAt(row, 1);
-        ShortcutMap scm = ShortcutMap.getInstance();
+        ShortcutMap scMap = ShortcutMap.getInstance();
 
         if (displayDeleteMessage(valueRemove)==0){
-         scm.get_Shortcut_Map().remove(keyRemove);
-         scm.updateShortcutSerFile();
+         scMap.getShortcutMap().remove(keyRemove);
+         scMap.updateShortcutSerFile();
          updateTableData();
         }
     }
@@ -572,8 +572,8 @@ public class ShortcutFrame extends javax.swing.JFrame {
 
     private void updateTableData() {
         ShortcutMap shortcut_map = ShortcutMap.getInstance();
-        keys = shortcut_map.get_Shortcut_Map().keySet().toArray();
-        values = shortcut_map.get_Shortcut_Map().values().toArray();
+        keys = shortcut_map.getShortcutMap().keySet().toArray();
+        values = shortcut_map.getShortcutMap().values().toArray();
         data = concat(keys, values);
         shortcut_TableModel.setData(data);
         Shortcut_Table.setModel(shortcut_TableModel);

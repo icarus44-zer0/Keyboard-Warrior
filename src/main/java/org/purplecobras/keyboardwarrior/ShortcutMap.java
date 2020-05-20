@@ -36,7 +36,7 @@ public final class ShortcutMap {
      * 
      * @return
      */
-    public HashMap<String, String> get_Shortcut_Map() {
+    public HashMap<String, String> getShortcutMap() {
         return shortcut_map;
     }
 
@@ -45,7 +45,7 @@ public final class ShortcutMap {
      * 
      * @param shortcut_Key
      */
-    public void set_Shortcut_Map(HashMap<String, String> shortcut_Key) {
+    public void setShortcutMap(HashMap<String, String> shortcut_Key) {
         shortcut_map = shortcut_Key;
     }
    
@@ -57,7 +57,7 @@ public final class ShortcutMap {
 
     public void updateShortcutSerFile() {
         ShortcutMap shortcut_map = ShortcutMap.getInstance();
-        SerFileWriter.serFileOut(shortcut_map.get_Shortcut_Map(), SerFileDir.SF1);
+        SerFileWriter.serFileOut(shortcut_map.getShortcutMap(), SerFileDir.SF1);
     }
 
 }

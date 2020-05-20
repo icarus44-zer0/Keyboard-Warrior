@@ -13,7 +13,7 @@ public class Main {
 
 		GlobalKeyListener listener = new GlobalKeyListener();
 		KeyBuffer buffer = KeyBuffer.getInstance();
-		BufferSearch search = BufferSearch.get_Instance();
+		BufferSearch search = BufferSearch.getInstance();
 		ShortcutFrame scf = new ShortcutFrame();
 		Shortcut shortcut = new Shortcut();
 		Robot robot;
@@ -24,10 +24,10 @@ public class Main {
 		while (true) {
 			try {
 				shortcut = search.searchKBIBuffer(buffer);
-				if (shortcut.get_Value() != null) {
+				if (shortcut.getValue() != null) {
 					robot = new Robot();
-					ClipboardAccessor.writeClipboard(shortcut.get_Value());
-					InsertionPointAccessor.deleteKey(robot, shortcut.get_Key());
+					ClipboardAccessor.writeClipboard(shortcut.getValue());
+					InsertionPointAccessor.deleteKey(robot, shortcut.getKey());
 
 					/**
 					 * Comment out for mac or for windows
