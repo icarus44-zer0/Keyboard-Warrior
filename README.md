@@ -67,8 +67,7 @@ a propritary need, so long as that source code is made public under the aforemen
 licenced attorney if you have licence compatibility questions or concerns.
 
 ## Acknowledgments
-
-* [kwhat/jnativehook](https://github.com/kwhat/jnativehook)
-* [flaticon/kiranshastry](https://www.flaticon.com/authors/kiranshastry)
-* [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html)
 * [OneGneissGuy](https://github.com/OneGneissGuy)
+* [kwhat](https://github.com/kwhat/jnativehook)
+* [kiranshastry](https://www.flaticon.com/authors/kiranshastry)
+* [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html)
