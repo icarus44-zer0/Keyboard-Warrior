@@ -61,12 +61,8 @@ Authors
 
 License
 -------------------
-Keyboard-Warrior is covered under *both* the [GNU General Public](LESSER.md) *and* 
-[GNU Lesser General Public](COPYING.LESSER.md) Licenses as the latter is an extension of the former granting you 
-additional distribution rights.  You may use this library in proprietary projects so long as it 
-remains an external library with the same binary interface.  You may modify the source code of this library to fulfill 
-a propritary need, so long as that source code is made public under the aforementioned terms.  Please consult with a 
-licenced attorney if you have licence compatibility questions or concerns.
+Keyboard-Warrior is covered under *both* the [GNU General Public]https://www.gnu.org/licenses/gpl-3.0.txt *and* 
+[APACHE LICENSE]https://www.apache.org/licenses/LICENSE-2.0 
 
 Acknowledgments
 -------------------
