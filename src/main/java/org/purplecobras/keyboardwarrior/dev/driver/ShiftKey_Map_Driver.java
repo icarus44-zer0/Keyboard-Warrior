@@ -2,8 +2,8 @@ package main.java.org.purplecobras.keyboardwarrior.dev.driver;
 
 import java.util.HashMap;
 
-import main.java.org.purplecobras.keyboardwarrior.HashMap_File_Writer;
-import main.java.org.purplecobras.keyboardwarrior.Ser_File_Dir;
+import main.java.org.purplecobras.keyboardwarrior.SerFileWriter;
+import main.java.org.purplecobras.keyboardwarrior.SerFileDir;
 
 
 public class ShiftKey_Map_Driver {
@@ -34,7 +34,7 @@ public class ShiftKey_Map_Driver {
         map.put("SLASH", "?");
         map.put("BACK SLASH", "|");
 
-        HashMap_File_Writer.hashMap_SerFileOut(map, Ser_File_Dir.SF2);
+        SerFileWriter.serFileOut(map, SerFileDir.SF2);
 
     }
 

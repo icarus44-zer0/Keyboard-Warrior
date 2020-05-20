@@ -9,7 +9,7 @@ public final class ShortcutMap {
     public HashMap<String, String> shortcut_map;
 
     private ShortcutMap() {
-        shortcut_map = HashMap_File_Reader.hashMap_SerFileIn(shortcut_map, Ser_File_Dir.SF1);
+        shortcut_map = SerFileReader.serFileIn(shortcut_map, SerFileDir.SF1);
     }
 
     /**
@@ -57,7 +57,7 @@ public final class ShortcutMap {
 
     public void updateShortcutSerFile() {
         ShortcutMap shortcut_map = ShortcutMap.getInstance();
-        HashMap_File_Writer.hashMap_SerFileOut(shortcut_map.get_Shortcut_Map(), Ser_File_Dir.SF1);
+        SerFileWriter.serFileOut(shortcut_map.get_Shortcut_Map(), SerFileDir.SF1);
     }
 
 }

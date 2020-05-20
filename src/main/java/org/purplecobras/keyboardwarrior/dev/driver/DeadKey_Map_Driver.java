@@ -2,8 +2,8 @@ package main.java.org.purplecobras.keyboardwarrior.dev.driver;
 
 import java.util.HashMap;
 
-import main.java.org.purplecobras.keyboardwarrior.HashMap_File_Writer;
-import main.java.org.purplecobras.keyboardwarrior.Ser_File_Dir;
+import main.java.org.purplecobras.keyboardwarrior.SerFileWriter;
+import main.java.org.purplecobras.keyboardwarrior.SerFileDir;
 
 
 public class DeadKey_Map_Driver {
@@ -64,6 +64,6 @@ public class DeadKey_Map_Driver {
         map.put("28", "Back Slash");
         map.put("29", "Open Bracket");
 
-        HashMap_File_Writer.hashMap_SerFileOut(map, Ser_File_Dir.SF4);
+        SerFileWriter.serFileOut(map, SerFileDir.SF4);
     }
 }

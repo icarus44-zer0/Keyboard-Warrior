@@ -2,24 +2,24 @@ package main.java.org.purplecobras.keyboardwarrior;
 
 
 public class Shortcut {
-    private String _key;
-    private String _value;
-    private String _description;
+    private String key;
+    private String value;
+    private String description;
 
     /**
      * 
      */
     public Shortcut() {
-        this._key = null;
-        this._value = null;
+        this.key = null;
+        this.value = null;
     }
 
     /**
      * 
      */
     public Shortcut(String key, String value) {
-        this._key = key;
-        this._value = value;
+        this.key = key;
+        this.value = value;
     }
 
     /**
@@ -27,7 +27,7 @@ public class Shortcut {
      * @return
      */
     public String get_Key() {
-        return _key;
+        return key;
     }
 
     /**
@@ -35,7 +35,7 @@ public class Shortcut {
      * @param key
      */
     public void set_Key(String key) {
-        this._key = key;
+        this.key = key;
     }
 
     /**
@@ -43,7 +43,7 @@ public class Shortcut {
      * @return
      */
     public String get_Value() {
-        return _value;
+        return value;
     }
 
     /**
@@ -51,12 +51,12 @@ public class Shortcut {
      * @param value
      */
     public void set_value(String value) {
-        this._value = value;
+        this.value = value;
     }
 
     @Override
     public String toString() {
-        return "Key: " + this._key + ", Value: " + this._value + "]";
+        return "Key: " + this.key + ", Value: " + this.value + "]";
     }
 
 }

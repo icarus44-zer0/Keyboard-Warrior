@@ -6,15 +6,15 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 
-public class HashMap_File_Writer {
+public class SerFileWriter {
 
-    HashMap_File_Writer() {
+    SerFileWriter() {
 
     }
 
-    public static void hashMap_SerFileOut(HashMap<String, String> map, String fileName) {
+    public static void serFileOut(HashMap<String, String> map, String fileName) {
         try {
-            FileOutputStream fos = new FileOutputStream(Ser_File_Dir.FILE_PATH + fileName);
+            FileOutputStream fos = new FileOutputStream(SerFileDir.FILE_PATH + fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(map);
             oos.close();

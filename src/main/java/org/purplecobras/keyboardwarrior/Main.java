@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		KeyGlobalListener listener = new KeyGlobalListener();
+		GlobalKeyListener listener = new GlobalKeyListener();
 		KeyBuffer buffer = KeyBuffer.getInstance();
 		BufferSearch search = BufferSearch.get_Instance();
 		ShortcutFrame scf = new ShortcutFrame();

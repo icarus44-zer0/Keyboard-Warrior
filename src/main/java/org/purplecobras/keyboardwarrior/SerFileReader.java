@@ -6,15 +6,15 @@ import java.io.ObjectInputStream;
 import java.util.HashMap;
 
 
-public class HashMap_File_Reader {
+public class SerFileReader {
 
-    public HashMap_File_Reader() {
+    public SerFileReader() {
 
     }
 
-    public static HashMap<String, String> hashMap_SerFileIn(HashMap<String, String> map, String fileName) {
+    public static HashMap<String, String> serFileIn(HashMap<String, String> map, String fileName) {
         try {
-            FileInputStream fis = new FileInputStream(Ser_File_Dir.FILE_PATH + fileName);
+            FileInputStream fis = new FileInputStream(SerFileDir.FILE_PATH + fileName);
             ObjectInputStream ois = new ObjectInputStream(fis);
             map = (HashMap) ois.readObject();
             ois.close();

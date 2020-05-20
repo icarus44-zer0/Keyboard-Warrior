@@ -2,8 +2,8 @@ package main.java.org.purplecobras.keyboardwarrior.dev.driver;
 
 import java.util.HashMap;
 
-import main.java.org.purplecobras.keyboardwarrior.HashMap_File_Writer;
-import main.java.org.purplecobras.keyboardwarrior.Ser_File_Dir;
+import main.java.org.purplecobras.keyboardwarrior.SerFileWriter;
+import main.java.org.purplecobras.keyboardwarrior.SerFileDir;
 
 
 public class ShortCut_Map_Driver {
@@ -16,6 +16,6 @@ public class ShortCut_Map_Driver {
         map.put("/ooo", "Out Of Office");
         map.put("/kw", "Keyboard Warrior");
         
-        HashMap_File_Writer.hashMap_SerFileOut(map, Ser_File_Dir.SF1);
+        SerFileWriter.serFileOut(map, SerFileDir.SF1);
     }
 }
