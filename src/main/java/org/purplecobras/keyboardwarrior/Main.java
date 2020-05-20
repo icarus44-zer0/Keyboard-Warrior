@@ -1,9 +1,10 @@
-package main.java.org.keyboardwarrior;
+package main.java.org.purplecobras.keyboardwarrior;
 
 import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
 
-import com.purplecobras.keyboardwarrior.gui.v2.ShortcutFrame;
+import main.java.org.purplecobras.keyboardwarrior.gui.ShortcutFrame;
+
 
 public class Main {
 	public static final int MAX_BUFFER_SIZE = 10;

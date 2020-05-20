@@ -1,8 +1,5 @@
-package main.java.org.keyboardwarrior;
+package main.java.org.purplecobras.keyboardwarrior;
 
-import com.purplecobras.keyboardwarrior.dev.HashMap_File_Reader;
-import com.purplecobras.keyboardwarrior.dev.HashMap_File_Writer;
-import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
 import java.util.HashMap;
 

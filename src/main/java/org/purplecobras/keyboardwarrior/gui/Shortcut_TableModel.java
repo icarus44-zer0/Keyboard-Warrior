@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior.gui.v2;
+package main.java.org.purplecobras.keyboardwarrior.gui;
 
 import javax.swing.table.AbstractTableModel;
 

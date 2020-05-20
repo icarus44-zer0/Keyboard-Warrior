@@ -1,4 +1,4 @@
-package main.java.org.keyboardwarrior;
+package main.java.org.purplecobras.keyboardwarrior;
 
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;

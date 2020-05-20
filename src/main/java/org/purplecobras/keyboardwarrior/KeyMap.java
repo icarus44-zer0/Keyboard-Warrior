@@ -1,10 +1,6 @@
-package main.java.org.keyboardwarrior;
+package main.java.org.purplecobras.keyboardwarrior;
 
 import java.util.HashMap;
-
-import com.purplecobras.keyboardwarrior.dev.HashMap_File_Reader;
-import com.purplecobras.keyboardwarrior.dev.HashMap_File_Writer;
-import com.purplecobras.keyboardwarrior.dev.Ser_File_Dir;
 
 public class KeyMap {
     private static KeyMap instance = null; 

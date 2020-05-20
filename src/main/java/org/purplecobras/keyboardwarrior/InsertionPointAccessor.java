@@ -1,4 +1,4 @@
-package main.java.org.keyboardwarrior;
+package main.java.org.purplecobras.keyboardwarrior;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;

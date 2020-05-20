@@ -1,4 +1,4 @@
-package com.purplecobras.keyboardwarrior.dev;
+package main.java.org.purplecobras.keyboardwarrior;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -1,9 +1,10 @@
-package main.java.org.keyboardwarrior.gui.v2;
+package main.java.org.purplecobras.keyboardwarrior.gui;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.purplecobras.keyboardwarrior.ShortcutMap;
+import main.java.org.purplecobras.keyboardwarrior.ShortcutMap;
+
 
 public class ShortcutFrame extends javax.swing.JFrame {
       // IDE Generated variables declaration - do not modify//GEN-BEGIN:variables
