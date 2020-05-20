@@ -61,7 +61,7 @@ Authors
 
 License
 -------------------
-Keyboard-Warrior is covered under *both* the [GNU General Public](https://www.gnu.org/licenses/gpl-3.0.txt) *and* 
+Keyboard-Warrior is covered under the [GNU General Public](https://www.gnu.org/licenses/gpl-3.0.txt) *and* the
 [Apache License](https://www.apache.org/licenses/LICENSE-2.0)
 
 Acknowledgments
