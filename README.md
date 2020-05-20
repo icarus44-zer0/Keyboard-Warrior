@@ -62,7 +62,7 @@ Authors
 License
 -------------------
 Keyboard-Warrior is covered under *both* the [GNU General Public](https://www.gnu.org/licenses/gpl-3.0.txt) *and* 
-[APACHE LICENSE](https://www.apache.org/licenses/LICENSE-2.0)
+[Apache License](https://www.apache.org/licenses/LICENSE-2.0)
 
 Acknowledgments
 -------------------
