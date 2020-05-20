@@ -1,4 +1,4 @@
-# Keyboard Warrior
+# Keyboard-Warrior
 A Keyboard shortcut program for expanding user defined code and text blocks. 
 
 ### Installing
