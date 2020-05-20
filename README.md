@@ -1,5 +1,5 @@
 # Keyboard Warrior
-A Keyboard shortcut program for expanding user defined code snippets. 
+A Keyboard shortcut program for expanding user defined code/text blocks. 
 
 ### Installing
 
