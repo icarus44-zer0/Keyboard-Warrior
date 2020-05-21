@@ -3,6 +3,7 @@
 #
 .mtj.tmp/
 *.class
+*.classpath
 *.jar
 *.war
 *.ear
