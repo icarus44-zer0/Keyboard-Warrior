@@ -3,6 +3,7 @@
 #
 .mtj.tmp/
 *.class
+*.classpath
 *.jar
 *.war
 *.ear
@@ -83,3 +84,4 @@ nb-configuration.xml
 .Trashes
 ehthumbs.db
 Thumbs.db
+.classpath
