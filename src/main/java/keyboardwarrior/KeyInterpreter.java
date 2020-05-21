@@ -37,7 +37,7 @@ public class KeyInterpreter {
     public boolean isSpecialKey(String key) {
         if (keyMap.getDeadKeyMap().containsValue(key)) {
             if (key.equals("Space") || key.equals("Enter") || key.equals("Return") || key.equals("Tab")) {
-                instance.buffer.resetBuffer();
+                instance.buffer.clear();
             }
             return false;
         } else {

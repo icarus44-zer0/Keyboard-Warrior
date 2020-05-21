@@ -5,33 +5,91 @@ import java.util.HashMap;
 import org.jnativehook.keyboard.NativeKeyEvent;
 
 public class standardKeyMap {
-    HashMap<Integer, String> standardKeyMap = new HashMap<Integer, String>();
-    Boolean shiftPress = false;
-    Boolean capsPress = false;
-    Boolean bothPress = false;
-    Boolean isLetterKey = false;
-    int keyCode = 0;
+
+    private final int A = 30;
+    private final int Z = 30;
+    private final int ONE = 30;
+    private final int ZERO = 30;
+
+    private HashMap<Integer, String> standardKeyMap = new HashMap<Integer, String>();
+    private Boolean isShift = false;
+    private Boolean isCaps = false;
+    private Boolean isWhiteSpace = false;
+    private Boolean isRemove = false;
+    private Boolean isNumeric = false;
+    private Boolean isSpecial = false;
+    private Boolean isAlphabetical = false;
 
 
-    public String init(){
-        if (shiftPress==true&&capsPress==false){
-            return shiftPressed();
-        }else if (capsPress==true&&shiftPress==false){
-           return capsLockPressed();
-        }else if (bothPress==false&&isLetterKey==true){
-            return bothPressed();
-        }else if (shiftPress==false&&capsPress==false){
-            return keyPressed();
-        }else{
+    public String interpret(int keyCode) {
+        isShift = shiftPress(keyCode);
+        isCaps = capsPress(keyCode);
+        isWhiteSpace = whiteSpacePress(keyCode);
+        isRemove = removePress(keyCode);
+        isNumeric = numPress(keyCode);
+        isSpecial = specialPress(keyCode);
+        isAlphabetical = alphaPress(keyCode);
+        
+        if (isAlphabetical) {
+            return alphabetical(keyCode);
+        } else if (isNumeric) {
+            return numeric(keyCode);
+        } else if (isSpecial) {
+            return special(keyCode);
+        } else if (isShift && isAlphabetical && !isCaps) {
+            return alphabeticalModified(keyCode);
+        } else if (isShift && isNumeric) {
+            return numericModified(keyCode);
+        } else if (isShift && isSpecial) {
+            return specialModified(keyCode);
+        } else if (isShift && isCaps && isAlphabetical) {
+            return alphabetical(keyCode);
+        } else {
             return "Unknown keyCode: 0xe36";
         }
 
     }
-    public String keyPressed() {
 
+
+    private Boolean alphaPress(int keyCode) {
+        if(keyCode >= 30 && keyCode <=44){
+            return true;
+        }
+        return false;
+    }
+
+    private Boolean numPress(int keyCode) {
+        if(keyCode >= 2 && keyCode <= 11){
+            return true;
+        }
+        return false;
+    }
+
+    private Boolean specialPress(int keyCode) {
+        return null;
+    }
+
+    private Boolean shiftPress(int keyCode) {
+        return null;
+    }
+
+    private Boolean capsPress(int keyCode) {
+        return null;
+    }
+
+    private Boolean whiteSpacePress(int keyCode) {
+        return null;
+    }
+
+    private Boolean removePress(int keyCode) {
+        return null;
+    }
+
+
+
+
+    public String numeric(int keyCode) {
         switch (keyCode) {
-            case NativeKeyEvent.VC_0:
-                return "0";
             case NativeKeyEvent.VC_1:
                 return "1";
             case NativeKeyEvent.VC_2:
@@ -50,6 +108,15 @@ public class standardKeyMap {
                 return "8";
             case NativeKeyEvent.VC_9:
                 return "9";
+            case NativeKeyEvent.VC_0:
+                return "0";
+            default:
+                return "Unknown keyCode: 0xe36";
+        }
+    }
+
+    public String alphabetical(int keyCode) {
+        switch (keyCode) {
             case NativeKeyEvent.VC_A:
                 return "a";
             case NativeKeyEvent.VC_B:
@@ -102,6 +169,15 @@ public class standardKeyMap {
                 return "y";
             case NativeKeyEvent.VC_Z:
                 return "z";
+            default:
+                return "Unknown keyCode: 0xe36";
+        }
+    }
+
+    public String special(int keyCode) {
+        switch (keyCode) {
+            case NativeKeyEvent.VC_BACKQUOTE:
+                return "`";
             case NativeKeyEvent.VC_MINUS:
                 return "-";
             case NativeKeyEvent.VC_EQUALS:
@@ -123,11 +199,11 @@ public class standardKeyMap {
             case NativeKeyEvent.VC_SLASH:
                 return "/";
             default:
-                return "Uknown";
+                return "Unknown keyCode: 0xe36";
         }
     }
 
-    public String shiftPressed() {
+    public String numericModified(int keyCode) {
         switch (keyCode) {
             case NativeKeyEvent.VC_0:
                 return ")";
@@ -149,28 +225,13 @@ public class standardKeyMap {
                 return "*";
             case NativeKeyEvent.VC_9:
                 return "(";
-            case NativeKeyEvent.VC_MINUS:
-                return "_";
-            case NativeKeyEvent.VC_EQUALS:
-                return "+";
-            case NativeKeyEvent.VC_OPEN_BRACKET:
-                return "{";
-            case NativeKeyEvent.VC_CLOSE_BRACKET:
-                return "}";
-            case NativeKeyEvent.VC_BACK_SLASH:
-                return "|";
-            case NativeKeyEvent.VC_SEMICOLON:
-                return ":";
-            case NativeKeyEvent.VC_QUOTE:
-                return "\"\"";
-            case NativeKeyEvent.VC_COMMA:
-                return "<";
-            case NativeKeyEvent.VC_PERIOD:
-                return ">";
-            case NativeKeyEvent.VC_SLASH:
-                return "?";
+            default:
+                return "Unknown keyCode: 0xe36";
+        }
+    }
 
-            // 
+    public String alphabeticalModified(int keyCode) {
+        switch (keyCode) {
             case NativeKeyEvent.VC_A:
                 return "A";
             case NativeKeyEvent.VC_B:
@@ -224,20 +285,65 @@ public class standardKeyMap {
             case NativeKeyEvent.VC_Z:
                 return "Z";
             default:
-                return "Uknown";
+                return "Unknown keyCode: 0xe36";
+        }
+
+    }
+
+    public String specialModified(int keyCode) {
+        switch (keyCode) {
+            case NativeKeyEvent.VC_BACKQUOTE:
+                return "~";
+            case NativeKeyEvent.VC_MINUS:
+                return "_";
+            case NativeKeyEvent.VC_EQUALS:
+                return "+";
+            case NativeKeyEvent.VC_OPEN_BRACKET:
+                return "{";
+            case NativeKeyEvent.VC_CLOSE_BRACKET:
+                return "}";
+            case NativeKeyEvent.VC_BACK_SLASH:
+                return "|";
+            case NativeKeyEvent.VC_SEMICOLON:
+                return ":";
+            case NativeKeyEvent.VC_QUOTE:
+                return "\"\"";
+            case NativeKeyEvent.VC_COMMA:
+                return "<";
+            case NativeKeyEvent.VC_PERIOD:
+                return ">";
+            case NativeKeyEvent.VC_SLASH:
+                return "?";
+            default:
+                return "Unknown keyCode: 0xe36";
         }
     }
 
-    public String capsLockPressed(){
-        return "Uknown";
+    public void whiteSpace(int keyCode) {
+        switch (keyCode) {
+            case NativeKeyEvent.VC_SPACE:
+                KeyBuffer.getInstance().clear();
+            case NativeKeyEvent.VC_ENTER:
+                KeyBuffer.getInstance().clear();
+            case NativeKeyEvent.VC_TAB:
+                KeyBuffer.getInstance().clear();
+            default:
+                return;
+        }
     }
 
-    public String bothPressed(){
-        return "Uknown";
+    public void remove(int keyCode) {
+        switch (keyCode) {
+            case NativeKeyEvent.VC_BACKSPACE:
+                KeyBuffer.getInstance().clear();
+            case NativeKeyEvent.VC_DELETE:
+                return;
+            default:
+                return;
+        }
     }
 
     public void map() {
-
         /** VC_0 thru VC_9 */
         standardKeyMap.put(NativeKeyEvent.VC_0, "0");
         standardKeyMap.put(NativeKeyEvent.VC_1, "1");
@@ -286,10 +392,6 @@ public class standardKeyMap {
         standardKeyMap.put(NativeKeyEvent.VC_CAPS_LOCK, "");
         standardKeyMap.put(NativeKeyEvent.VC_NUM_LOCK, "");
 
-        /** Removal and Delete Keys */
-        standardKeyMap.put(NativeKeyEvent.VC_BACKSPACE, "Backspace");
-        standardKeyMap.put(NativeKeyEvent.VC_DELETE, "Delete");
-
         /** Start Arithmatic Keys */
         standardKeyMap.put(NativeKeyEvent.VC_MINUS, "-");
         standardKeyMap.put(NativeKeyEvent.VC_EQUALS, "=");
@@ -310,5 +412,9 @@ public class standardKeyMap {
         standardKeyMap.put(NativeKeyEvent.VC_SPACE, " ");
         standardKeyMap.put(NativeKeyEvent.VC_ENTER, "");
         standardKeyMap.put(NativeKeyEvent.VC_TAB, "");
+
+        /** Removal and Delete Keys */
+        standardKeyMap.put(NativeKeyEvent.VC_BACKSPACE, "Backspace");
+        standardKeyMap.put(NativeKeyEvent.VC_DELETE, "Delete");
     }
 }

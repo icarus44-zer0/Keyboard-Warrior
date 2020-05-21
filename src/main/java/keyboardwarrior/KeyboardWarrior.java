@@ -2,6 +2,8 @@ package keyboardwarrior;
 
 import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
+
+import org.jnativehook.example.NativeHookDemo;
 import keyboardwarrior.gui.ShortcutFrame;
 
 
@@ -15,10 +17,15 @@ public class KeyboardWarrior {
 		ShortcutFrame scf = new ShortcutFrame();
 		Shortcut shortcut = new Shortcut();
 		Robot robot;
+		
+		//NativeHookDemo.main(args);
 
 		listener.setup();
 		scf.ShortcutFrame_init();
 
+
+		
+			
 		while (true) {
 			try {
 				shortcut = search.searchKBIBuffer(buffer);

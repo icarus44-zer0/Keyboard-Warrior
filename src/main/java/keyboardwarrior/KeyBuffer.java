@@ -18,7 +18,7 @@ public final class KeyBuffer extends CircularFifoQueue<String> {
     public static KeyBuffer getInstance() {
         if (instance == null) {
             instance = new KeyBuffer();
-            instance.resetBuffer();
+            instance.clear();
         }
         return instance;
     }
@@ -26,9 +26,12 @@ public final class KeyBuffer extends CircularFifoQueue<String> {
     /**
      * 
      */
-    public void resetBuffer() {
+    @Override
+    public void clear() {
+        //super.clear();
+        
         for (int i = 0; i < MAX_BUFFER_SIZE; i++) {
-            instance.add("~");
+            instance.add(" ");
         }
     }
 }
