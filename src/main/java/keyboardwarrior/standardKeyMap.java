@@ -6,20 +6,21 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 
 public class standardKeyMap {
 
-    private final int A = 30;
-    private final int Z = 30;
-    private final int ONE = 30;
-    private final int ZERO = 30;
+    private HashMap<Integer, String> alpha = new HashMap<Integer, String>();
+    private HashMap<Integer, String> numeric = new HashMap<Integer, String>();
+    private HashMap<Integer, String> special = new HashMap<Integer, String>();
+    private HashMap<Integer, String> alphaMOD = new HashMap<Integer, String>();
+    private HashMap<Integer, String> numericMOD = new HashMap<Integer, String>();
+    private HashMap<Integer, String> specialMOD = new HashMap<Integer, String>();
+    private HashMap<Integer, String> unused = new HashMap<Integer, String>();
 
-    private HashMap<Integer, String> standardKeyMap = new HashMap<Integer, String>();
     private Boolean isShift = false;
     private Boolean isCaps = false;
     private Boolean isWhiteSpace = false;
     private Boolean isRemove = false;
     private Boolean isNumeric = false;
     private Boolean isSpecial = false;
-    private Boolean isAlphabetical = false;
-
+    private Boolean isAlpha = false;
 
     public String interpret(int keyCode) {
         isShift = shiftPress(keyCode);
@@ -28,22 +29,22 @@ public class standardKeyMap {
         isRemove = removePress(keyCode);
         isNumeric = numPress(keyCode);
         isSpecial = specialPress(keyCode);
-        isAlphabetical = alphaPress(keyCode);
-        
-        if (isAlphabetical) {
-            return alphabetical(keyCode);
+        isAlpha = alphaPress(keyCode);
+
+        if (isAlpha) {
+            return alpha(keyCode);
         } else if (isNumeric) {
             return numeric(keyCode);
         } else if (isSpecial) {
             return special(keyCode);
-        } else if (isShift && isAlphabetical && !isCaps) {
-            return alphabeticalModified(keyCode);
+        } else if (isShift && isAlpha && !isCaps) {
+            return alphaModified(keyCode);
         } else if (isShift && isNumeric) {
             return numericModified(keyCode);
         } else if (isShift && isSpecial) {
             return specialModified(keyCode);
-        } else if (isShift && isCaps && isAlphabetical) {
-            return alphabetical(keyCode);
+        } else if (isShift && isCaps && isAlpha) {
+            return alpha(keyCode);
         } else {
             return "Unknown keyCode: 0xe36";
         }
@@ -51,273 +52,79 @@ public class standardKeyMap {
     }
 
 
-    private Boolean alphaPress(int keyCode) {
-        if(keyCode >= 30 && keyCode <=44){
+    private String alpha(int keyCode) {
+        return null;
+    }
+
+    private String numeric(int keyCode) {
+        return null;
+    }
+
+    private String special(int keyCode) {
+        return null;
+    }
+
+    private String alphaModified(int keyCode) {
+        return null;
+    }
+
+    private String numericModified(int keyCode) {
+        return null;
+    }
+
+    private String specialModified(int keyCode) {
+        return null;
+    }
+
+    private Boolean alphaPress(int key) {
+        if (alpha.containsKey(key)) {
             return true;
         }
         return false;
     }
 
-    private Boolean numPress(int keyCode) {
-        if(keyCode >= 2 && keyCode <= 11){
+    private Boolean numPress(int key) {
+        if (numeric.containsKey(key)) {
             return true;
         }
         return false;
     }
 
-    private Boolean specialPress(int keyCode) {
-        return null;
-    }
-
-    private Boolean shiftPress(int keyCode) {
-        return null;
-    }
-
-    private Boolean capsPress(int keyCode) {
-        return null;
-    }
-
-    private Boolean whiteSpacePress(int keyCode) {
-        return null;
-    }
-
-    private Boolean removePress(int keyCode) {
-        return null;
-    }
-
-
-
-
-    public String numeric(int keyCode) {
-        switch (keyCode) {
-            case NativeKeyEvent.VC_1:
-                return "1";
-            case NativeKeyEvent.VC_2:
-                return "2";
-            case NativeKeyEvent.VC_3:
-                return "3";
-            case NativeKeyEvent.VC_4:
-                return "4";
-            case NativeKeyEvent.VC_5:
-                return "5";
-            case NativeKeyEvent.VC_6:
-                return "6";
-            case NativeKeyEvent.VC_7:
-                return "7";
-            case NativeKeyEvent.VC_8:
-                return "8";
-            case NativeKeyEvent.VC_9:
-                return "9";
-            case NativeKeyEvent.VC_0:
-                return "0";
-            default:
-                return "Unknown keyCode: 0xe36";
+    private Boolean specialPress(int key) {
+        if (special.containsKey(key)) {
+            return true;
         }
+        return false;
     }
 
-    public String alphabetical(int keyCode) {
-        switch (keyCode) {
-            case NativeKeyEvent.VC_A:
-                return "a";
-            case NativeKeyEvent.VC_B:
-                return "b";
-            case NativeKeyEvent.VC_C:
-                return "c";
-            case NativeKeyEvent.VC_D:
-                return "d";
-            case NativeKeyEvent.VC_E:
-                return "e";
-            case NativeKeyEvent.VC_F:
-                return "f";
-            case NativeKeyEvent.VC_G:
-                return "g";
-            case NativeKeyEvent.VC_H:
-                return "h";
-            case NativeKeyEvent.VC_I:
-                return "i";
-            case NativeKeyEvent.VC_J:
-                return "j";
-            case NativeKeyEvent.VC_K:
-                return "k";
-            case NativeKeyEvent.VC_L:
-                return "l";
-            case NativeKeyEvent.VC_M:
-                return "m";
-            case NativeKeyEvent.VC_N:
-                return "n";
-            case NativeKeyEvent.VC_O:
-                return "o";
-            case NativeKeyEvent.VC_P:
-                return "p";
-            case NativeKeyEvent.VC_Q:
-                return "q";
-            case NativeKeyEvent.VC_R:
-                return "r";
-            case NativeKeyEvent.VC_S:
-                return "s";
-            case NativeKeyEvent.VC_T:
-                return "t";
-            case NativeKeyEvent.VC_U:
-                return "u";
-            case NativeKeyEvent.VC_V:
-                return "v";
-            case NativeKeyEvent.VC_W:
-                return "w";
-            case NativeKeyEvent.VC_X:
-                return "x";
-            case NativeKeyEvent.VC_Y:
-                return "y";
-            case NativeKeyEvent.VC_Z:
-                return "z";
-            default:
-                return "Unknown keyCode: 0xe36";
+    private Boolean shiftPress(int key) {
+        if (key == NativeKeyEvent.VC_SHIFT) {
+            return true;
         }
+        return false;
     }
 
-    public String special(int keyCode) {
-        switch (keyCode) {
-            case NativeKeyEvent.VC_BACKQUOTE:
-                return "`";
-            case NativeKeyEvent.VC_MINUS:
-                return "-";
-            case NativeKeyEvent.VC_EQUALS:
-                return "=";
-            case NativeKeyEvent.VC_OPEN_BRACKET:
-                return "[";
-            case NativeKeyEvent.VC_CLOSE_BRACKET:
-                return "[";
-            case NativeKeyEvent.VC_BACK_SLASH:
-                return "\\\\";
-            case NativeKeyEvent.VC_SEMICOLON:
-                return ";";
-            case NativeKeyEvent.VC_QUOTE:
-                return "\'";
-            case NativeKeyEvent.VC_COMMA:
-                return ",";
-            case NativeKeyEvent.VC_PERIOD:
-                return ".";
-            case NativeKeyEvent.VC_SLASH:
-                return "/";
-            default:
-                return "Unknown keyCode: 0xe36";
+    private Boolean capsPress(int key) {
+        if (key == NativeKeyEvent.VC_CAPS_LOCK) {
+            return true;
         }
+        return false;
     }
 
-    public String numericModified(int keyCode) {
-        switch (keyCode) {
-            case NativeKeyEvent.VC_0:
-                return ")";
-            case NativeKeyEvent.VC_1:
-                return "!";
-            case NativeKeyEvent.VC_2:
-                return "@";
-            case NativeKeyEvent.VC_3:
-                return "#";
-            case NativeKeyEvent.VC_4:
-                return "$";
-            case NativeKeyEvent.VC_5:
-                return "%";
-            case NativeKeyEvent.VC_6:
-                return "^";
-            case NativeKeyEvent.VC_7:
-                return "&";
-            case NativeKeyEvent.VC_8:
-                return "*";
-            case NativeKeyEvent.VC_9:
-                return "(";
-            default:
-                return "Unknown keyCode: 0xe36";
+    private Boolean whiteSpacePress(int key) {
+        if (key == NativeKeyEvent.VC_ENTER || key == NativeKeyEvent.VC_TAB || key == NativeKeyEvent.VC_SPACE) {
+            KeyBuffer.getInstance().clear();
         }
+        return false;
     }
 
-    public String alphabeticalModified(int keyCode) {
-        switch (keyCode) {
-            case NativeKeyEvent.VC_A:
-                return "A";
-            case NativeKeyEvent.VC_B:
-                return "B";
-            case NativeKeyEvent.VC_C:
-                return "C";
-            case NativeKeyEvent.VC_D:
-                return "D";
-            case NativeKeyEvent.VC_E:
-                return "E";
-            case NativeKeyEvent.VC_F:
-                return "F";
-            case NativeKeyEvent.VC_G:
-                return "G";
-            case NativeKeyEvent.VC_H:
-                return "H";
-            case NativeKeyEvent.VC_I:
-                return "I";
-            case NativeKeyEvent.VC_J:
-                return "J";
-            case NativeKeyEvent.VC_K:
-                return "K";
-            case NativeKeyEvent.VC_L:
-                return "L";
-            case NativeKeyEvent.VC_M:
-                return "M";
-            case NativeKeyEvent.VC_N:
-                return "N";
-            case NativeKeyEvent.VC_O:
-                return "O";
-            case NativeKeyEvent.VC_P:
-                return "P";
-            case NativeKeyEvent.VC_Q:
-                return "Q";
-            case NativeKeyEvent.VC_R:
-                return "R";
-            case NativeKeyEvent.VC_S:
-                return "S";
-            case NativeKeyEvent.VC_T:
-                return "T";
-            case NativeKeyEvent.VC_U:
-                return "U";
-            case NativeKeyEvent.VC_V:
-                return "V";
-            case NativeKeyEvent.VC_W:
-                return "W";
-            case NativeKeyEvent.VC_X:
-                return "X";
-            case NativeKeyEvent.VC_Y:
-                return "Y";
-            case NativeKeyEvent.VC_Z:
-                return "Z";
-            default:
-                return "Unknown keyCode: 0xe36";
+    private Boolean removePress(int key) {
+        if (key == NativeKeyEvent.VC_BACKSPACE || key == NativeKeyEvent.VC_BACKSPACE) {
+            KeyBuffer.getInstance().clear();
         }
-
+        return false;
     }
 
-    public String specialModified(int keyCode) {
-        switch (keyCode) {
-            case NativeKeyEvent.VC_BACKQUOTE:
-                return "~";
-            case NativeKeyEvent.VC_MINUS:
-                return "_";
-            case NativeKeyEvent.VC_EQUALS:
-                return "+";
-            case NativeKeyEvent.VC_OPEN_BRACKET:
-                return "{";
-            case NativeKeyEvent.VC_CLOSE_BRACKET:
-                return "}";
-            case NativeKeyEvent.VC_BACK_SLASH:
-                return "|";
-            case NativeKeyEvent.VC_SEMICOLON:
-                return ":";
-            case NativeKeyEvent.VC_QUOTE:
-                return "\"\"";
-            case NativeKeyEvent.VC_COMMA:
-                return "<";
-            case NativeKeyEvent.VC_PERIOD:
-                return ">";
-            case NativeKeyEvent.VC_SLASH:
-                return "?";
-            default:
-                return "Unknown keyCode: 0xe36";
-        }
-    }
 
     public void whiteSpace(int keyCode) {
         switch (keyCode) {
@@ -345,76 +152,72 @@ public class standardKeyMap {
 
     public void map() {
         /** VC_0 thru VC_9 */
-        standardKeyMap.put(NativeKeyEvent.VC_0, "0");
-        standardKeyMap.put(NativeKeyEvent.VC_1, "1");
-        standardKeyMap.put(NativeKeyEvent.VC_2, "2");
-        standardKeyMap.put(NativeKeyEvent.VC_3, "3");
-        standardKeyMap.put(NativeKeyEvent.VC_4, "4");
-        standardKeyMap.put(NativeKeyEvent.VC_5, "5");
-        standardKeyMap.put(NativeKeyEvent.VC_6, "6");
-        standardKeyMap.put(NativeKeyEvent.VC_7, "7");
-        standardKeyMap.put(NativeKeyEvent.VC_8, "8");
-        standardKeyMap.put(NativeKeyEvent.VC_9, "9");
+        numeric.put(NativeKeyEvent.VC_0, "0");
+        numeric.put(NativeKeyEvent.VC_1, "1");
+        numeric.put(NativeKeyEvent.VC_2, "2");
+        numeric.put(NativeKeyEvent.VC_3, "3");
+        numeric.put(NativeKeyEvent.VC_4, "4");
+        numeric.put(NativeKeyEvent.VC_5, "5");
+        numeric.put(NativeKeyEvent.VC_6, "6");
+        numeric.put(NativeKeyEvent.VC_7, "7");
+        numeric.put(NativeKeyEvent.VC_8, "8");
+        numeric.put(NativeKeyEvent.VC_9, "9");
 
         /** VC_A thru VC_Z */
-        standardKeyMap.put(NativeKeyEvent.VC_A, "A");
-        standardKeyMap.put(NativeKeyEvent.VC_B, "B");
-        standardKeyMap.put(NativeKeyEvent.VC_C, "C");
-        standardKeyMap.put(NativeKeyEvent.VC_D, "D");
-        standardKeyMap.put(NativeKeyEvent.VC_E, "E");
-        standardKeyMap.put(NativeKeyEvent.VC_F, "F");
-        standardKeyMap.put(NativeKeyEvent.VC_G, "G");
-        standardKeyMap.put(NativeKeyEvent.VC_H, "H");
-        standardKeyMap.put(NativeKeyEvent.VC_I, "I");
-        standardKeyMap.put(NativeKeyEvent.VC_J, "J");
-        standardKeyMap.put(NativeKeyEvent.VC_K, "K");
-        standardKeyMap.put(NativeKeyEvent.VC_L, "L");
-        standardKeyMap.put(NativeKeyEvent.VC_M, "M");
-        standardKeyMap.put(NativeKeyEvent.VC_N, "N");
-        standardKeyMap.put(NativeKeyEvent.VC_O, "O");
-        standardKeyMap.put(NativeKeyEvent.VC_P, "P");
-        standardKeyMap.put(NativeKeyEvent.VC_Q, "Q");
-        standardKeyMap.put(NativeKeyEvent.VC_R, "R");
-        standardKeyMap.put(NativeKeyEvent.VC_S, "S");
-        standardKeyMap.put(NativeKeyEvent.VC_T, "T");
-        standardKeyMap.put(NativeKeyEvent.VC_U, "U");
-        standardKeyMap.put(NativeKeyEvent.VC_V, "V");
-        standardKeyMap.put(NativeKeyEvent.VC_W, "W");
-        standardKeyMap.put(NativeKeyEvent.VC_X, "X");
-        standardKeyMap.put(NativeKeyEvent.VC_Y, "Y");
-        standardKeyMap.put(NativeKeyEvent.VC_Z, "Z");
+        alpha.put(NativeKeyEvent.VC_A, "A");
+        alpha.put(NativeKeyEvent.VC_B, "B");
+        alpha.put(NativeKeyEvent.VC_C, "C");
+        alpha.put(NativeKeyEvent.VC_D, "D");
+        alpha.put(NativeKeyEvent.VC_E, "E");
+        alpha.put(NativeKeyEvent.VC_F, "F");
+        alpha.put(NativeKeyEvent.VC_G, "G");
+        alpha.put(NativeKeyEvent.VC_H, "H");
+        alpha.put(NativeKeyEvent.VC_I, "I");
+        alpha.put(NativeKeyEvent.VC_J, "J");
+        alpha.put(NativeKeyEvent.VC_K, "K");
+        alpha.put(NativeKeyEvent.VC_L, "L");
+        alpha.put(NativeKeyEvent.VC_M, "M");
+        alpha.put(NativeKeyEvent.VC_N, "N");
+        alpha.put(NativeKeyEvent.VC_O, "O");
+        alpha.put(NativeKeyEvent.VC_P, "P");
+        alpha.put(NativeKeyEvent.VC_Q, "Q");
+        alpha.put(NativeKeyEvent.VC_R, "R");
+        alpha.put(NativeKeyEvent.VC_S, "S");
+        alpha.put(NativeKeyEvent.VC_T, "T");
+        alpha.put(NativeKeyEvent.VC_U, "U");
+        alpha.put(NativeKeyEvent.VC_V, "V");
+        alpha.put(NativeKeyEvent.VC_W, "W");
+        alpha.put(NativeKeyEvent.VC_X, "X");
+        alpha.put(NativeKeyEvent.VC_Y, "Y");
+        alpha.put(NativeKeyEvent.VC_Z, "Z");
 
-        /** Modifier and Control Keys */
-        standardKeyMap.put(NativeKeyEvent.VC_SHIFT, "");
-        standardKeyMap.put(NativeKeyEvent.VC_CONTROL, "");
-        standardKeyMap.put(NativeKeyEvent.VC_META, "");
-        standardKeyMap.put(NativeKeyEvent.VC_ALT, "");
-        standardKeyMap.put(NativeKeyEvent.VC_CAPS_LOCK, "");
-        standardKeyMap.put(NativeKeyEvent.VC_NUM_LOCK, "");
-
-        /** Start Arithmatic Keys */
-        standardKeyMap.put(NativeKeyEvent.VC_MINUS, "-");
-        standardKeyMap.put(NativeKeyEvent.VC_EQUALS, "=");
-
-        /** Start Punctuation Keys */
-        standardKeyMap.put(NativeKeyEvent.VC_OPEN_BRACKET, "[");
-        standardKeyMap.put(NativeKeyEvent.VC_CLOSE_BRACKET, "]");
-
-        standardKeyMap.put(NativeKeyEvent.VC_BACK_SLASH, "\\\\");
-        standardKeyMap.put(NativeKeyEvent.VC_SEMICOLON, ";");
-
-        standardKeyMap.put(NativeKeyEvent.VC_QUOTE, "\"\"");
-        standardKeyMap.put(NativeKeyEvent.VC_COMMA, ",");
-        standardKeyMap.put(NativeKeyEvent.VC_PERIOD, ".");
-        standardKeyMap.put(NativeKeyEvent.VC_SLASH, "/");
+        /** Start Special Keys */
+        special.put(NativeKeyEvent.VC_MINUS, "-");
+        special.put(NativeKeyEvent.VC_EQUALS, "=");
+        special.put(NativeKeyEvent.VC_OPEN_BRACKET, "[");
+        special.put(NativeKeyEvent.VC_CLOSE_BRACKET, "]");
+        special.put(NativeKeyEvent.VC_BACK_SLASH, "\\\\");
+        special.put(NativeKeyEvent.VC_SEMICOLON, ";");
+        special.put(NativeKeyEvent.VC_QUOTE, "\"\"");
+        special.put(NativeKeyEvent.VC_COMMA, ",");
+        special.put(NativeKeyEvent.VC_PERIOD, ".");
+        special.put(NativeKeyEvent.VC_SLASH, "/");
 
         /** Whitespace Keys */
-        standardKeyMap.put(NativeKeyEvent.VC_SPACE, " ");
-        standardKeyMap.put(NativeKeyEvent.VC_ENTER, "");
-        standardKeyMap.put(NativeKeyEvent.VC_TAB, "");
+        unused.put(NativeKeyEvent.VC_SPACE, " ");
+        unused.put(NativeKeyEvent.VC_ENTER, "\r");
+        unused.put(NativeKeyEvent.VC_TAB, "\t");
+
+        /** Modifier and Control Keys */
+        unused.put(NativeKeyEvent.VC_SHIFT, "Shift");
+        unused.put(NativeKeyEvent.VC_CAPS_LOCK, "CapsLock");
+        unused.put(NativeKeyEvent.VC_NUM_LOCK, "Num Lock");
+        unused.put(NativeKeyEvent.VC_CONTROL, "Control");
+        unused.put(NativeKeyEvent.VC_META, "Meta");
+        unused.put(NativeKeyEvent.VC_ALT, "Alt");
 
         /** Removal and Delete Keys */
-        standardKeyMap.put(NativeKeyEvent.VC_BACKSPACE, "Backspace");
-        standardKeyMap.put(NativeKeyEvent.VC_DELETE, "Delete");
+        unused.put(NativeKeyEvent.VC_BACKSPACE, "Backspace");
+        unused.put(NativeKeyEvent.VC_DELETE, "Delete");
     }
 }
