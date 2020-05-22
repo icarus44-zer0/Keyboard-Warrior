@@ -11,17 +11,13 @@ import java.util.logging.Logger;
 
 public class GlobalKeyListener implements NativeKeyListener {
 
-	private static KeyInterpreter interpreter;
-	private String key;
-	private String key_Raw;
-
-	private keyInterpreterV2 interpreter2;
+	private KeyInterpreter interpret;
 	/**
 	 * 
 	 */
 	GlobalKeyListener() {
 		//interpreter = KeyInterpreter.getInstance();
-		interpreter2 = new keyInterpreterV2();
+		interpret = new KeyInterpreter();
 	}
 
 	/**
@@ -57,14 +53,8 @@ public class GlobalKeyListener implements NativeKeyListener {
 	 */
 	@Override
 	public void nativeKeyPressed(NativeKeyEvent e) {
-		interpreter2.interpret(e.getKeyCode());
-
-		/**
-		 * Version 1
-		 */
-			// key_Raw = NativeKeyEvent.getKeyText(e.getKeyCode());
-			// key_Raw = interpreter.formatKeyCode(key_Raw);
-			// interpreter.interpretKeyPress(key_Raw);
+		interpret.modifierPressed(e.getKeyCode());
+		interpret.interpret(e.getKeyCode());
 	}
 
 	/**
@@ -73,12 +63,7 @@ public class GlobalKeyListener implements NativeKeyListener {
 	 */
 	@Override
 	public void nativeKeyReleased(NativeKeyEvent e) {
-		interpreter2.keyRelesed(e.getKeyCode());
-		/**
-		 * Version 1
-		 */
-			// key = NativeKeyEvent.getKeyText(e.getKeyCode());
-			// interpreter.keyReleasedFunc(key);
+		interpret.modifierRelesed(e.getKeyCode());
 	}
 
 	/**

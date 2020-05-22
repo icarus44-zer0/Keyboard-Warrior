@@ -39,8 +39,8 @@ public class KeyboardWarrior {
 					 * TODO implement properties build for Mac and Windows
 					 * 
 					 */
-					//InsertionPointAccessor.pasteWindows(robot);
-					InsertionPointAccessor.pasteMacOS(robot);
+					InsertionPointAccessor.pasteWindows(robot);
+					//InsertionPointAccessor.pasteMacOS(robot);
 
 				}
 				TimeUnit.MILLISECONDS.sleep(100);

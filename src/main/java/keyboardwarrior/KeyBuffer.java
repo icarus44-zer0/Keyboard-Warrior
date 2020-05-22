@@ -1,5 +1,7 @@
 package keyboardwarrior;
 
+import java.util.StringJoiner;
+
 import org.apache.commons.collections4.queue.CircularFifoQueue;
 
 public final class KeyBuffer extends CircularFifoQueue<String> {
@@ -33,5 +35,14 @@ public final class KeyBuffer extends CircularFifoQueue<String> {
         for (int i = 0; i < MAX_BUFFER_SIZE; i++) {
             instance.add(" ");
         }
+    }
+
+
+
+    /**
+     * 
+     */
+    public String toString() {
+        return super.toString();
     }
 }
