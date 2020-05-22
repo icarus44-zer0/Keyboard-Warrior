@@ -14,9 +14,9 @@ public class SerFileReader {
     }
 
     @SuppressWarnings("unchecked")
-    public static HashMap<String, String> serFileIn(HashMap<String, String> map, String fileName) {
+    public static HashMap<String, String> serFileIn(HashMap<String, String> map, String fileName ,String filePath) {
         try {
-            FileInputStream fis = new FileInputStream(SerFileDir.FILE_PATH + fileName);
+            FileInputStream fis = new FileInputStream(filePath + fileName);
             ObjectInputStream ois = new ObjectInputStream(fis);
             map = (HashMap<String,String>) ois.readObject();
             ois.close();

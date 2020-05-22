@@ -6,12 +6,14 @@ import java.util.HashMap;
 public final class ShortcutMap {
     private static ShortcutMap instance = null;
     public HashMap<String, String> shortcut_map;
+    public static final String FILE_NAME = "shortCut.ser";
+    public static final String FILE_PATH = "src/main/java/keyboardwarrior/ser/";
 
     /**
      * 
      */
     private ShortcutMap() {
-        shortcut_map = SerFileReader.serFileIn(shortcut_map, SerFileDir.SF0);
+        shortcut_map = SerFileReader.serFileIn(shortcut_map, FILE_NAME , FILE_PATH);
     }
 
     /**
@@ -65,7 +67,7 @@ public final class ShortcutMap {
      */
     public void updateShortcutSerFile() {
         ShortcutMap shortcut_map = ShortcutMap.getInstance();
-        SerFileWriter.serFileOut(shortcut_map.getShortcutMap(), SerFileDir.SF0);
+        SerFileWriter.serFileOut(shortcut_map.getShortcutMap(), FILE_NAME, FILE_PATH);
     }
 
     /**

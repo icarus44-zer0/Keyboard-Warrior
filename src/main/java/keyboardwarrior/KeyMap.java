@@ -1,17 +1,19 @@
 package keyboardwarrior;
 
 import java.util.HashMap;
+import org.jnativehook.keyboard.NativeKeyEvent;
 
 public class KeyMap {
     private static KeyMap instance = null;
-    private HashMap<String, String> commandKeyMap;
-    private HashMap<String, String> shiftKeyMap;
-    private HashMap<String, String> deadKeyMap;
+    private HashMap<Integer, String> alpha;
+    private HashMap<Integer, String> numeric;
+    private HashMap<Integer, String> special;
+    private HashMap<Integer, String> numericMOD;
+    private HashMap<Integer, String> specialMOD;
+    private HashMap<Integer, String> notInUse;
 
     private KeyMap() {
-        shiftKeyMap = SerFileReader.serFileIn(shiftKeyMap, SerFileDir.SF2);
-        commandKeyMap = SerFileReader.serFileIn(commandKeyMap, SerFileDir.SF3);
-        deadKeyMap = SerFileReader.serFileIn(deadKeyMap, SerFileDir.SF4);
+        mapLoader();
     }
 
     /**
@@ -25,130 +27,98 @@ public class KeyMap {
         return instance;
     }
 
-    public HashMap<String, String> getCommandKeyMap() {
-        return commandKeyMap;
-    }
+    private void mapLoader() {
+        /** VC_0 thru VC_9 */
+        numeric.put(NativeKeyEvent.VC_0, "0");
+        numeric.put(NativeKeyEvent.VC_1, "1");
+        numeric.put(NativeKeyEvent.VC_2, "2");
+        numeric.put(NativeKeyEvent.VC_3, "3");
+        numeric.put(NativeKeyEvent.VC_4, "4");
+        numeric.put(NativeKeyEvent.VC_5, "5");
+        numeric.put(NativeKeyEvent.VC_6, "6");
+        numeric.put(NativeKeyEvent.VC_7, "7");
+        numeric.put(NativeKeyEvent.VC_8, "8");
+        numeric.put(NativeKeyEvent.VC_9, "9");
 
-    public HashMap<String, String> getShiftKeyMap() {
-        return shiftKeyMap;
-    }
+        /** VC_A thru VC_Z */
+        alpha.put(NativeKeyEvent.VC_A, "a");
+        alpha.put(NativeKeyEvent.VC_B, "b");
+        alpha.put(NativeKeyEvent.VC_C, "c");
+        alpha.put(NativeKeyEvent.VC_D, "d");
+        alpha.put(NativeKeyEvent.VC_E, "e");
+        alpha.put(NativeKeyEvent.VC_F, "f");
+        alpha.put(NativeKeyEvent.VC_G, "g");
+        alpha.put(NativeKeyEvent.VC_H, "h");
+        alpha.put(NativeKeyEvent.VC_I, "i");
+        alpha.put(NativeKeyEvent.VC_J, "j");
+        alpha.put(NativeKeyEvent.VC_K, "k");
+        alpha.put(NativeKeyEvent.VC_L, "l");
+        alpha.put(NativeKeyEvent.VC_M, "m");
+        alpha.put(NativeKeyEvent.VC_N, "n");
+        alpha.put(NativeKeyEvent.VC_O, "o");
+        alpha.put(NativeKeyEvent.VC_P, "p");
+        alpha.put(NativeKeyEvent.VC_Q, "q");
+        alpha.put(NativeKeyEvent.VC_R, "r");
+        alpha.put(NativeKeyEvent.VC_S, "s");
+        alpha.put(NativeKeyEvent.VC_T, "t");
+        alpha.put(NativeKeyEvent.VC_U, "u");
+        alpha.put(NativeKeyEvent.VC_V, "v");
+        alpha.put(NativeKeyEvent.VC_W, "w");
+        alpha.put(NativeKeyEvent.VC_X, "x");
+        alpha.put(NativeKeyEvent.VC_Y, "y");
+        alpha.put(NativeKeyEvent.VC_Z, "z");
 
-    public HashMap<String, String> getDeadKeyMap() {
-        return deadKeyMap;
-    }
+        /** Start Special Keys */
+        special.put(NativeKeyEvent.VC_BACKQUOTE, "`");
+        special.put(NativeKeyEvent.VC_MINUS, "-");
+        special.put(NativeKeyEvent.VC_EQUALS, "=");
+        special.put(NativeKeyEvent.VC_OPEN_BRACKET, "[");
+        special.put(NativeKeyEvent.VC_CLOSE_BRACKET, "]");
+        special.put(NativeKeyEvent.VC_BACK_SLASH, "\\\\");
+        special.put(NativeKeyEvent.VC_SEMICOLON, ";");
+        special.put(NativeKeyEvent.VC_QUOTE, "'");
+        special.put(NativeKeyEvent.VC_COMMA, ",");
+        special.put(NativeKeyEvent.VC_PERIOD, ".");
+        special.put(NativeKeyEvent.VC_SLASH, "/");
 
-    public void updateSerFile(HashMap<String, String> map, String fileName) {
-        SerFileWriter.serFileOut(map, fileName);
-    }
+        numericMOD.put(NativeKeyEvent.VC_0, ")");
+        numericMOD.put(NativeKeyEvent.VC_1, "!");
+        numericMOD.put(NativeKeyEvent.VC_2, "@");
+        numericMOD.put(NativeKeyEvent.VC_3, "#");
+        numericMOD.put(NativeKeyEvent.VC_4, "$");
+        numericMOD.put(NativeKeyEvent.VC_5, "%");
+        numericMOD.put(NativeKeyEvent.VC_6, "^");
+        numericMOD.put(NativeKeyEvent.VC_7, "&");
+        numericMOD.put(NativeKeyEvent.VC_8, "*");
+        numericMOD.put(NativeKeyEvent.VC_9, "(");
 
-    public void reset(){
-        shiftKeyMapReset();
-        deadKeyMapReset();
-        commandKeyMapReset();
-    }
+        specialMOD.put(NativeKeyEvent.VC_BACKQUOTE, "~");
+        specialMOD.put(NativeKeyEvent.VC_MINUS, "_");
+        specialMOD.put(NativeKeyEvent.VC_EQUALS, "+");
+        specialMOD.put(NativeKeyEvent.VC_OPEN_BRACKET, "{");
+        specialMOD.put(NativeKeyEvent.VC_CLOSE_BRACKET, "}");
+        specialMOD.put(NativeKeyEvent.VC_BACK_SLASH, "|");
+        specialMOD.put(NativeKeyEvent.VC_SEMICOLON, ":");
+        specialMOD.put(NativeKeyEvent.VC_QUOTE, "\"");
+        specialMOD.put(NativeKeyEvent.VC_COMMA, "<");
+        specialMOD.put(NativeKeyEvent.VC_PERIOD, ">");
+        specialMOD.put(NativeKeyEvent.VC_SLASH, "?");
 
-    private void shiftKeyMapReset() {
-        shiftKeyMap.clear();
-        shiftKeyMap.put("BACK QUOTE", "~");
-        shiftKeyMap.put("1", "!");
-        shiftKeyMap.put("2", "@");
-        shiftKeyMap.put("3", "#");
-        shiftKeyMap.put("4", "$");
-        shiftKeyMap.put("5", "%");
-        shiftKeyMap.put("6", "^");
-        shiftKeyMap.put("7", "&");
-        shiftKeyMap.put("8", "*");
-        shiftKeyMap.put("9", "(");
-        shiftKeyMap.put("0", ")");
-        shiftKeyMap.put("MINUS", "_");
-        shiftKeyMap.put("EQUALS", "+");
-        shiftKeyMap.put("OPEN BRACKET", "{");
-        shiftKeyMap.put("CLOSE BRACKET", "}");
-        shiftKeyMap.put("SEMICOLON", ":");
-        shiftKeyMap.put("QUOTE", "\"");
-        shiftKeyMap.put("COMMA", "<");
-        shiftKeyMap.put("PERIOD", ">");
-        shiftKeyMap.put("SLASH", "?");
-        shiftKeyMap.put("BACK SLASH", "|");
-        updateSerFile(shiftKeyMap, SerFileDir.SF2);
-    }
+        /** Whitespace Keys */
+        notInUse.put(NativeKeyEvent.VC_SPACE, " ");
+        notInUse.put(NativeKeyEvent.VC_ENTER, "\r");
+        notInUse.put(NativeKeyEvent.VC_TAB, "\t");
 
-    private void commandKeyMapReset(){
-        commandKeyMap.clear();
-        commandKeyMap.put("Back Quote", "`");
-        commandKeyMap.put("back quote", "`");
-        commandKeyMap.put("Minus", "-");
-        commandKeyMap.put("Equals", "=");
-        commandKeyMap.put("Open Bracket", "[");
-        commandKeyMap.put("Close Bracket", "]");
-        commandKeyMap.put("Semicolon", ";");
-        commandKeyMap.put("Quote", "'");
-        commandKeyMap.put("Comma", ",");
-        commandKeyMap.put("Period", ".");
-        commandKeyMap.put("Slash", "/");
-        commandKeyMap.put("Back Slash", "\\");
-        updateSerFile(commandKeyMap, SerFileDir.SF3);
-    }
+        /** Modifier and Control Keys */
+        notInUse.put(NativeKeyEvent.VC_SHIFT, "Shift");
+        notInUse.put(NativeKeyEvent.VC_CAPS_LOCK, "CapsLock");
+        notInUse.put(NativeKeyEvent.VC_NUM_LOCK, "Num Lock");
+        notInUse.put(NativeKeyEvent.VC_CONTROL, "Control");
+        notInUse.put(NativeKeyEvent.VC_META, "Meta");
+        notInUse.put(NativeKeyEvent.VC_ALT, "Alt");
 
-    private void deadKeyMapReset(){
-        deadKeyMap.clear();
-        deadKeyMap.put("", "SPACE");
-        deadKeyMap.put("", "RETURN");
-        deadKeyMap.put("", "ENTER");
-        deadKeyMap.put("", "TAB");
-        deadKeyMap.put("", "CTRL");
-        deadKeyMap.put("", "ALT");
-        deadKeyMap.put("", "META");
-        deadKeyMap.put("", "ESCAPE");
-        deadKeyMap.put("", "UNDEFINE");
-        deadKeyMap.put("", "LEFT");
-        deadKeyMap.put("", "DOWN");
-        deadKeyMap.put("", "RIGHT");
-        deadKeyMap.put("", "UP");
-        deadKeyMap.put("", "BACKSPACE");
-        deadKeyMap.put("", "CAPS LOCK");
-        deadKeyMap.put("", "VOLUME DOWN");
-        deadKeyMap.put("", "VOLUME UP");
-        deadKeyMap.put("", "MUTE");
-        deadKeyMap.put("", "NEXT");
-        deadKeyMap.put("", "PLAY");
-        deadKeyMap.put("", "PREVIOUS");
-        deadKeyMap.put("", "UNDEFINED");
-
-        deadKeyMap.put("1", "Space");
-        deadKeyMap.put("2", "Return");
-        deadKeyMap.put("3", "Enter");
-        deadKeyMap.put("4", "Tab");
-        deadKeyMap.put("5", "Ctrl");
-        deadKeyMap.put("6", "Alt");
-        deadKeyMap.put("7", "Meta");
-        deadKeyMap.put("8", "Escape");
-        deadKeyMap.put("9", "Undefined");
-        deadKeyMap.put("10", "Left");
-        deadKeyMap.put("11", "Down");
-        deadKeyMap.put("12", "Right");
-        deadKeyMap.put("13", "Up");
-        deadKeyMap.put("14", "Unknown keyCode: 0xe36");
-        deadKeyMap.put("15", "Shift");
-        deadKeyMap.put("16", "Backspace");
-        deadKeyMap.put("17", "Caps Lock");
-        deadKeyMap.put("18", "Back Quote");
-        deadKeyMap.put("19", "Minus");
-        deadKeyMap.put("20", "Equals");
-        deadKeyMap.put("21", "Open Bracket");
-        deadKeyMap.put("22", "Close Bracket");
-        deadKeyMap.put("23", "Semicolon");
-        deadKeyMap.put("24", "Quote");
-        deadKeyMap.put("25", "Comma");
-        deadKeyMap.put("26", "Period");
-        deadKeyMap.put("27", "Slash");
-        deadKeyMap.put("28", "Back Slash");
-        deadKeyMap.put("29", "Open Bracket");
-        updateSerFile(deadKeyMap, SerFileDir.SF4);
-    }
-
-
-    public void standardKeyMapreset(){
-        
+        /** Removal and Delete Keys */
+        notInUse.put(NativeKeyEvent.VC_BACKSPACE, "Backspace");
+        notInUse.put(NativeKeyEvent.VC_DELETE, "Delete");
     }
 }

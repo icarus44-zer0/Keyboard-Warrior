@@ -12,9 +12,9 @@ public class SerFileWriter {
 
     }
 
-    public static void serFileOut(HashMap<String, String> map, String fileName) {
+    public static void serFileOut(HashMap<String, String> map, String fileName, String filePath) {
         try {
-            FileOutputStream fos = new FileOutputStream(SerFileDir.FILE_PATH + fileName);
+            FileOutputStream fos = new FileOutputStream(filePath + fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(map);
             oos.close();
