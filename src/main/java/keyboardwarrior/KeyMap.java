@@ -8,12 +8,16 @@ public class KeyMap {
     private HashMap<Integer, String> alpha;
     private HashMap<Integer, String> numeric;
     private HashMap<Integer, String> special;
-    private HashMap<Integer, String> numericMOD;
-    private HashMap<Integer, String> specialMOD;
-    private HashMap<Integer, String> notInUse;
+    private HashMap<Integer, String> numericMod;
+    private HashMap<Integer, String> specialMod;
 
     private KeyMap() {
-        mapLoader();
+        alpha = new HashMap<Integer,String>();
+        numeric = new HashMap<Integer,String>();
+        special = new HashMap<Integer,String>();
+        numericMod = new HashMap<Integer,String>();
+        specialMod = new HashMap<Integer,String>();
+        initializeMap();
     }
 
     /**
@@ -27,7 +31,7 @@ public class KeyMap {
         return instance;
     }
 
-    private void mapLoader() {
+    private void initializeMap() {
         /** VC_0 thru VC_9 */
         numeric.put(NativeKeyEvent.VC_0, "0");
         numeric.put(NativeKeyEvent.VC_1, "1");
@@ -81,30 +85,54 @@ public class KeyMap {
         special.put(NativeKeyEvent.VC_PERIOD, ".");
         special.put(NativeKeyEvent.VC_SLASH, "/");
 
-        numericMOD.put(NativeKeyEvent.VC_0, ")");
-        numericMOD.put(NativeKeyEvent.VC_1, "!");
-        numericMOD.put(NativeKeyEvent.VC_2, "@");
-        numericMOD.put(NativeKeyEvent.VC_3, "#");
-        numericMOD.put(NativeKeyEvent.VC_4, "$");
-        numericMOD.put(NativeKeyEvent.VC_5, "%");
-        numericMOD.put(NativeKeyEvent.VC_6, "^");
-        numericMOD.put(NativeKeyEvent.VC_7, "&");
-        numericMOD.put(NativeKeyEvent.VC_8, "*");
-        numericMOD.put(NativeKeyEvent.VC_9, "(");
+        numericMod.put(NativeKeyEvent.VC_0, ")");
+        numericMod.put(NativeKeyEvent.VC_1, "!");
+        numericMod.put(NativeKeyEvent.VC_2, "@");
+        numericMod.put(NativeKeyEvent.VC_3, "#");
+        numericMod.put(NativeKeyEvent.VC_4, "$");
+        numericMod.put(NativeKeyEvent.VC_5, "%");
+        numericMod.put(NativeKeyEvent.VC_6, "^");
+        numericMod.put(NativeKeyEvent.VC_7, "&");
+        numericMod.put(NativeKeyEvent.VC_8, "*");
+        numericMod.put(NativeKeyEvent.VC_9, "(");
 
-        specialMOD.put(NativeKeyEvent.VC_BACKQUOTE, "~");
-        specialMOD.put(NativeKeyEvent.VC_MINUS, "_");
-        specialMOD.put(NativeKeyEvent.VC_EQUALS, "+");
-        specialMOD.put(NativeKeyEvent.VC_OPEN_BRACKET, "{");
-        specialMOD.put(NativeKeyEvent.VC_CLOSE_BRACKET, "}");
-        specialMOD.put(NativeKeyEvent.VC_BACK_SLASH, "|");
-        specialMOD.put(NativeKeyEvent.VC_SEMICOLON, ":");
-        specialMOD.put(NativeKeyEvent.VC_QUOTE, "\"");
-        specialMOD.put(NativeKeyEvent.VC_COMMA, "<");
-        specialMOD.put(NativeKeyEvent.VC_PERIOD, ">");
-        specialMOD.put(NativeKeyEvent.VC_SLASH, "?");
+        specialMod.put(NativeKeyEvent.VC_BACKQUOTE, "~");
+        specialMod.put(NativeKeyEvent.VC_MINUS, "_");
+        specialMod.put(NativeKeyEvent.VC_EQUALS, "+");
+        specialMod.put(NativeKeyEvent.VC_OPEN_BRACKET, "{");
+        specialMod.put(NativeKeyEvent.VC_CLOSE_BRACKET, "}");
+        specialMod.put(NativeKeyEvent.VC_BACK_SLASH, "|");
+        specialMod.put(NativeKeyEvent.VC_SEMICOLON, ":");
+        specialMod.put(NativeKeyEvent.VC_QUOTE, "\"");
+        specialMod.put(NativeKeyEvent.VC_COMMA, "<");
+        specialMod.put(NativeKeyEvent.VC_PERIOD, ">");
+        specialMod.put(NativeKeyEvent.VC_SLASH, "?");
+    }
 
+    public HashMap<Integer, String> getAlpha() {
+        return alpha;
+    }
+
+    public HashMap<Integer, String> getNumeric() {
+        return numeric;
+    }
+
+    public HashMap<Integer, String> getSpecial() {
+        return special;
+    }
+
+    public HashMap<Integer, String> getNumericMod() {
+        return numericMod;
+    }
+
+    public HashMap<Integer, String> getSpecialMod() {
+        return specialMod;
+    }
+
+    @SuppressWarnings("unused")
+    private void unused() {
         /** Whitespace Keys */
+        HashMap<Integer, String> notInUse = new HashMap<Integer, String>();
         notInUse.put(NativeKeyEvent.VC_SPACE, " ");
         notInUse.put(NativeKeyEvent.VC_ENTER, "\r");
         notInUse.put(NativeKeyEvent.VC_TAB, "\t");
