@@ -5,6 +5,7 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 
 public class KeyMap {
     private static KeyMap instance = null;
+    
     private HashMap<Integer, String> alpha;
     private HashMap<Integer, String> numeric;
     private HashMap<Integer, String> special;

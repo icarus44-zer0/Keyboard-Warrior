@@ -3,11 +3,7 @@ package keyboardwarrior.gui;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import keyboardwarrior.SerFileDir;
 import keyboardwarrior.ShortcutMap;
-
-
-
 
 public class ShortcutFrame extends javax.swing.JFrame {
       // IDE Generated variables declaration - do not modify//GEN-BEGIN:variables
@@ -43,10 +39,10 @@ public class ShortcutFrame extends javax.swing.JFrame {
       private javax.swing.ButtonGroup tableButtonGroup;
   
       // Class varibles declaration - do not modify//GEN-BEGIN:variables
-      Object[] keys;
-      Object[] values;
-      Object[][] data;
-      String ICONPATH = SerFileDir.ICON_PATH;
+      private Object[] keys;
+      private Object[] values;
+      private Object[][] data;
+      private String FILE_PATH = "src/main/java/keyboardwarrior/ico/";
       private static Shortcut_TableModel shortcut_TableModel = new Shortcut_TableModel() {
           private static final long serialVersionUID = 1L;
       };
@@ -150,61 +146,61 @@ public class ShortcutFrame extends javax.swing.JFrame {
         Logo_Label.setBackground(new java.awt.Color(11, 11, 11));
         Logo_Label.setForeground(new java.awt.Color(255, 255, 255));
         Logo_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Logo_Label.setIcon(new javax.swing.ImageIcon((ICONPATH+"WHITE_W_HELMET.png"))); // NOI18N
+        Logo_Label.setIcon(new javax.swing.ImageIcon((FILE_PATH+"WHITE_W_HELMET.png"))); // NOI18N
 
         Layout_Label.setBackground(new java.awt.Color(11, 11, 11));
         Layout_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Layout_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Layout_Label.setIcon(new javax.swing.ImageIcon((ICONPATH+"006-interface.png"))); // NOI18N
+        Layout_Label.setIcon(new javax.swing.ImageIcon((FILE_PATH+"006-interface.png"))); // NOI18N
         Layout_Label.setText("Layout");
         Layout_Label.setPreferredSize(new java.awt.Dimension(70, 50));
 
         Shortcut_Label.setBackground(new java.awt.Color(11, 11, 11));
         Shortcut_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Shortcut_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Shortcut_Label.setIcon(new javax.swing.ImageIcon((ICONPATH+"computer_1.png"))); // NOI18N
+        Shortcut_Label.setIcon(new javax.swing.ImageIcon((FILE_PATH+"computer_1.png"))); // NOI18N
         Shortcut_Label.setText("Shortcuts");
         Shortcut_Label.setPreferredSize(new java.awt.Dimension(70, 50));
 
         Share_Label.setBackground(new java.awt.Color(11, 11, 11));
         Share_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Share_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Share_Label.setIcon(new javax.swing.ImageIcon((ICONPATH+"share.png"))); // NOI18N
+        Share_Label.setIcon(new javax.swing.ImageIcon((FILE_PATH+"share.png"))); // NOI18N
         Share_Label.setText("Share");
         Share_Label.setPreferredSize(new java.awt.Dimension(70, 50));
 
         Groups_Label.setBackground(new java.awt.Color(11, 11, 11));
         Groups_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Groups_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Groups_Label.setIcon(new javax.swing.ImageIcon((ICONPATH+"networking.png"))); // NOI18N
+        Groups_Label.setIcon(new javax.swing.ImageIcon((FILE_PATH+"networking.png"))); // NOI18N
         Groups_Label.setText("Groups");
         Groups_Label.setPreferredSize(new java.awt.Dimension(70, 50));
 
         Statistics_Label.setBackground(new java.awt.Color(11, 11, 11));
         Statistics_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Statistics_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Statistics_Label.setIcon(new javax.swing.ImageIcon((ICONPATH+"analytics.png"))); // NOI18N
+        Statistics_Label.setIcon(new javax.swing.ImageIcon((FILE_PATH+"analytics.png"))); // NOI18N
         Statistics_Label.setText("Statistics");
         Statistics_Label.setPreferredSize(new java.awt.Dimension(70, 50));
 
         General_Label.setBackground(new java.awt.Color(11, 11, 11));
         General_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         General_Label.setForeground(new java.awt.Color(255, 255, 255));
-        General_Label.setIcon(new javax.swing.ImageIcon((ICONPATH+"010-configuration.png"))); // NOI18N
+        General_Label.setIcon(new javax.swing.ImageIcon((FILE_PATH+"010-configuration.png"))); // NOI18N
         General_Label.setText("General");
         General_Label.setPreferredSize(new java.awt.Dimension(70, 50));
 
         Help_Label.setBackground(new java.awt.Color(11, 11, 11));
         Help_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Help_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Help_Label.setIcon(new javax.swing.ImageIcon((ICONPATH+"communication.png"))); // NOI18N
+        Help_Label.setIcon(new javax.swing.ImageIcon((FILE_PATH+"communication.png"))); // NOI18N
         Help_Label.setText("Help");
         Help_Label.setPreferredSize(new java.awt.Dimension(70, 50));
 
         Profile_Label.setBackground(new java.awt.Color(11, 11, 11));
         Profile_Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Profile_Label.setForeground(new java.awt.Color(255, 255, 255));
-        Profile_Label.setIcon(new javax.swing.ImageIcon((ICONPATH+"user.png"))); // NOI18N
+        Profile_Label.setIcon(new javax.swing.ImageIcon((FILE_PATH+"user.png"))); // NOI18N
         Profile_Label.setText("Profile");
         Profile_Label.setPreferredSize(new java.awt.Dimension(70, 50));
 

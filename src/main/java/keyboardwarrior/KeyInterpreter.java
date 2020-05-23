@@ -4,7 +4,7 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 import java.awt.Robot;
 
 
-public class KeyInterpreter {
+public class KeyInterpreter{
 
     private KeyMap keymap;
     private KeyBuffer buffer;

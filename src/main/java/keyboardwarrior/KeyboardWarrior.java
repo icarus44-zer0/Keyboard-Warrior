@@ -1,5 +1,4 @@
 package keyboardwarrior;
-
 import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
 
