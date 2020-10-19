@@ -60,7 +60,7 @@ Built With
 Authors
 -------------------
 * **Josh Poe** - [icarus44-zer0](https://github.com/icarus44-zer0)
-* **Daniel Olsen** - [boomthegoat](https://github.com/boomthegoat)
+* **Daniel Olsen** - [BotOlsen](https://github.com/BotOlsen)
 * **Oscar Vaquera** - [vaqueraoscar0](https://github.com/vaqueraoscar0)
 * **Viktoriya Penkova** - [viktoriya-2](https://github.com/viktoriya-2)
 
