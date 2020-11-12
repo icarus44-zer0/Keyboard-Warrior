@@ -1,6 +1,6 @@
 Keyboard-Warrior
 -------------------
-A Keyboard shortcut program for expanding user defined code and text blocks. 
+A keyboard shortcut program for expanding user defined code and text blocks. 
 
 
 #### Version 1.x
