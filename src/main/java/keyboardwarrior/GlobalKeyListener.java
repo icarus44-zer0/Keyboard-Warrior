@@ -54,7 +54,7 @@ public class GlobalKeyListener implements NativeKeyListener {
 	@Override
 	public void nativeKeyPressed(NativeKeyEvent e) {
 		interpret.modifierPressed(e.getKeyCode());
-		interpret.interpret(e.getKeyCode());
+		interpret.interpretKeyCode(e.getKeyCode());
 	}
 
 	/**

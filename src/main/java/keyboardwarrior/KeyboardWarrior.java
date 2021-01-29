@@ -2,7 +2,7 @@ package keyboardwarrior;
 import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
 
-import org.jnativehook.example.NativeHookDemo;
+//import org.jnativehook.example.NativeHookDemo;
 import keyboardwarrior.gui.ShortcutFrame;
 
 
@@ -22,25 +22,17 @@ public class KeyboardWarrior {
 		listener.setup();
 		scf.ShortcutFrame_init();
 
-
-		
-			
 		while (true) {
 			try {
 				shortcut = search.searchKBIBuffer(buffer);
 				if (shortcut.getValue() != null) {
 					robot = new Robot();
-					ClipboardAccessor.writeClipboard(shortcut.getValue());
+					String shortcutString = shortcut.getValue();
+					ClipboardAccessor.writeClipboard(shortcutString);
 					InsertionPointAccessor.deleteKey(robot, shortcut.getKey());
-
-					/**
-					 * Comment out for mac or for windows
-					 * TODO implement properties build for Mac and Windows
-					 * 
-					 */
 					InsertionPointAccessor.pasteWindows(robot);
-					//InsertionPointAccessor.pasteMacOS(robot);
-
+					InsertionPointAccessor.pasteMacOS(robot);
+					
 				}
 				TimeUnit.MILLISECONDS.sleep(100);
 			} catch (Exception e) {

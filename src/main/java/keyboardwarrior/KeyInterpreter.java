@@ -38,7 +38,7 @@ public class KeyInterpreter{
      * (6) 0-9 w/ Shift Modifier (7) Special Keys w/ Shift Modifier (8) A-Z (9) 0-9
      * (10) Special Keys
      */
-    public void interpret(int keyCode) {
+    public void interpretKeyCode(int keyCode) {
         isWhiteSpacePress(keyCode);
         isRemovePress(keyCode);
         isNumPress(keyCode);
@@ -148,16 +148,6 @@ public class KeyInterpreter{
     }
 
     public void modifierPressed(int keyCode) {
-       
-        robot.waitForIdle();
-        // if (keyCode == NativeKeyEvent.VC_CAPS_LOCK) {
-        //     System.out.println(isCaps + " Caps presses");
-        //     if (isCaps) {
-        //         isCaps = false;
-        //     } else if (!isCaps) {
-        //         isCaps = true;
-        //     }
-        // }
         if (keyCode == NativeKeyEvent.VC_SHIFT) {
             isShift = true;
         }
